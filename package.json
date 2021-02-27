@@ -1,16 +1,16 @@
 {
   "name": "ngx-darkbox-gallery-library",
   "version": "0.0.0",
-  "license" : "TBD",
+  "license": "TBD",
   "author": "Henning Ramberger & Björn Böhnke",
-  "contributers" : [
+  "contributers": [
     {
-      "name" : "Henning Ramberger",
-      "email" : "ngxdg@hramberger.de"
+      "name": "Henning Ramberger",
+      "email": "ngxdg@hramberger.de"
     },
     {
-      "name" : "Björn Böhnke",
-      "email" : "ngxdg@bjoern-boehnke.de"
+      "name": "Björn Böhnke",
+      "email": "ngxdg@bjoern-boehnke.de"
     }
   ],
   "repository": {
