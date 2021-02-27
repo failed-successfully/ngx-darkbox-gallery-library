@@ -10,6 +10,12 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "paths": {
+      "ngx-darkbox-gallery": [
+        "dist/ngx-darkbox-gallery/ngx-darkbox-gallery",
+        "dist/ngx-darkbox-gallery"
+      ]
+    },
     "target": "es2015",
     "module": "es2020",
     "lib": [

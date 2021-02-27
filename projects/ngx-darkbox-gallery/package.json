@@ -1,0 +1,27 @@
+{
+  "name": "ngx-darkbox-gallery",
+  "version": "0.0.1",
+  "license" : "TBD",
+  "author": "Henning Ramberger & Björn Böhnke",
+  "contributers" : [
+    {
+      "name" : "Henning Ramberger",
+      "email" : "ngxdg@hramberger.de"
+    },
+    {
+      "name" : "Björn Böhnke",
+      "email" : "ngxdg@bjoern-boehnke.de"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Boerni1995/ngx-darkbox-gallery"
+  },
+  "peerDependencies": {
+    "@angular/common": "^11.2.3",
+    "@angular/core": "^11.2.3"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

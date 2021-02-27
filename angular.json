@@ -122,6 +122,46 @@
           }
         }
       }
+    },
+    "ngx-darkbox-gallery": {
+      "projectType": "library",
+      "root": "projects/ngx-darkbox-gallery",
+      "sourceRoot": "projects/ngx-darkbox-gallery/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-darkbox-gallery/tsconfig.lib.json",
+            "project": "projects/ngx-darkbox-gallery/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-darkbox-gallery/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-darkbox-gallery/src/test.ts",
+            "tsConfig": "projects/ngx-darkbox-gallery/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-darkbox-gallery/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-darkbox-gallery/tsconfig.lib.json",
+              "projects/ngx-darkbox-gallery/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-darkbox-gallery-library"
