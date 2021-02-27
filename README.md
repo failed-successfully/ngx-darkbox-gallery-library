@@ -1,6 +1,7 @@
 # NgxDarkboxGalleryLibrary
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+This projrct was created by following https://medium.com/angular-in-depth/complete-beginner-guide-to-publish-an-angular-library-to-npm-d42343801660 (2021-02-27)
 
 ## Development server
 
