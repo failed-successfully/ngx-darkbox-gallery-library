@@ -1,5 +1,5 @@
-import { DarkboxConfiguration } from "../model/darkbox-configuration";
+import { DarkboxConfiguration, LoopDirection } from "../model/darkbox-configuration";
 
 export class DefaultDarkboxConfiguration  implements DarkboxConfiguration {
-
+  loopDirection = LoopDirection.BOTH;
 }
