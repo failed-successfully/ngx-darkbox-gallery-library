@@ -1,4 +1,5 @@
 # Darkbox Gallery
+![Darkbox logo](./src/assets/DarkBoxIcon128.png)
 
 Darkbox Gallery is a lightbox themes gallery library for Angular applications using the ivy engine (Angular 9+).
 ## Why?
