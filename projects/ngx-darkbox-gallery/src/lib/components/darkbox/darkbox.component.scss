@@ -16,6 +16,7 @@
     img {
       max-width: 90vw;
       max-height: 90vh;
+      z-index: 0;
     }
 
     .caption {
@@ -30,10 +31,8 @@
     }
   }
 
-  .close {
+  .fab {
     position: fixed;
-    top: 2rem;
-    right: 2rem;
 
     background-color: white;
     border: none;
@@ -44,6 +43,23 @@
     border-radius: 2rem;
 
     font-size: large;
+
+    z-index: 1;
+  }
+
+  .close {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .prev {
+    top: calc(50vh - 1.5rem);
+    left: 2rem;
+  }
+
+  .next {
+    top: calc(50vh - 1.5rem);
+    right: 2rem;
   }
 }
 
