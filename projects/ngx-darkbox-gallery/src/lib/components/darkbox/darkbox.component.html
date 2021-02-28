@@ -1,0 +1,11 @@
+<div class="overlay">
+  <button class="fab close" (click)="onClose()">x</button>
+  <div class="image">
+    <img src="{{image.url}}" alt="{{image.altText}}">
+    <div class="caption">
+      {{currentNumber}}/{{totalNumber}} - {{image.caption}}
+    </div>
+  </div>
+  <button class="fab prev" *ngIf="hasPrev" (click)="onPrev()">&lt;</button>
+  <button class="fab next" *ngIf="hasNext" (click)="onNext()">&gt;</button>
+</div>
