@@ -1,7 +1,7 @@
 <div class="overlay">
   <button class="fab close" (click)="onClose()">x</button>
   <div class="image">
-    <img src="{{image.url}}" alt="{{image.altText}}">
+    <img src="{{image.url}}" alt="{{image.altText}}" (load)="onImageLoaded()">
     <div class="caption">
       {{currentNumber}}/{{totalNumber}} - {{image.caption}}
     </div>

@@ -50,7 +50,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   }
 
   private initializeConfiguration(customConfiguration: Configuration) {
-    this.effectiveConfiguration = {...this.defaultConfiguration, ...customConfiguration};
+    this.effectiveConfiguration = { ...this.defaultConfiguration, ...customConfiguration };
     this.scaleInitialBatchSize();
     this.imageCount = this.effectiveConfiguration.gridConfiguration.initialBatchSize;
   }
@@ -99,7 +99,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
 
     const addend = increase ? 1 : -1;
     const targetIndex = this.currentImageIndex + addend;
-    const maxImageIndex = this.images.length -1;
+    const maxImageIndex = this.images.length - 1;
 
     if (targetIndex >= 0 && targetIndex <= maxImageIndex) {
       return this.currentImageIndex + addend;
@@ -110,7 +110,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
         return 0;
       }
 
-      if (targetIndex < 0 && (loopDirection == LoopDirection.BACKWARD || loopDirection ==  LoopDirection.BOTH)) {
+      if (targetIndex < 0 && (loopDirection == LoopDirection.BACKWARD || loopDirection == LoopDirection.BOTH)) {
         return maxImageIndex;
       }
     }

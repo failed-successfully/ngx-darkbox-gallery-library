@@ -36,6 +36,9 @@ export class DarkboxComponent implements OnInit {
   @Output()
   prev = new EventEmitter<boolean>();
 
+  @Output()
+  imageLoaded = new EventEmitter<Image>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -51,5 +54,9 @@ export class DarkboxComponent implements OnInit {
 
   onPrev(): void {
     this.prev.emit(true);
+  }
+
+  onImageLoaded(): void {
+    this.imageLoaded.emit(this.image);
   }
 }
