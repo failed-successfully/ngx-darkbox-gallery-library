@@ -1,0 +1,18 @@
+.title {
+  height: 5rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+
+  padding-block-start: 1rem;
+  margin-block-end: 1.5rem;
+
+  img {
+    display: block;
+    height: 100%;
+
+    margin-inline-end: .5rem;
+  }
+}
