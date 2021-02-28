@@ -1,1 +1,7 @@
-<img *ngFor="let image of images | slice:0:imageCount" src="{{image.thumbnailUrl}}" alt="{{image.altText}}">
+<img *ngFor="let image of images | slice:0:imageCount" (click)="onImageClicked(image)" src="{{image.thumbnailUrl}}"
+  alt="{{image.altText}}">
+
+<darkbox *ngIf="currentImageIndex != null" [image]="images[currentImageIndex]"
+  [darkboxConfiguration]="effectiveConfiguration.darkboxConfiguration" [currentNumber]="currentImageIndex + 1"
+  [totalNumber]="images.length" [hasNext]="isNextImageAvailable()" [hasPrev]="isPrevImageAvailable()"
+  (close)="onDarkboxClose()" (next)="onDarkboxNextImage()" (prev)="onDarkboxPrevImage()"></darkbox>
