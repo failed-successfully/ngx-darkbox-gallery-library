@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { DefaultConfiguration } from './config/configuration.default';
 import { Configuration } from './model/configuration';
 import { Image } from './model/image';
@@ -18,6 +18,9 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   configuration: Configuration;
   private defaultConfiguration: Configuration;
   effectiveConfiguration: Configuration;
+
+  @Output()
+  imageClicked = new EventEmitter<Image>();
 
   constructor() { }
 
