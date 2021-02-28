@@ -96,7 +96,6 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
    */
   private calculateValidImageIndex(increase: boolean): number {
     const loopDirection = this.effectiveConfiguration.darkboxConfiguration.loopDirection;
-
     const addend = increase ? 1 : -1;
     const targetIndex = this.currentImageIndex + addend;
     const maxImageIndex = this.images.length - 1;
@@ -141,5 +140,4 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
 
     this.effectiveConfiguration.gridConfiguration.initialBatchSize *= factor ? factor.scalingFactor : 1;
   }
-
 }
