@@ -1,5 +1,9 @@
 export class Image {
   /**
+   * An id to identify the image in events. This is not used by the library itself
+   */
+  public identifier?: string;
+  /**
    * URL of the fullsize image
    */
   public url: string;
