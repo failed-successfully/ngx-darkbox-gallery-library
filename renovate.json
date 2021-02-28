@@ -4,5 +4,6 @@
   ],
   "labels": ["renovate 🧹", "dependency ⚙️"],
   "commitMessagePrefix": "[RENOVATE]",
-  "pinDigests": true
+  "pinDigests": true,
+  "separateMultipleMajor": false
 }
