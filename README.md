@@ -11,13 +11,13 @@ There are many, many lightbox themed gallery libraries out there for Angular. So
 Install npm package for Angular version 9+:
 
 ```
-npm i ngx-darkbox-gallery --save
+npm i @failed-successfully/ngx-darkbox-gallery --save
 ```
 
 Import the module into your `app.module.ts`
 ```ts
 ...
-import { NgxDarkboxGalleryModule } from 'ngx-darkbox-gallery';
+import { NgxDarkboxGalleryModule } from '@failed-successfully/ngx-darkbox-gallery';
 
 @NgModule({
   ...,
@@ -40,7 +40,7 @@ Inclusion in the desired `.html` file
 View of the corresponding `.ts` file
 ```ts
 import { Component } from '@angular/core';
-import { Image } from 'ngx-darkbox-gallery';
+import { Image } from '@failed-successfully/ngx-darkbox-gallery';
 
 @Component({
   selector: 'app-root',

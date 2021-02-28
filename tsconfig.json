@@ -11,7 +11,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
-      "ngx-darkbox-gallery": [
+      "@failed-successfully/ngx-darkbox-gallery": [
         "dist/ngx-darkbox-gallery/ngx-darkbox-gallery",
         "dist/ngx-darkbox-gallery"
       ]
