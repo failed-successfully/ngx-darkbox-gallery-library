@@ -4,4 +4,4 @@
 <darkbox *ngIf="currentImageIndex != null" [image]="images[currentImageIndex]"
   [darkboxConfiguration]="effectiveConfiguration.darkboxConfiguration" [currentNumber]="currentImageIndex + 1"
   [totalNumber]="images.length" [hasNext]="isNextImageAvailable()" [hasPrev]="isPrevImageAvailable()"
-  (close)="onDarkboxClose()" (next)="onDarkboxNextImage()" (prev)="onDarkboxPrevImage()"></darkbox>
+  (close)="onDarkboxClose()" (next)="onDarkboxNextImage()" (prev)="onDarkboxPrevImage()" (imageLoaded)="onDarkboxImageLoaded($event)"></darkbox>
