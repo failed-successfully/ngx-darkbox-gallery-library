@@ -6,7 +6,27 @@ There are many, many lightbox themed gallery libraries out there for Angular. So
 ## How?
 
 ### Installation
+Install npm package for Angular version 9+:
 
+```
+npm i ngx-darkbox-gallery --save
+```
+
+Import the module into your `app.module.ts`
+```typescript
+...
+import { NgxDarkboxGalleryModule } from 'ngx-darkbox-gallery';
+
+@NgModule({
+  ...,
+  imports: [
+    ...,
+    NgxDarkboxGalleryModule
+  ],
+  ...
+})
+export class AppModule { }
+```
 ### Usage
 
 #### Advanced configuration
