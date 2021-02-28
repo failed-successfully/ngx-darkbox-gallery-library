@@ -102,6 +102,15 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
     const maxImageIndex = this.images.length - 1;
 
     if (targetIndex >= 0 && targetIndex <= maxImageIndex) {
+
+      // If the currently viewed image is not the list of displayed images in the grid, the next batch is loaded
+      if (targetIndex >= this.imageCount) {
+        this.imageCount += this.effectiveConfiguration.gridConfiguration.batchSize;
+        if (this.imageCount > this.images.length) {
+          this.imageCount = this.images.length;
+        }
+      }
+
       return this.currentImageIndex + addend;
     }
 
@@ -111,6 +120,8 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
       }
 
       if (targetIndex < 0 && (loopDirection == LoopDirection.BACKWARD || loopDirection == LoopDirection.BOTH)) {
+        // If we rollover to the back, make sure all images are displayed in the grid
+        this.imageCount = this.images.length;
         return maxImageIndex;
       }
     }
