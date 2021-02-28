@@ -13,7 +13,7 @@ npm i ngx-darkbox-gallery --save
 ```
 
 Import the module into your `app.module.ts`
-```typescript
+```ts
 ...
 import { NgxDarkboxGalleryModule } from 'ngx-darkbox-gallery';
 
@@ -28,6 +28,29 @@ import { NgxDarkboxGalleryModule } from 'ngx-darkbox-gallery';
 export class AppModule { }
 ```
 ### Usage
+The simplest way of using Darkbox is to include the component with its default configuration as shown below.
 
-#### Advanced configuration
+Inclusion in the desired `.html` file
+```
+<darkbox-gallery [images]="images"></darkbox-gallery>
+```
+
+View of the corresponding `.ts` file
+```ts
+import { Component } from '@angular/core';
+import { Image } from 'ngx-darkbox-gallery';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  images: Image[] = [{
+        url: 'https://picsum.photos/seed/3000/2000',
+        thumbnailUrl: 'https://picsum.photos/300/200'
+  }];
+}
+```
+### Advanced configuration
 This projrct was created by following https://medium.com/angular-in-depth/complete-beginner-guide-to-publish-an-angular-library-to-npm-d42343801660 (2021-02-27)
