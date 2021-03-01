@@ -17,6 +17,13 @@
     "type": "git",
     "url": "https://github.com/failed-successfully/ngx-darkbox-gallery-library"
   },
+  "keywords": [
+    "gallery",
+    "angular",
+    "lightbox-gallery",  
+    "lightbox",
+    "darkbox"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
