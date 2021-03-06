@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
+        node-version: [12.x, 14.x, 15.x]
     steps:
       - uses: actions/checkout@v2
       - name: Build on Node.js ${{ matrix.node-version }}
@@ -20,10 +20,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci --ignore-scripts
+      - run: npm run build -- ngx-darkbox-gallery --prod
       - run: cp *.md dist/ngx-darkbox-gallery/
       - run: cp LICENSE dist/ngx-darkbox-gallery/
-      - run: npm run build ngx-darkbox-gallery --if-present
-      - run: npm test --if-present
+      #- run: npm test --if-present
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ngx-darkbox-gallery
+          path: dist/ngx-darkbox-gallery/
 
   publish-npm:
     needs: build
@@ -35,7 +39,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci --ignore-scripts
-      - run: npm publish --ignore-scripts
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
