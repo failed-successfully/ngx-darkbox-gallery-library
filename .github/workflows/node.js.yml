@@ -24,3 +24,8 @@ jobs:
     - run: npm ci --ignore-scripts
     - run: npm run build ngx-darkbox-gallery --if-present
     # - run: npm test
+    # Upload the build artifacts to GitHub
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ngx-darkbox-gallery
+        path: dist/ngx-darkbox-gallery/
