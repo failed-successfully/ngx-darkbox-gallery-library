@@ -8,7 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* Set up build pipeline (#23, #24)
+
 ### Changed
+
+* Updated dependencies (#21, #22, #25)
+* Updated `README.md` (#28)
 
 ### Removed
 
