@@ -23,4 +23,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci --ignore-scripts
     - run: npm run build ngx-darkbox-gallery --if-present
-    - run: npm test
+    # - run: npm test
