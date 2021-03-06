@@ -22,6 +22,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci --ignore-scripts
+    - run: cp *.md dist/ngx-darkbox-gallery/
+    - run: cp LICENSE dist/ngx-darkbox-gallery/
     - run: npm run build ngx-darkbox-gallery --if-present
     # - run: npm test
     # Upload the build artifacts to GitHub
