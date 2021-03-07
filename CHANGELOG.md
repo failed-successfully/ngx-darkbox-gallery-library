@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * Added most basic lightbox (#17)
-* Configured *Renovate Bot* for teh project (#1)
+* Configured *Renovate Bot* for the project (#1)
 
 ### Changed
 
