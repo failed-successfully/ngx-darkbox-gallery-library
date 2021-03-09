@@ -64,4 +64,4 @@ TBD
 TBD
 
 ## Found a bug 🐛/🐞?
-If you find a bug in Darkbox please open an issue [here](https://github.com/failed-successfully/ngx-darkbox-gallery-library/issues/new) so we kan fix it and make Darkbox better for you and everyone else.
+If you find a bug in Darkbox please open an issue [here](https://github.com/failed-successfully/ngx-darkbox-gallery-library/issues/new) so we can fix it and make Darkbox better for you and everyone else.
