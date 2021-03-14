@@ -7,27 +7,25 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x, 14.x, 15.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci --ignore-scripts
-    - run: npm run build ngx-darkbox-gallery --if-present
-    - run: cp *.md dist/ngx-darkbox-gallery/
-    - run: cp LICENSE dist/ngx-darkbox-gallery/
-    # - run: npm test
-    # Upload the build artifacts to GitHub
-    - uses: actions/upload-artifact@v2
-      with:
-        name: ngx-darkbox-gallery
-        path: dist/ngx-darkbox-gallery/
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci --ignore-scripts
+      - run: npm run build ngx-darkbox-gallery --if-present
+      - run: cp *.md dist/ngx-darkbox-gallery/
+      - run: cp LICENSE dist/ngx-darkbox-gallery/
+      # - run: npm test
+      # Upload the build artifacts to GitHub
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ngx-darkbox-gallery
+          path: dist/ngx-darkbox-gallery/

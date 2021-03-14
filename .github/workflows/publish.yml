@@ -28,8 +28,9 @@ jobs:
         with:
           name: ngx-darkbox-gallery
           path: dist/ngx-darkbox-gallery/
-  
+
   build-demo:
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -75,7 +76,7 @@ jobs:
       - run: npm publish --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      
+
   publish-gh-pages:
     needs: build-demo
     runs-on: ubuntu-latest
