@@ -22,6 +22,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run build -- ngx-darkbox-gallery --prod
       - run: cp *.md dist/ngx-darkbox-gallery/
+      - run: cp --parents src/assets/* dist/ngx-darkbox-gallery
       - run: cp LICENSE dist/ngx-darkbox-gallery/
       #- run: npm test --if-present
       - uses: actions/upload-artifact@v2
