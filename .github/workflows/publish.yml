@@ -42,7 +42,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci --ignore-scripts
-      - run: npm link dist/ngx-darkbox-gallery
+      - run: cd dist/ngx-darkbox-gallery
+      - run: npm link
+      - run: cd ../..
       - run: npm link @failed-successfully/ngx-darkbox-gallery
       - run: npm run build -- --prod
       #- run: npm test --if-present
@@ -61,7 +63,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci --ignore-scripts
-      - run: npm publish dist/ngx-darkbox-gallery --access public
+      - run: cd dist/ngx-darkbox-gallery
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
@@ -75,7 +78,8 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: npm ci --ignore-scripts
-      - run: npm publish dist/ngx-darkbox-gallery --ignore-scripts
+      - run: cd dist/ngx-darkbox-gallery
+      - run: npm publish --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
