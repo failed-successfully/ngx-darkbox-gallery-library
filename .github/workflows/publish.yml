@@ -37,12 +37,16 @@ jobs:
         node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: ngx-darkbox-gallery
+          path: artifact/ngx-darkbox-gallery/
       - name: Build on Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci --ignore-scripts
-      - run: cd dist/ngx-darkbox-gallery
+      - run: cd artifact/ngx-darkbox-gallery
       - run: npm link
       - run: cd ../..
       - run: npm link @failed-successfully/ngx-darkbox-gallery
@@ -51,19 +55,22 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: ngx-darkbox-gallery-demo
-          path: dist/
+          path: dist/ngx-darkbox-gallery-library/
 
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: ngx-darkbox-gallery
+          path: artifact/ngx-darkbox-gallery/
       - uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci --ignore-scripts
-      - run: cd dist/ngx-darkbox-gallery
+      - run: cd artifact/ngx-darkbox-gallery
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -72,13 +79,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: ngx-darkbox-gallery
+          path: artifact/ngx-darkbox-gallery/
       - uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: npm ci --ignore-scripts
-      - run: cd dist/ngx-darkbox-gallery
+      - run: cd artifact/ngx-darkbox-gallery
       - run: npm publish --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -87,9 +97,13 @@ jobs:
     needs: build-demo
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: ngx-darkbox-gallery-demo
+          path: public/
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./public
           cname: darkbox.failedsuccessfully.de
