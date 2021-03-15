@@ -71,8 +71,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci --ignore-scripts
-      - working-directory: artifact/ngx-darkbox-gallery
       - run: npm publish --access public
+        working-directory: artifact/ngx-darkbox-gallery
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
@@ -90,8 +90,8 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: npm ci --ignore-scripts
-      - working-directory: artifact/ngx-darkbox-gallery
       - run: npm publish --ignore-scripts
+        working-directory: artifact/ngx-darkbox-gallery
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
