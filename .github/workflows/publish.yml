@@ -71,7 +71,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci --ignore-scripts
-      - run: cd artifact/ngx-darkbox-gallery
+      - working-directory: artifact/ngx-darkbox-gallery
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -90,7 +90,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: npm ci --ignore-scripts
-      - run: cd artifact/ngx-darkbox-gallery
+      - working-directory: artifact/ngx-darkbox-gallery
       - run: npm publish --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -103,10 +103,10 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: ngx-darkbox-gallery-demo
-          path: public/
+          path: target/
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./target
           cname: darkbox.failedsuccessfully.de
