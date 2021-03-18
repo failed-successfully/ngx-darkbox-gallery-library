@@ -24,6 +24,10 @@
     "lightbox",
     "darkbox"
   ],
+  "homepage": "https://darkbox.failedsuccessfully.de/",
+  "bugs": {
+    "url": "https://github.com/failed-successfully/ngx-darkbox-gallery-library/issues/new"
+  },
   "peerDependencies": {
     "@angular/common": "^11.2.3",
     "@angular/core": "^11.2.3"
