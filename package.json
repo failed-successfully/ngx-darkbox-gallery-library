@@ -24,6 +24,10 @@
     "lightbox",
     "darkbox"
   ],
+  "homepage": "https://darkbox.failedsuccessfully.de/",
+  "bugs": {
+    "url": "https://github.com/failed-successfully/ngx-darkbox-gallery-library/issues/new"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
