@@ -8,12 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* Added links to live demo (#47)
+
 ### Changed
 
 ### Removed
 
 
-## [0.1.2]
+## [0.1.2] - 2021-03-16
 
 ### Fixed
 
