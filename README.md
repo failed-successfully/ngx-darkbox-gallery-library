@@ -64,7 +64,14 @@ export class AppComponent {
 TBD
 
 ## Browser support
-TBD
+| Browser | Supported versions                        |
+| ------- | ----------------------------------------- |
+| Chrome  | latest                                    |
+| Firefox |	latest and extended support release (ESR) |
+| Edge    |	2 most recent major versions              |
+| IE      | 11 (Partial support due bugs in IE)       |
+| Safari  |	2 most recent major versions              |
+| iOS     |	2 most recent major versions              |
 
 ## Found a bug 🐛/🐞?
 If you find a bug in Darkbox please open an issue [here](https://github.com/failed-successfully/ngx-darkbox-gallery-library/issues/new) so we can fix it and make Darkbox better for you and everyone else.
