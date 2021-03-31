@@ -3,7 +3,8 @@
   <div class="image">
     <img src="{{image.url}}" alt="{{image.altText}}" (load)="onImageLoaded()">
     <div class="caption">
-      {{currentNumber}}/{{totalNumber}} - {{image.caption}}
+      {{currentNumber}}/{{totalNumber}}
+      <span *ngIf="image.caption"> - {{image.caption}}</span>
     </div>
   </div>
   <button class="fab prev" *ngIf="hasPrev" (click)="onPrev()">&lt;</button>
