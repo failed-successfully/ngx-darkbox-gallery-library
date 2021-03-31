@@ -76,6 +76,33 @@ TBD
 | BACKWARD  | Only before the first image the last one will be displayed again|
 | BOTH      | The first image will be displayed after the last one and vise versa|
 | NONE      | There is a fixed end in both directions                         |
+
+#### `GridConfiguration`
+| Name                    | Type                      | Default  | Description |
+|-------------------------|---------------------------|----------|-------------|
+| initialBatchSize        | number                    | `10`     |  Number of images loaded initially on small and medium sized devices (smartphone / tablet). This is scaled by a factor according to the resolution of bigger displays|
+| batchSize               | number                    | `15`     | The number of images loaded in each load more images call|
+| batchSizeScalingFactors | ResolutionConfiguration[] | [see here](Default-ResolutionConfiguration) | A list of scaling factors to be used to scale the initial batch size by screen width|
+
+##### ResolutionConfiguration
+| Name          | Type    | Description           |
+|---------------|---------|-----------------------|
+| pxWidth       | number  | The minimum screen width this configuration applies to, up to the next higher resolution configuration|
+| scalingFactor | number  | The batch size scaling factor to be applied in the given configuration range                          |
+##### Default ResolutionConfiguration
+```js
+ [
+    {
+      pxWidth: 1400,
+      scalingFactor: 5
+    },
+    {
+      pxWidth: 992,
+      scalingFactor: 2
+    }
+  ]
+```
+
 ## Browser support
 | Browser | Supported versions                        |
 |---------|-------------------------------------------|
