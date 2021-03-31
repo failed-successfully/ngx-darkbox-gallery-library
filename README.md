@@ -84,12 +84,12 @@ TBD
 | batchSize               | number                    | `15`     | The number of images loaded in each load more images call|
 | batchSizeScalingFactors | ResolutionConfiguration[] | [see here](#Default-ResolutionConfiguration) | A list of scaling factors to be used to scale the initial batch size by screen width|
 
-##### ResolutionConfiguration
+##### `ResolutionConfiguration`
 | Name          | Type    | Description           |
 |---------------|---------|-----------------------|
 | pxWidth       | number  | The minimum screen width this configuration applies to, up to the next higher resolution configuration|
 | scalingFactor | number  | The batch size scaling factor to be applied in the given configuration range                          |
-##### Default ResolutionConfiguration
+##### `Default ResolutionConfiguration`
 ```js
  [
     {
