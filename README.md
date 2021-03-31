@@ -82,7 +82,7 @@ TBD
 |-------------------------|---------------------------|----------|-------------|
 | initialBatchSize        | number                    | `10`     |  Number of images loaded initially on small and medium sized devices (smartphone / tablet). This is scaled by a factor according to the resolution of bigger displays|
 | batchSize               | number                    | `15`     | The number of images loaded in each load more images call|
-| batchSizeScalingFactors | ResolutionConfiguration[] | [see here](Default-ResolutionConfiguration) | A list of scaling factors to be used to scale the initial batch size by screen width|
+| batchSizeScalingFactors | ResolutionConfiguration[] | [see here](#Default-ResolutionConfiguration) | A list of scaling factors to be used to scale the initial batch size by screen width|
 
 ##### ResolutionConfiguration
 | Name          | Type    | Description           |
