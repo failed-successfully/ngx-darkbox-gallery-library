@@ -63,9 +63,22 @@ export class AppComponent {
 ### Advanced configuration
 TBD
 
+#### `DarkboxConfiguration`
+| Name          | Type            | Default               | Description |
+|---------------|-----------------|-----------------------|-------------|
+| loopDirection | LoopDirection   | `LoopDirection.BOTH`  |Sets the direction the darkbox will allow looping through the images |
+| enableCaption | bool            | `true`                |Sets if the caption should be displayed or not|
+
+##### `LoopDirection`
+| Name      | Description |
+|-----------|-------------|
+| FORWARD   | Only after the last image the first one will be displayed again |
+| BACKWARD  | Only before the first image the last one will be displayed again|
+| BOTH      | The first image will be displayed after the last one and vise versa|
+| NONE      | There is a fixed end in both directions                         |
 ## Browser support
 | Browser | Supported versions                        |
-| ------- | ----------------------------------------- |
+|---------|-------------------------------------------|
 | Chrome  | latest                                    |
 | Firefox |	latest and extended support release (ESR) |
 | Edge    |	2 most recent major versions              |
