@@ -89,7 +89,7 @@ TBD
 |---------------|---------|-----------------------|
 | pxWidth       | number  | The minimum screen width this configuration applies to, up to the next higher resolution configuration|
 | scalingFactor | number  | The batch size scaling factor to be applied in the given configuration range                          |
-##### `Default ResolutionConfiguration`
+##### Default `ResolutionConfiguration`
 ```js
  [
     {
