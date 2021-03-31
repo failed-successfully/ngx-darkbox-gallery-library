@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Added list of supported browsers (#50)
 * Added links to live demo (#47)
 * Added configuration option to disable the caption (#61)
+* Added documentation for grid configuration (#62)
 
 ### Changed
 
