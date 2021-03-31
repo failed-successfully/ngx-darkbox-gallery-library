@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Updated dependencies (#42, #43, #44, #45, #46, #48, #51, #52, #53, #54, #55, #56, #57, #58)
+* Updated dependencies (#42, #43, #44, #45, #46, #48, #51, #52, #53, #54, #55, #56, #57, #58, #59, #60)
 
 ### Removed
 
