@@ -6,7 +6,13 @@ export interface DarkboxConfiguration {
    * BOTH: The first image will be displayed after the last and vise versa
    * NONE: There is a fixed end in both directions
    */
-  loopDirection: LoopDirection;
+  loopDirection?: LoopDirection;
+  /**
+   * Sets if the caption should be displayed ore not
+   * true: Show the caption including the current position in the image set
+   * false: Caption is not shown
+   */
+  enableCaption?: boolean;
 }
 
 export enum LoopDirection {
