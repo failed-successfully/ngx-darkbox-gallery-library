@@ -64,10 +64,10 @@ export class AppComponent {
 TBD
 
 #### `DarkboxConfiguration`
-| Name          | Type            | Default               | Description |
-|---------------|-----------------|-----------------------|-------------|
-| loopDirection | LoopDirection   | `LoopDirection.BOTH`  |Sets the direction the darkbox will allow looping through the images |
-| enableCaption | bool            | `true`                |Sets if the caption should be displayed or not|
+| Name          | Type                              | Default               | Description |
+|---------------|-----------------------------------|-----------------------|-------------|
+| loopDirection | [LoopDirection](#LoopDirection)   | `LoopDirection.BOTH`  |Sets the direction the darkbox will allow looping through the images |
+| enableCaption | bool                              | `true`                |Sets if the caption should be displayed or not|
 
 ##### `LoopDirection`
 | Name      | Description |
