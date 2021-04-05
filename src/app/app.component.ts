@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   images: Image[] = [];
 
   ngOnInit(): void {
-    for(let i = 1; i <= 100; i++) {
+    for (let i = 1; i <= 100; i++) {
       this.images.push({
         url: 'https://picsum.photos/seed/' + i + '/3000/2000',
         thumbnailUrl: 'https://picsum.photos/seed/' + i + '/300/200',

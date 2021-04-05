@@ -2,8 +2,9 @@
   <button class="fab close" (click)="onClose()">x</button>
   <div class="image">
     <img src="{{image.url}}" alt="{{image.altText}}" (load)="onImageLoaded()">
-    <div class="caption">
-      {{currentNumber}}/{{totalNumber}} - {{image.caption}}
+    <div *ngIf="darkboxConfiguration.enableCaption" class="caption">
+      {{currentNumber}}/{{totalNumber}}
+      <span *ngIf="image.caption"> - {{image.caption}}</span>
     </div>
   </div>
   <button class="fab prev" *ngIf="hasPrev" (click)="onPrev()">&lt;</button>
