@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+### Removed
+
+
+## [0.2.0] - 2021-04-05
+
+### Added
+
 * Added list of supported browsers (#50)
 * Added links to live demo (#47)
 * Added configuration option to disable the caption (#61)
@@ -16,8 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Updated dependencies (#42, #43, #44, #45, #46, #48, #51, #52, #53, #54, #55, #56, #57, #58, #59, #60, #63, #65)
-
-### Removed
+* Stop to show non-major dependency updates in changelog
 
 
 ## [0.1.2] - 2021-03-16
