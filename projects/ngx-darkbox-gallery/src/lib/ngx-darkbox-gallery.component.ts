@@ -49,7 +49,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
     }
   }
 
-  private initializeConfiguration(customConfiguration: Configuration) {
+  private initializeConfiguration(customConfiguration: Configuration): void {
     this.effectiveConfiguration = { ...this.defaultConfiguration, ...customConfiguration };
     this.scaleInitialBatchSize();
     this.imageCount = this.effectiveConfiguration.gridConfiguration.initialBatchSize;
@@ -113,12 +113,12 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
       return this.currentImageIndex + addend;
     }
 
-    if (loopDirection != LoopDirection.NONE) {
-      if (targetIndex > maxImageIndex && (loopDirection == LoopDirection.FORWARD || loopDirection == LoopDirection.BOTH)) {
+    if (loopDirection !== LoopDirection.NONE) {
+      if (targetIndex > maxImageIndex && (loopDirection === LoopDirection.FORWARD || loopDirection === LoopDirection.BOTH)) {
         return 0;
       }
 
-      if (targetIndex < 0 && (loopDirection == LoopDirection.BACKWARD || loopDirection == LoopDirection.BOTH)) {
+      if (targetIndex < 0 && (loopDirection === LoopDirection.BACKWARD || loopDirection === LoopDirection.BOTH)) {
         // If we rollover to the back, make sure all images are displayed in the grid
         this.imageCount = this.images.length;
         return maxImageIndex;
@@ -136,8 +136,40 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
     const scalingFactors = this.effectiveConfiguration.gridConfiguration.batchSizeScalingFactors;
     scalingFactors.sort((a, b) => b.pxWidth - a.pxWidth);
 
-    const factor = scalingFactors.find(factor => windowWidth >= factor.pxWidth);
+    const factor = scalingFactors.find(currentFactor => windowWidth >= currentFactor.pxWidth);
 
     this.effectiveConfiguration.gridConfiguration.initialBatchSize *= factor ? factor.scalingFactor : 1;
+  }
+
+  /**
+   * Compiles the css classes needed to reflect the configuration of the image-grid
+   * @returns a string of css class names for the main image grid
+   */
+  public getImageGridClasses(): string {
+    return 'square-image-grid zooming-images';
+  }
+
+  /**
+   * Returns the configuration parameter for content justification in the main image grid
+   * @returns a string for the justifiy-content css property
+   */
+  public getContentJustification(): string {
+    return 'center';
+  }
+
+  /**
+   * @returns the thumbnail height from the configuration
+   */
+  public getThumbnailHeight(): string | null {
+    return '175px';
+    return null;
+  }
+
+  /**
+   * @returns the thumbnail width from the configuration
+   */
+  public getThumbnailWidth(): string | null {
+    return '175px';
+    return null;
   }
 }

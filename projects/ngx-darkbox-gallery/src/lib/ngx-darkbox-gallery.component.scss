@@ -1,0 +1,44 @@
+.square-image-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .image-container {
+    max-width: 100%;
+    margin: 2.5px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.zooming-images {
+  .image-container {
+    transition: transform 0.5s ease-out,
+    border-radius 0.5s ease-out;
+  }
+
+  img {
+    transition: transform 0.5s ease-out,
+    border-radius 0.5s ease-out;
+  }
+
+  img:hover {
+    border-radius: 5%;
+
+    transition: transform 0.5s ease-out,
+                border-radius 0.5s ease-out;
+  }
+
+  .image-container:hover {
+    transform: scale(1.05);
+    border-radius: 5%;
+
+    transition: transform 0.5s ease-out,
+                border-radius 0.5s ease-out;
+  }
+}
