@@ -109,7 +109,7 @@ TBD
 | Chrome  | latest                                    |
 | Firefox |	latest and extended support release (ESR) |
 | Edge    |	2 most recent major versions              |
-| IE      | 11 (Partial support due bugs in IE)       |
+| IE      | No. It's dead, Jim.                       |
 | Safari  |	2 most recent major versions              |
 | iOS     |	2 most recent major versions              |
 
