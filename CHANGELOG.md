@@ -20,8 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Added static grid layout (#11, #78)
 * Added fluid grid layout (#12, #79)
 
-### Changed
-
 ### Removed
 
 * Dropped IE support
