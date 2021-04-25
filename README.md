@@ -83,12 +83,18 @@ TBD
 | initialBatchSize        | number                    | `10`     |  Number of images loaded initially on small and medium sized devices (smartphone / tablet). This is scaled by a factor according to the resolution of bigger displays|
 | batchSize               | number                    | `15`     | The number of images loaded in each load more images call|
 | batchSizeScalingFactors | ResolutionConfiguration[] | [see here](#Default-ResolutionConfiguration) | A list of scaling factors to be used to scale the initial batch size by screen width|
+| gridType                | GridType                  | `GridType.STATIC` | Sets the type of the image grid|
+| thumbnailAlignment      | string \| null            | `flex-start` | Allows for configuration of the flex property justifiy-content. All option of the css property justifiy-cotnent are allowed|
+| zoomImages              | boolean                   | `true`   | Enables / Disables zooming effect for thumbnail hovering|
+| thumbnailHeight         | string \| null            | `175px`  | Size used to define the height of the thumbnails and loading placeholders. For gridType FLUID this applies only to the loading placeholders. This should be defined like you would in css including the unit (e.g. px, em, rem)|
+| thumbnailWidth          | string \| null            | `175px`  | Size used to define the width of the thumbnails and loading placeholders. For gridType FLUID this applies only to the loading placeholders. This should be defined like you would in css including the unit (e.g. px, em, rem)|
 
 ##### `ResolutionConfiguration`
 | Name          | Type    | Description           |
 |---------------|---------|-----------------------|
 | pxWidth       | number  | The minimum screen width this configuration applies to, up to the next higher resolution configuration|
 | scalingFactor | number  | The batch size scaling factor to be applied in the given configuration range                          |
+
 ##### Default `ResolutionConfiguration`
 ```js
  [
@@ -102,6 +108,12 @@ TBD
     }
   ]
 ```
+
+##### `GridType`
+| Name      | Description |
+|-----------|-------------|
+| STATIC    | A grid of images rendered in rows of dynamic length, preferrebly used for equal sized thumbnails (thumbnail size can be configured seperatly) |
+| FLUID     | A grid optimized for thumbnails with different aspect ratios and orientations, rendered in columns (if selected thumbnailHeight and thumbnailWidth are only used for placeholders while loading) |
 
 ## Browser support
 | Browser | Supported versions                        |
