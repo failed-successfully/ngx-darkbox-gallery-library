@@ -1,4 +1,4 @@
-import { GridConfiguration } from "../model/grid-configuration";
+import { GridConfiguration, GridType } from '../model/grid-configuration';
 
 export class DefaultGridConfiguration implements GridConfiguration {
   initialBatchSize = 10;
@@ -12,5 +12,10 @@ export class DefaultGridConfiguration implements GridConfiguration {
       pxWidth: 992,
       scalingFactor: 2
     }
-  ]
+  ];
+  gridType = GridType.STATIC;
+  thumbnailAlignment = 'flex-start';
+  zoomImages = true;
+  thumbnailHeight = '175px';
+  thumbnailWidth = '175px';
 }

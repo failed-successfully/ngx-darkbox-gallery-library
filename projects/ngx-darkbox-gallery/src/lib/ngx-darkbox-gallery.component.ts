@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { DefaultConfiguration } from './config/configuration.default';
 import { Configuration } from './model/configuration';
 import { LoopDirection } from './model/darkbox-configuration';
+import { GridType } from './model/grid-configuration';
 import { Image } from './model/image';
 
 @Component({
@@ -39,18 +40,29 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(): void {
-    this.defaultConfiguration = new DefaultConfiguration();
-    this.initializeConfiguration(null);
+    this.initializeConfiguration(this.configuration);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.configuration) {
-      this.initializeConfiguration(changes.configuration as Configuration);
+      this.initializeConfiguration(this.configuration);
     }
   }
 
   private initializeConfiguration(customConfiguration: Configuration): void {
-    this.effectiveConfiguration = { ...this.defaultConfiguration, ...customConfiguration };
+    if (!this.defaultConfiguration) {
+      this.defaultConfiguration = new DefaultConfiguration();
+    }
+
+    const effectiveImageConfig = {...this.defaultConfiguration.imageConfiguration, ...customConfiguration?.imageConfiguration};
+    const effectiveGridConfig = {...this.defaultConfiguration.gridConfiguration, ...customConfiguration?.gridConfiguration};
+    const effectiveDarkboxConfig = {...this.defaultConfiguration.darkboxConfiguration, ...customConfiguration?.darkboxConfiguration};
+    this.effectiveConfiguration = {
+      imageConfiguration: effectiveImageConfig,
+      gridConfiguration: effectiveGridConfig,
+      darkboxConfiguration: effectiveDarkboxConfig
+    } as Configuration;
+
     this.scaleInitialBatchSize();
     this.imageCount = this.effectiveConfiguration.gridConfiguration.initialBatchSize;
   }
@@ -146,30 +158,42 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
    * @returns a string of css class names for the main image grid
    */
   public getImageGridClasses(): string {
-    return 'square-image-grid zooming-images';
+    const classConfig = [];
+
+    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.STATIC) {
+      classConfig.push('static-image-grid');
+    }
+
+    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID) {
+      classConfig.push('fluid-image-grid');
+    }
+
+    if (this.effectiveConfiguration.gridConfiguration.zoomImages) {
+      classConfig.push('zooming-images');
+    }
+
+    return classConfig.join(' ');
   }
 
   /**
    * Returns the configuration parameter for content justification in the main image grid
    * @returns a string for the justifiy-content css property
    */
-  public getContentJustification(): string {
-    return 'center';
+  public getContentJustification(): string | null {
+    return this.effectiveConfiguration.gridConfiguration.thumbnailAlignment;
   }
 
   /**
    * @returns the thumbnail height from the configuration
    */
   public getThumbnailHeight(): string | null {
-    return '175px';
-    return null;
+    return this.effectiveConfiguration.gridConfiguration.thumbnailHeight;
   }
 
   /**
    * @returns the thumbnail width from the configuration
    */
   public getThumbnailWidth(): string | null {
-    return '175px';
-    return null;
+    return this.effectiveConfiguration.gridConfiguration.thumbnailWidth;
   }
 }

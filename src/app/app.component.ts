@@ -16,8 +16,7 @@ export class AppComponent implements OnInit {
         thumbnailUrl: 'https://picsum.photos/seed/' + i + '/300/200',
         caption: 'Image number ' + i + ' from https://picsum.photos/',
         altText: 'Random image number ' + i
-      })
+      });
     }
   }
-
 }
