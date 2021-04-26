@@ -16,14 +16,20 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   images: Image[] = [];
   imageCount: number;
   currentImageIndex: number;
+  private loadedImageNumber = 0;
 
   @Input()
   configuration: Configuration;
   private defaultConfiguration: Configuration;
   effectiveConfiguration: Configuration;
 
+  batchThumbnailsLoaded = false;
+
   @Output()
   imageClicked = new EventEmitter<Image>();
+
+  @Output()
+  imagesLoaded = new EventEmitter<boolean>();
 
   @Output()
   darkboxClosed = new EventEmitter<boolean>();
@@ -54,9 +60,9 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
       this.defaultConfiguration = new DefaultConfiguration();
     }
 
-    const effectiveImageConfig = {...this.defaultConfiguration.imageConfiguration, ...customConfiguration?.imageConfiguration};
-    const effectiveGridConfig = {...this.defaultConfiguration.gridConfiguration, ...customConfiguration?.gridConfiguration};
-    const effectiveDarkboxConfig = {...this.defaultConfiguration.darkboxConfiguration, ...customConfiguration?.darkboxConfiguration};
+    const effectiveImageConfig = { ...this.defaultConfiguration.imageConfiguration, ...customConfiguration?.imageConfiguration };
+    const effectiveGridConfig = { ...this.defaultConfiguration.gridConfiguration, ...customConfiguration?.gridConfiguration };
+    const effectiveDarkboxConfig = { ...this.defaultConfiguration.darkboxConfiguration, ...customConfiguration?.darkboxConfiguration };
     this.effectiveConfiguration = {
       imageConfiguration: effectiveImageConfig,
       gridConfiguration: effectiveGridConfig,
@@ -89,6 +95,17 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
 
   onDarkboxImageLoaded(image: Image): void {
     this.darkboxImageLoaded.emit(image);
+  }
+
+  /**
+   * Event emitter signaling that all images of one batch are loaded
+   */
+  onThumbnailLoaded(): void {
+    this.loadedImageNumber++;
+    if (this.loadedImageNumber >= this.imageCount) {
+      this.batchThumbnailsLoaded = true;
+      this.imagesLoaded.emit(true);
+    }
   }
 
   isNextImageAvailable(): boolean {
@@ -195,5 +212,9 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
    */
   public getThumbnailWidth(): string | null {
     return this.effectiveConfiguration.gridConfiguration.thumbnailWidth;
+  }
+
+  public isLoadingPlaceholderEnabled(): boolean {
+    return this.effectiveConfiguration.gridConfiguration?.enableLoadingPlaceholder;
   }
 }

@@ -18,4 +18,5 @@ export class DefaultGridConfiguration implements GridConfiguration {
   zoomImages = true;
   thumbnailHeight = '175px';
   thumbnailWidth = '175px';
+  enableLoadingPlaceholder = true;
 }

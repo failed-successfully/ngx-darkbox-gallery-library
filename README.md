@@ -88,6 +88,7 @@ TBD
 | zoomImages              | boolean                   | `true`   | Enables / Disables zooming effect for thumbnail hovering|
 | thumbnailHeight         | string \| null            | `175px`  | Size used to define the height of the thumbnails and loading placeholders. For gridType FLUID this applies only to the loading placeholders. This should be defined like you would in css including the unit (e.g. px, em, rem)|
 | thumbnailWidth          | string \| null            | `175px`  | Size used to define the width of the thumbnails and loading placeholders. For gridType FLUID this applies only to the loading placeholders. This should be defined like you would in css including the unit (e.g. px, em, rem)|
+| enableLoadingPlaceholder| boolean                   | `true`  | Enables / Disables the shimmer placeholder while loading the thumbnail images|
 
 ##### `ResolutionConfiguration`
 | Name          | Type    | Description           |
