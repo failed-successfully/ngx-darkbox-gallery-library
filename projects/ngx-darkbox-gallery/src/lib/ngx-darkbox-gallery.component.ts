@@ -29,6 +29,8 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   imageClicked = new EventEmitter<Image>();
 
   @Output()
+  thumbnailLoaded = new EventEmitter<Image>();
+
   @Output()
   allThumbnailsLoaded = new EventEmitter<boolean>();
 
@@ -99,10 +101,12 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Event emitter signaling that all images of one batch are loaded
+   * Event emitter signaling that one images is loaded
+   * Additionally signals that all images of one batch are loaded
    */
-  onThumbnailLoaded(): void {
+  onThumbnailLoaded(image: Image): void {
     this.loadedImageNumber++;
+    this.thumbnailLoaded.emit(image);
     if (this.loadedImageNumber >= this.imageCount) {
       this.batchThumbnailsLoaded = true;
       this.allThumbnailsLoaded.emit(true);

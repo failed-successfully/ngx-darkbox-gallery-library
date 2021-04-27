@@ -4,7 +4,7 @@
 
     <!-- The actual thumbnail image -->
     <img [ngStyle]="{'display': isLoadingPlaceholderEnabled() && !batchThumbnailsLoaded ? 'none' : ''}"
-      src="{{image.thumbnailUrl}}" alt="{{image.altText}}" (load)="onThumbnailLoaded()">
+      src="{{image.thumbnailUrl}}" alt="{{image.altText}}" (load)="onThumbnailLoaded(image)">
 
     <!-- Loading placeholder in the configured size -->
     <loading-placeholder *ngIf="isLoadingPlaceholderEnabled() && !batchThumbnailsLoaded"
