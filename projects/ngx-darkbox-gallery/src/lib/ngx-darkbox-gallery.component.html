@@ -3,8 +3,8 @@
     *ngFor="let image of images | slice:0:imageCount" (click)="onImageClicked(image)">
 
     <!-- The actual thumbnail image -->
-    <img [ngClass]="{'loading': isLoadingPlaceholderEnabled() &&!batchThumbnailsLoaded}" src="{{image.thumbnailUrl}}"
-      alt="{{image.altText}}" (load)="onThumbnailLoaded()">
+    <img [ngStyle]="{'display': isLoadingPlaceholderEnabled() && !batchThumbnailsLoaded ? 'none' : ''}"
+      src="{{image.thumbnailUrl}}" alt="{{image.altText}}" (load)="onThumbnailLoaded()">
 
     <!-- Loading placeholder in the configured size -->
     <loading-placeholder *ngIf="isLoadingPlaceholderEnabled() && !batchThumbnailsLoaded"
