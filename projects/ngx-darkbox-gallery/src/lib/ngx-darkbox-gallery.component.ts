@@ -16,7 +16,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   images: Image[] = [];
   imageCount: number;
   currentImageIndex: number;
-  private loadedImageNumber = 0;
+  private loadedImageCount = 0;
 
   @Input()
   configuration: Configuration;
@@ -105,9 +105,9 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
    * Additionally signals that all images of one batch are loaded
    */
   onThumbnailLoaded(image: Image): void {
-    this.loadedImageNumber++;
+    this.loadedImageCount++;
     this.thumbnailLoaded.emit(image);
-    if (this.loadedImageNumber >= this.imageCount) {
+    if (this.loadedImageCount >= this.imageCount) {
       this.batchThumbnailsLoaded = true;
       this.allThumbnailsLoaded.emit(true);
     }
