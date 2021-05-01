@@ -1,0 +1,87 @@
+@import "scss-variables/screen-sizes";
+
+.static-image-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .image-container {
+    max-width: 100%;
+    margin: 2.5px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.fluid-image-grid {
+  column-count: 1;
+  column-width: 100%;
+
+  .image-container {
+    cursor: pointer;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-block-end: 0.5rem;
+  }
+}
+
+.zooming-images {
+  .image-container {
+    transition: transform 0.5s ease-out, border-radius 0.5s ease-out;
+  }
+
+  img {
+    transition: transform 0.5s ease-out, border-radius 0.5s ease-out;
+  }
+
+  img:hover {
+    border-radius: 5%;
+
+    transition: transform 0.5s ease-out, border-radius 0.5s ease-out;
+  }
+
+  .image-container:hover {
+    transform: scale(1.05);
+    border-radius: 5%;
+
+    transition: transform 0.5s ease-out, border-radius 0.5s ease-out;
+  }
+}
+
+@media (min-width: $sm) and (max-width: $md) {
+  .fluid-image-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: $md) and (max-width: $lg) {
+  .fluid-image-grid {
+    column-count: 3;
+  }
+}
+
+@media (min-width: $lg) and (max-width: $xl) {
+  .fluid-image-grid {
+    column-count: 4;
+  }
+}
+
+@media (min-width: $xl) and (max-width: $xxl) {
+  .fluid-image-grid {
+    column-count: 5;
+  }
+}
+
+@media (min-width: $xxl) {
+  .fluid-image-grid {
+    column-count: 9;
+  }
+}

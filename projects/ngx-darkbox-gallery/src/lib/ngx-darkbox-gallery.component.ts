@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { DefaultConfiguration } from './config/configuration.default';
 import { Configuration } from './model/configuration';
 import { LoopDirection } from './model/darkbox-configuration';
+import { GridType } from './model/grid-configuration';
 import { Image } from './model/image';
 
 @Component({
@@ -15,14 +16,23 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   images: Image[] = [];
   imageCount: number;
   currentImageIndex: number;
+  private loadedImageCount = 0;
 
   @Input()
   configuration: Configuration;
   private defaultConfiguration: Configuration;
   effectiveConfiguration: Configuration;
 
+  batchThumbnailsLoaded = false;
+
   @Output()
   imageClicked = new EventEmitter<Image>();
+
+  @Output()
+  thumbnailLoaded = new EventEmitter<Image>();
+
+  @Output()
+  allThumbnailsLoaded = new EventEmitter<boolean>();
 
   @Output()
   darkboxClosed = new EventEmitter<boolean>();
@@ -39,18 +49,29 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(): void {
-    this.defaultConfiguration = new DefaultConfiguration();
-    this.initializeConfiguration(null);
+    this.initializeConfiguration(this.configuration);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.configuration) {
-      this.initializeConfiguration(changes.configuration as Configuration);
+      this.initializeConfiguration(this.configuration);
     }
   }
 
-  private initializeConfiguration(customConfiguration: Configuration) {
-    this.effectiveConfiguration = { ...this.defaultConfiguration, ...customConfiguration };
+  private initializeConfiguration(customConfiguration: Configuration): void {
+    if (!this.defaultConfiguration) {
+      this.defaultConfiguration = new DefaultConfiguration();
+    }
+
+    const effectiveImageConfig = { ...this.defaultConfiguration.imageConfiguration, ...customConfiguration?.imageConfiguration };
+    const effectiveGridConfig = { ...this.defaultConfiguration.gridConfiguration, ...customConfiguration?.gridConfiguration };
+    const effectiveDarkboxConfig = { ...this.defaultConfiguration.darkboxConfiguration, ...customConfiguration?.darkboxConfiguration };
+    this.effectiveConfiguration = {
+      imageConfiguration: effectiveImageConfig,
+      gridConfiguration: effectiveGridConfig,
+      darkboxConfiguration: effectiveDarkboxConfig
+    } as Configuration;
+
     this.scaleInitialBatchSize();
     this.imageCount = this.effectiveConfiguration.gridConfiguration.initialBatchSize;
   }
@@ -77,6 +98,19 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
 
   onDarkboxImageLoaded(image: Image): void {
     this.darkboxImageLoaded.emit(image);
+  }
+
+  /**
+   * Event emitter signaling that one image is loaded
+   * Additionally signals that all images of one batch are loaded
+   */
+  onThumbnailLoaded(image: Image): void {
+    this.loadedImageCount++;
+    this.thumbnailLoaded.emit(image);
+    if (this.loadedImageCount >= this.imageCount) {
+      this.batchThumbnailsLoaded = true;
+      this.allThumbnailsLoaded.emit(true);
+    }
   }
 
   isNextImageAvailable(): boolean {
@@ -113,12 +147,12 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
       return this.currentImageIndex + addend;
     }
 
-    if (loopDirection != LoopDirection.NONE) {
-      if (targetIndex > maxImageIndex && (loopDirection == LoopDirection.FORWARD || loopDirection == LoopDirection.BOTH)) {
+    if (loopDirection !== LoopDirection.NONE) {
+      if (targetIndex > maxImageIndex && (loopDirection === LoopDirection.FORWARD || loopDirection === LoopDirection.BOTH)) {
         return 0;
       }
 
-      if (targetIndex < 0 && (loopDirection == LoopDirection.BACKWARD || loopDirection == LoopDirection.BOTH)) {
+      if (targetIndex < 0 && (loopDirection === LoopDirection.BACKWARD || loopDirection === LoopDirection.BOTH)) {
         // If we rollover to the back, make sure all images are displayed in the grid
         this.imageCount = this.images.length;
         return maxImageIndex;
@@ -136,8 +170,56 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
     const scalingFactors = this.effectiveConfiguration.gridConfiguration.batchSizeScalingFactors;
     scalingFactors.sort((a, b) => b.pxWidth - a.pxWidth);
 
-    const factor = scalingFactors.find(factor => windowWidth >= factor.pxWidth);
+    const factor = scalingFactors.find(currentFactor => windowWidth >= currentFactor.pxWidth);
 
     this.effectiveConfiguration.gridConfiguration.initialBatchSize *= factor ? factor.scalingFactor : 1;
+  }
+
+  /**
+   * Compiles the css classes needed to reflect the configuration of the image-grid
+   * @returns a string of css class names for the main image grid
+   */
+  public getImageGridClasses(): string {
+    const classConfig = [];
+
+    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.STATIC) {
+      classConfig.push('static-image-grid');
+    }
+
+    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID) {
+      classConfig.push('fluid-image-grid');
+    }
+
+    if (this.effectiveConfiguration.gridConfiguration.zoomImages) {
+      classConfig.push('zooming-images');
+    }
+
+    return classConfig.join(' ');
+  }
+
+  /**
+   * Returns the configuration parameter for content justification in the main image grid
+   * @returns a string for the justifiy-content css property
+   */
+  public getContentJustification(): string | null {
+    return this.effectiveConfiguration.gridConfiguration.thumbnailAlignment;
+  }
+
+  /**
+   * @returns the thumbnail height from the configuration
+   */
+  public getThumbnailHeight(): string | null {
+    return this.effectiveConfiguration.gridConfiguration.thumbnailHeight;
+  }
+
+  /**
+   * @returns the thumbnail width from the configuration
+   */
+  public getThumbnailWidth(): string | null {
+    return this.effectiveConfiguration.gridConfiguration.thumbnailWidth;
+  }
+
+  public isLoadingPlaceholderEnabled(): boolean {
+    return this.effectiveConfiguration.gridConfiguration?.enableLoadingPlaceholder;
   }
 }
