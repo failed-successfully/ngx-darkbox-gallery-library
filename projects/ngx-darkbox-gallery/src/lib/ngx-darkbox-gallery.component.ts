@@ -101,7 +101,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Event emitter signaling that one images is loaded
+   * Event emitter signaling that one image is loaded
    * Additionally signals that all images of one batch are loaded
    */
   onThumbnailLoaded(image: Image): void {
