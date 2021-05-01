@@ -1,4 +1,4 @@
-@import 'scss-variables/screen-sizes';
+@import "scss-variables/screen-sizes";
 
 .static-image-grid {
   display: flex;
@@ -35,28 +35,24 @@
 
 .zooming-images {
   .image-container {
-    transition: transform 0.5s ease-out,
-    border-radius 0.5s ease-out;
+    transition: transform 0.5s ease-out, border-radius 0.5s ease-out;
   }
 
   img {
-    transition: transform 0.5s ease-out,
-    border-radius 0.5s ease-out;
+    transition: transform 0.5s ease-out, border-radius 0.5s ease-out;
   }
 
   img:hover {
     border-radius: 5%;
 
-    transition: transform 0.5s ease-out,
-                border-radius 0.5s ease-out;
+    transition: transform 0.5s ease-out, border-radius 0.5s ease-out;
   }
 
   .image-container:hover {
     transform: scale(1.05);
     border-radius: 5%;
 
-    transition: transform 0.5s ease-out,
-                border-radius 0.5s ease-out;
+    transition: transform 0.5s ease-out, border-radius 0.5s ease-out;
   }
 }
 

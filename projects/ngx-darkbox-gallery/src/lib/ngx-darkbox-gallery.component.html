@@ -1,10 +1,21 @@
 <div [ngClass]="getImageGridClasses()" [ngStyle]="{'justify-content': getContentJustification()}">
-  <div class="image-container" [ngStyle]="{'height': getThumbnailHeight(), 'width': getThumbnailWidth()}" *ngFor="let image of images | slice:0:imageCount" (click)="onImageClicked(image)">
-    <img src="{{image.thumbnailUrl}}" alt="{{image.altText}}">
+  <div class="image-container" [ngStyle]="{'height': getThumbnailHeight(), 'width': getThumbnailWidth()}"
+    *ngFor="let image of images | slice:0:imageCount" (click)="onImageClicked(image)">
+
+    <!-- The actual thumbnail image -->
+    <img [ngStyle]="{'display': isLoadingPlaceholderEnabled() && !batchThumbnailsLoaded ? 'none' : ''}"
+      src="{{image.thumbnailUrl}}" alt="{{image.altText}}" (load)="onThumbnailLoaded(image)">
+
+    <!-- Loading placeholder in the configured size -->
+    <loading-placeholder *ngIf="isLoadingPlaceholderEnabled() && !batchThumbnailsLoaded"
+      [placeholderHeight]="getThumbnailHeight()" [placeholderWidth]="getThumbnailWidth()">
+    </loading-placeholder>
   </div>
 </div>
+
 
 <darkbox *ngIf="currentImageIndex != null" [image]="images[currentImageIndex]"
   [darkboxConfiguration]="effectiveConfiguration.darkboxConfiguration" [currentNumber]="currentImageIndex + 1"
   [totalNumber]="images.length" [hasNext]="isNextImageAvailable()" [hasPrev]="isPrevImageAvailable()"
-  (close)="onDarkboxClose()" (next)="onDarkboxNextImage()" (prev)="onDarkboxPrevImage()" (imageLoaded)="onDarkboxImageLoaded($event)"></darkbox>
+  (close)="onDarkboxClose()" (next)="onDarkboxNextImage()" (prev)="onDarkboxPrevImage()"
+  (imageLoaded)="onDarkboxImageLoaded($event)"></darkbox>

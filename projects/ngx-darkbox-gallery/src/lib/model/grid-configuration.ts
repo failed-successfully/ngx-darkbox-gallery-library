@@ -49,6 +49,11 @@ export interface GridConfiguration {
    * This should be defined like you would in css including the unit (e.g. px, em, rem)
    */
   thumbnailWidth?: string | null;
+
+  /**
+   * Enables / Disables the shimmer placeholder while loading the thumbnail images
+   */
+  enableLoadingPlaceholder?: boolean;
 }
 
 export enum GridType {
