@@ -64,7 +64,6 @@ export class AppComponent {
 For an example of a more advanced Darkbox configuration have a look at [our examples](./docs/examples/advanced-configuration.md).
 
 ### Advanced configuration
-TBD
 
 #### `DarkboxConfiguration`
 | Name          | Type                              | Default               | Description |
