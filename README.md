@@ -128,5 +128,19 @@ For an example of a more advanced Darkbox configuration have a look at [our exam
 | Safari  |	2 most recent major versions              |
 | iOS     |	2 most recent major versions              |
 
+
+### Available events
+Almost everything which happens in Darkbox triggers an event. Therefore it is easy for you to know what happened when. It is your choice to react to the provides event (e.g. using it to provide statistics). Currently Darkbox exposes the following events:
+
+| Name                | Type    | Description                                                                       |
+|---------------------|---------|-----------------------------------------------------------------------------------|
+| imageClicked        | Image   | Signals that a single image was clicked. The clicked images is being emitted      |
+| thumbnailLoaded     | Image   | Signals that a single thumbnail was loaded. The image containing the thumbnail is being emitted|
+| allThumbnailsLoaded | boolean | Signals that all thumbnails currently displayed have bean loaded                  |
+| darkboxClosed       | boolean | Signals that the lightbox/Darkbox was closed by the user                          |
+| darkboxNext         | boolean | Signals that the user clicked the next image button                               |
+| darkboxPrev         | boolean | Signals that the user clicked the previous image button                           |
+| darkboxImageLoaded  | Image   | Signals that the full sized images was loaded. The loaded images is being emitted |
+
 ## Found a bug 🐛/🐞?
 If you find a bug in Darkbox please open an issue [here](https://github.com/failed-successfully/ngx-darkbox-gallery-library/issues/new) so we can fix it and make Darkbox better for you and everyone else.
