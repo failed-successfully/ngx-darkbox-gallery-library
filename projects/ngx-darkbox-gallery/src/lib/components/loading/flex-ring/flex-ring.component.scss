@@ -1,0 +1,43 @@
+.loader-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex {
+  min-height: 6rem;
+}
+
+.loader {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border: #fff 0.4rem solid;
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0%,
+  100% {
+    width: 5rem;
+    height: 5rem;
+    margin-top: 0;
+  }
+  25% {
+    height: 0.4rem;
+    margin-top: 2.3rem;
+  }
+  50% {
+    width: 0.4rem;
+  }
+  75% {
+    width: 5rem;
+  }
+}
