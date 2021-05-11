@@ -1,0 +1,21 @@
+.loader-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loader {
+  width: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+svg path,
+svg rect {
+  fill: #fff;
+}

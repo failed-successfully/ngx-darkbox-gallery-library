@@ -4,6 +4,7 @@ import { DarkboxComponent } from './components/darkbox/darkbox.component';
 import { LoadingPlaceholderComponent } from './components/loading-placeholder/loading-placeholder.component';
 import { DotComponent } from './components/loading/dot/dot.component';
 import { FlexRingComponent } from './components/loading/flex-ring/flex-ring.component';
+import { SpinnerComponent } from './components/loading/spinner/spinner.component';
 import { NgxDarkboxGalleryComponent } from './ngx-darkbox-gallery.component';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { NgxDarkboxGalleryComponent } from './ngx-darkbox-gallery.component';
     LoadingPlaceholderComponent,
     FlexRingComponent,
     DotComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
