@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LoadingAnimation } from '../../../../model/darkbox-configuration';
 
 @Component({
   selector: 'lib-svg-loader',
@@ -8,7 +9,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SvgLoaderComponent implements OnInit {
 
   @Input()
-  loaderType;
+  animationType: LoadingAnimation;
+
+  loadingAnimation: typeof LoadingAnimation = LoadingAnimation;
 
   constructor() { }
 

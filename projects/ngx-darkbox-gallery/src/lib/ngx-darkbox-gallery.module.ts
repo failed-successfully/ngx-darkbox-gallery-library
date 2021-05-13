@@ -6,6 +6,7 @@ import { DotComponent } from './components/loading/loading-animation/dot/dot.com
 import { FlexRingComponent } from './components/loading/loading-animation/flex-ring/flex-ring.component';
 import { SvgLoaderComponent } from './components/loading/loading-animation/svg-loader/svg-loader.component';
 import { NgxDarkboxGalleryComponent } from './ngx-darkbox-gallery.component';
+import { LoadingAnimationComponent } from './components/loading/loading-animation/loading-animation.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NgxDarkboxGalleryComponent } from './ngx-darkbox-gallery.component';
     LoadingPlaceholderComponent,
     FlexRingComponent,
     DotComponent,
-    SvgLoaderComponent
+    SvgLoaderComponent,
+    LoadingAnimationComponent
   ],
   imports: [
     BrowserModule,
