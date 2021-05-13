@@ -1,0 +1,6 @@
+<lib-dot *ngIf="animationType === loadingAnimation.DOT || animationType === loadingAnimation.SQUARE"
+  [animationType]="animationType"></lib-dot>
+<lib-flex-ring *ngIf="animationType === loadingAnimation.FLEX_RING"></lib-flex-ring>
+<lib-svg-loader *ngIf="animationType === loadingAnimation.BAR || animationType === loadingAnimation.SPINNER"
+  [animationType]="animationType">
+</lib-svg-loader>

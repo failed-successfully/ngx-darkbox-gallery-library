@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { LoadingAnimation } from '../../../../model/darkbox-configuration';
 
 @Component({
   selector: 'lib-dot',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DotComponent implements OnInit {
 
+  @Input()
+  animationType: LoadingAnimation;
+
+  loadingAnimation: typeof LoadingAnimation = LoadingAnimation;
   constructor() { }
 
   ngOnInit(): void {

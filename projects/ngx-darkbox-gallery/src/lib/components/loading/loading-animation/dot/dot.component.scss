@@ -12,7 +12,6 @@
     width: 1rem;
     margin: 0.25rem;
     display: inline-block;
-    border-radius: 50%;
     animation: wave 2s ease infinite;
   }
 
@@ -37,6 +36,10 @@
   span:nth-child(7) {
     animation-delay: 600ms;
   }
+}
+
+.dot {
+  border-radius: 100%;
 }
 
 @keyframes wave {
