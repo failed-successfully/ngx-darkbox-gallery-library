@@ -29,8 +29,8 @@
     "url": "https://github.com/failed-successfully/ngx-darkbox-gallery-library/issues/new"
   },
   "peerDependencies": {
-    "@angular/common": "<=9.0.0",
-    "@angular/core": "<=9.0.0"
+    "@angular/common": ">=9.0.0",
+    "@angular/core": ">=9.0.0"
   },
   "dependencies": {
     "tslib": "2.2.0"
