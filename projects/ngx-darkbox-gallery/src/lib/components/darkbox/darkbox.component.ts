@@ -45,6 +45,11 @@ export class DarkboxComponent implements OnInit {
   @Output()
   imageLoaded = new EventEmitter<Image>();
 
+  /**
+   * Loading state holder for the full sized image
+   */
+  fullSizedImageLoaded = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -55,14 +60,17 @@ export class DarkboxComponent implements OnInit {
   }
 
   onNext(): void {
+    this.fullSizedImageLoaded = false;
     this.next.emit(true);
   }
 
   onPrev(): void {
+    this.fullSizedImageLoaded = false;
     this.prev.emit(true);
   }
 
   onImageLoaded(): void {
+    this.fullSizedImageLoaded = true;
     this.imageLoaded.emit(this.image);
   }
 
