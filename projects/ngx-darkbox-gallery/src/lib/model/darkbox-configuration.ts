@@ -13,6 +13,16 @@ export interface DarkboxConfiguration {
    * false: Caption is not shown
    */
   enableCaption?: boolean;
+
+  /**
+   * Loading animation shown while the full sized image is loading
+   * DOT: A line of jumping dots moving in a wave like form
+   * BAR: Three vertical bars getting wider and smaller
+   * FLEX_RIN: A ring flexing in and out
+   * SPINNER: A classical spinner animation turning infinitely
+   * SQUARE: A line of jumping squared moving in a wave like form
+   */
+  loadingAnimation?: LoadingAnimation;
 }
 
 export enum LoopDirection {
@@ -20,4 +30,12 @@ export enum LoopDirection {
   BACKWARD = 'BACKWARD',
   BOTH = 'BOTH',
   NONE = 'NONE'
+}
+
+export enum LoadingAnimation {
+  DOT,
+  BAR,
+  FLEX_RING,
+  SPINNER,
+  SQUARE
 }
