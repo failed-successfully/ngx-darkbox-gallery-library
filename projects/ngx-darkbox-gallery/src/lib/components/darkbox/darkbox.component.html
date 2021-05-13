@@ -1,6 +1,10 @@
 <div class="overlay">
   <button class="fab close" (click)="onClose()">x</button>
-  <div class="image">
+  <!-- The loading animation -->
+  <lib-loading-animation *ngIf="!fullSizedImageLoaded" [animationType]="darkboxConfiguration.loadingAnimation">
+  </lib-loading-animation>
+  <!-- The actual full sized image -->
+  <div class="image" [ngStyle]="{'display': fullSizedImageLoaded ? '' : 'none'}">
     <img src="{{image.url}}" alt="{{image.altText}}" (load)="onImageLoaded()">
     <div *ngIf="darkboxConfiguration.enableCaption" class="caption">
       {{currentNumber}}/{{totalNumber}}
