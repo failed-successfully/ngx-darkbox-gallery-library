@@ -84,7 +84,7 @@ TBD
 | DOT       | A line of jumping dots moving in a wave like form     |
 | BAR       | Three vertical bars getting wider and smaller         |
 | FLEX_RING | A ring flexing in and out                             |
-| [SPINNER](https://www.youtube.com/watch?v=3V8nl8v24cQ)   | A classical spinner animation turning infinitely      |
+| [SPINNER](https://youtu.be/3V8nl8v24cQ)   | A classical spinner animation turning infinitely      |
 | SQUARE    | A line of jumping squared moving in a wave like form  |
 
 #### `GridConfiguration`
