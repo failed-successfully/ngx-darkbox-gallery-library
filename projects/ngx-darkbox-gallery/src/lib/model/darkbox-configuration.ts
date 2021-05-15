@@ -18,7 +18,7 @@ export interface DarkboxConfiguration {
    * Loading animation shown while the full sized image is loading
    * DOT: A line of jumping dots moving in a wave like form
    * BAR: Three vertical bars getting wider and smaller
-   * FLEX_RIN: A ring flexing in and out
+   * FLEX_RING: A ring flexing in and out
    * SPINNER: A classical spinner animation turning infinitely
    * SQUARE: A line of jumping squared moving in a wave like form
    */
