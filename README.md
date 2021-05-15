@@ -66,10 +66,11 @@ For an example of a more advanced Darkbox configuration have a look at [our exam
 ### Advanced configuration
 
 #### `DarkboxConfiguration`
-| Name          | Type                              | Default               | Description |
-|---------------|-----------------------------------|-----------------------|-------------|
-| loopDirection | [LoopDirection](#LoopDirection)   | `LoopDirection.BOTH`  |Sets the direction the darkbox will allow looping through the images |
-| enableCaption | bool                              | `true`                |Sets if the caption should be displayed or not|
+| Name              | Type                              | Default               | Description |
+|-------------------|-----------------------------------|-----------------------|-------------|
+| loopDirection     | [LoopDirection](#LoopDirection)   | `LoopDirection.BOTH`  |Sets the direction the darkbox will allow looping through the images |
+| enableCaption     | bool                              | `true`                |Sets if the caption should be displayed or not|
+| loadingAnimation  | [LoadingAnimation](#LoadingAnimation) | Loading animation shown while the full sized image is loading|
 
 ##### `LoopDirection`
 | Name      | Description |
@@ -78,6 +79,15 @@ For an example of a more advanced Darkbox configuration have a look at [our exam
 | BACKWARD  | Only before the first image the last one will be displayed again|
 | BOTH      | The first image will be displayed after the last one and vise versa|
 | NONE      | There is a fixed end in both directions                         |
+
+##### `LoadingAnimation`
+| Name      | Description |
+|-----------|-------------|
+| DOT       | A line of jumping dots moving in a wave like form     |
+| BAR       | Three vertical bars getting wider and smaller         |
+| FLEX_RING | A ring flexing in and out                             |
+| [SPINNER](https://www.youtube.com/watch?v=3V8nl8v24cQ)   | A classical spinner animation turning infinitely      |
+| SQUARE    | A line of jumping squared moving in a wave like form  |
 
 #### `GridConfiguration`
 | Name                    | Type                      | Default  | Description |
