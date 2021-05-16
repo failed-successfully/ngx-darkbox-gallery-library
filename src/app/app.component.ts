@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Image } from 'dist/ngx-darkbox-gallery/lib/model/image';
 
 @Component({
@@ -8,6 +8,18 @@ import { Image } from 'dist/ngx-darkbox-gallery/lib/model/image';
 })
 export class AppComponent implements OnInit {
   images: Image[] = [];
+
+  darkModeEnabled: boolean;
+
+  constructor(renderer: Renderer2) {
+    // Check for the default setting from the OS
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    if (prefersDarkScheme.matches) {
+      renderer.addClass(document.body, 'dark-theme');
+    } else {
+      renderer.removeClass(document.body, 'dark-theme');
+    }
+  }
 
   ngOnInit(): void {
     for (let i = 1; i <= 100; i++) {
