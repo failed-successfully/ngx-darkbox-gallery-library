@@ -11,11 +11,15 @@ p {
 
 body.dark-theme {
   background: #1c1c1c;
-}
-body.dark-theme h1,
-body.dark-theme p {
-  color: #eee;
-}
-body.dark-theme a {
-  color: #809fff;
+
+  h1,
+  p {
+    color: #eee;
+  }
+  a {
+    color: #809fff;
+  }
+  svg {
+    fill: #eee;
+  }
 }
