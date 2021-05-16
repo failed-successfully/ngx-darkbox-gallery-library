@@ -2,4 +2,9 @@
   <img src="/assets/darkbox-icon.svg">
   <h1>Darkbox Gallery Demo</h1>
 </div>
+<label class="switch">
+  <input type="checkbox" [(ngModel)]="darkModeEnabled" (ngModelChange)="onDarkModeChanged($event)"
+    [checked]="darkModeEnabled">
+  <span class="slider"></span>
+</label>
 <darkbox-gallery [images]="images"></darkbox-gallery>

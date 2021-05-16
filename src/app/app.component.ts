@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnChanges, OnInit, Renderer2 } from '@angular/core';
 import { Image } from 'dist/ngx-darkbox-gallery/lib/model/image';
 
 @Component({
@@ -11,14 +11,10 @@ export class AppComponent implements OnInit {
 
   darkModeEnabled: boolean;
 
-  constructor(renderer: Renderer2) {
-    // Check for the default setting from the OS
+  constructor(private renderer: Renderer2) {
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-    if (prefersDarkScheme.matches) {
-      renderer.addClass(document.body, 'dark-theme');
-    } else {
-      renderer.removeClass(document.body, 'dark-theme');
-    }
+    // Call the initialization with the OS default
+    this.onDarkModeChanged(prefersDarkScheme.matches);
   }
 
   ngOnInit(): void {
@@ -29,6 +25,19 @@ export class AppComponent implements OnInit {
         caption: 'Image number ' + i + ' from https://picsum.photos/',
         altText: 'Random image number ' + i
       });
+    }
+  }
+
+  /**
+   * Function which enables/disables the dark mode
+   * @param darkModeEnabled Whether the dark mode is enabled or not
+   */
+  onDarkModeChanged(darkModeEnabled: boolean): void {
+    this.darkModeEnabled = darkModeEnabled;
+    if (darkModeEnabled) {
+      this.renderer.addClass(document.body, 'dark-theme');
+    } else {
+      this.renderer.removeClass(document.body, 'dark-theme');
     }
   }
 }
