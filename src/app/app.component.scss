@@ -1,5 +1,10 @@
 $active-color: #2196f3;
 
+.header {
+  display: flex;
+  align-items: center;
+}
+
 .title {
   height: 5rem;
 
@@ -17,6 +22,12 @@ $active-color: #2196f3;
 
     margin-inline-end: 0.5rem;
   }
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  margin-inline-start: 0.5rem;
 }
 
 .switch {
