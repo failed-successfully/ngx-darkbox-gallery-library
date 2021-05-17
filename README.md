@@ -142,14 +142,14 @@ Almost everything that happens in Darkbox triggers an event. Therefore it is eas
 | darkboxImageLoaded  | Image   | Signals that the full sized images was loaded. The loaded images is being emitted |
 
 ## Browser support
-| Browser | Supported versions                        |
-|---------|-------------------------------------------|
-| Chrome  | latest                                    |
-| Firefox |	latest and extended support release (ESR) |
-| Edge    |	2 most recent major versions              |
-| IE      | No. It's dead, Jim.                       |
-| Safari  |	2 most recent major versions              |
-| iOS     |	2 most recent major versions              |
+| Browser | Supported versions                                  |
+|---------|-----------------------------------------------------|
+| Chrome  | latest                                              |
+| Firefox |	latest and extended support release (ESR)           |
+| Edge    |	2 most recent major versions                        |
+| IE      | [No. It's dead, Jim.](https://youtu.be/dQw4w9WgXcQ) |
+| Safari  |	2 most recent major versions                        |
+| iOS     |	2 most recent major versions                        |
 
 ## Found a bug 🐛/🐞?
 If you find a bug in Darkbox please open an issue [here](https://github.com/failed-successfully/ngx-darkbox-gallery-library/issues/new) so we can fix it and make Darkbox better for you and everyone else.
