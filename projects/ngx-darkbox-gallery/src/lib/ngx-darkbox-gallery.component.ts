@@ -25,24 +25,48 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
 
   batchThumbnailsLoaded = false;
 
+  /**
+   * Signals that a single image was clicked
+   * The clicked images is being emitted
+   */
   @Output()
   imageClicked = new EventEmitter<Image>();
 
+  /**
+   * Signals that a single thumbnail was loaded
+   * The image containing the thumbnail is being emitted
+   */
   @Output()
   thumbnailLoaded = new EventEmitter<Image>();
 
+  /**
+   * Signals that all thumbnails currently displayed have bean loaded
+   */
   @Output()
   allThumbnailsLoaded = new EventEmitter<boolean>();
 
+  /**
+   * Signals that the lightbox/Darkbox was closed by the user
+   */
   @Output()
   darkboxClosed = new EventEmitter<boolean>();
 
+  /**
+   * Signals that the user clicked the next image button
+   */
   @Output()
   darkboxNext = new EventEmitter<boolean>();
 
+  /**
+   * Signals that the user clicked the previous image button
+   */
   @Output()
   darkboxPrev = new EventEmitter<boolean>();
 
+  /**
+   * Signals that the full sized images was loaded
+   * The loaded images is being emitted
+   */
   @Output()
   darkboxImageLoaded = new EventEmitter<Image>();
 
