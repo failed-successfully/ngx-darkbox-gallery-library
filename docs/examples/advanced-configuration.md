@@ -24,9 +24,6 @@ export class AppComponent {
         enableCaption: true,
       },
       gridConfiguration: {
-
-      },
-      imageConfiguration: {
           initialBatchSize = 10,
           batchSize: 15,
           batchSizeScalingFactors: [
@@ -45,7 +42,8 @@ export class AppComponent {
           thumbnailHeight: '175px',
           thumbnailWidth: '175px',
           enableLoadingPlaceholder: true,
-      }
+      },
+      imageConfiguration: {}
   } as DarkboxConfiguration;
 
   images: Image[] = [{
