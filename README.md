@@ -119,7 +119,7 @@ For an example of a more advanced Darkbox configuration have a look at [our exam
 | FLUID     | A grid optimized for thumbnails with different aspect ratios and orientations, rendered in columns (if selected thumbnailHeight and thumbnailWidth are only used for placeholders while loading) |
 
 ### Available events
-Almost everything which happens in Darkbox triggers an event. Therefore it is easy for you to know what happened when. It is your choice to react to the provides event (e.g. using it to provide statistics). Currently Darkbox exposes the following events:
+Almost everything that happens in Darkbox triggers an event. Therefore it is easy for you to know what happened when. It is your choice to react to the provides event (e.g. using it to provide statistics). Currently Darkbox exposes the following events:
 
 | Name                | Type    | Description                                                                       |
 |---------------------|---------|-----------------------------------------------------------------------------------|
