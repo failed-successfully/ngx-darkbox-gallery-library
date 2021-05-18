@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: #fff;
+  font: 100% system-ui;
+}
+
+h1,
+p {
+  color: black;
+}
+
+body.dark-theme {
+  background: #1c1c1c;
+
+  h1,
+  p {
+    color: #eee;
+  }
+  a {
+    color: #809fff;
+  }
+  svg {
+    fill: #eee;
+  }
+}
