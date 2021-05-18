@@ -39,7 +39,7 @@ export class AppModule { }
 The simplest way of using Darkbox is to include the component with its default configuration as shown below.
 
 Inclusion in the desired `.html` file
-```
+```ts
 <darkbox-gallery [images]="images"></darkbox-gallery>
 ```
 
@@ -60,8 +60,10 @@ export class AppComponent {
   }];
 }
 ```
+
+For an example of a more advanced Darkbox configuration have a look at [our examples](./docs/examples/advanced-configuration.md).
+
 ### Advanced configuration
-TBD
 
 #### `DarkboxConfiguration`
 | Name              | Type                              | Default               | Description |
@@ -125,6 +127,19 @@ TBD
 |-----------|-------------|
 | STATIC    | A grid of images rendered in rows of dynamic length, preferrebly used for equal sized thumbnails (thumbnail size can be configured seperatly) |
 | FLUID     | A grid optimized for thumbnails with different aspect ratios and orientations, rendered in columns (if selected thumbnailHeight and thumbnailWidth are only used for placeholders while loading) |
+
+### Available events
+Almost everything that happens in Darkbox triggers an event. Therefore it is easy for you to know what happened when. It is your choice to react to the provides event (e.g. using it to provide statistics). Currently Darkbox exposes the following events:
+
+| Name                | Type    | Description                                                                       |
+|---------------------|---------|-----------------------------------------------------------------------------------|
+| imageClicked        | Image   | Signals that a single image was clicked. The clicked images is being emitted      |
+| thumbnailLoaded     | Image   | Signals that a single thumbnail was loaded. The image containing the thumbnail is being emitted|
+| allThumbnailsLoaded | boolean | Signals that all thumbnails currently displayed have bean loaded                  |
+| darkboxClosed       | boolean | Signals that the lightbox/Darkbox was closed by the user                          |
+| darkboxNext         | boolean | Signals that the user clicked the next image button                               |
+| darkboxPrev         | boolean | Signals that the user clicked the previous image button                           |
+| darkboxImageLoaded  | Image   | Signals that the full sized images was loaded. The loaded images is being emitted |
 
 ## Browser support
 | Browser | Supported versions                                  |
