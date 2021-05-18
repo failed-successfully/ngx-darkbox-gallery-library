@@ -70,7 +70,7 @@ For an example of a more advanced Darkbox configuration have a look at [our exam
 |-------------------|-----------------------------------|-----------------------|-------------|
 | loopDirection     | [LoopDirection](#LoopDirection)   | `LoopDirection.BOTH`  |Sets the direction the darkbox will allow looping through the images |
 | enableCaption     | bool                              | `true`                |Sets if the caption should be displayed or not|
-| loadingAnimation  | [LoadingAnimation](#LoadingAnimation) | Loading animation shown while the full sized image is loading|
+| loadingAnimation  | [LoadingAnimation](#LoadingAnimation) | `LoadingAnimation.SPINNER` | Loading animation shown while the full sized image is loading|
 
 ##### `LoopDirection`
 | Name      | Description |
@@ -87,7 +87,7 @@ For an example of a more advanced Darkbox configuration have a look at [our exam
 | BAR       | Three vertical bars getting wider and smaller         |
 | FLEX_RING | A ring flexing in and out                             |
 | [SPINNER](https://youtu.be/3V8nl8v24cQ)   | A classical spinner animation turning infinitely      |
-| SQUARE    | A line of jumping squared moving in a wave like form  |
+| SQUARE    | A line of jumping squares moving in a wave like form  |
 
 #### `GridConfiguration`
 | Name                    | Type                      | Default  | Description |
