@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Added loading placeholders (#65, #80)
 * Added configuration examples (#4, #68)
+* Added a dark mode to the demo page (#106, #107)
 
 ### Changed
 
