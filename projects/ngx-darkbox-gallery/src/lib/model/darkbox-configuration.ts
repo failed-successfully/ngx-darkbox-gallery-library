@@ -20,7 +20,7 @@ export interface DarkboxConfiguration {
    * BAR: Three vertical bars getting wider and smaller
    * FLEX_RING: A ring flexing in and out
    * SPINNER: A classical spinner animation turning infinitely
-   * SQUARE: A line of jumping squared moving in a wave like form
+   * SQUARE: A line of jumping squares moving in a wave like form
    */
   loadingAnimation?: LoadingAnimation;
 }
