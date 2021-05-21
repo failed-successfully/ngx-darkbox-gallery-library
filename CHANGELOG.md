@@ -10,12 +10,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+* Fixed incorrect export
+
 ### Removed
 
 
 ## [0.4.1] - 2021-05-21
 
 ### Changed
+
 * Fixed missing exports in public api
 * Fixed semversion on peer dependencies
 
