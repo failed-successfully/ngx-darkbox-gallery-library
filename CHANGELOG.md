@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Fixed incorrect export
+* Changed demo page URL from `https://darkbox.failedsuccessfully.de` to `https://darkbox.click`
 
 ### Removed
 

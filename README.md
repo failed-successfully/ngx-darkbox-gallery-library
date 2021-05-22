@@ -10,7 +10,7 @@ Darkbox Gallery is a highly configurable lightbox themed gallery library for Ang
 There are many, many lightbox themed gallery libraries out there for Angular. Some of them are fairly useable, but most lack a good configuration and adaptability. Therefore the philosophy of Darkbox Gallery (Darkbox for short) is to provide good configuration options so you do not need to write extra logic to adapt Darkbox to your needs. While doing so every configuration has useful defaults so the entry barrier for using Darkbox is as low as possible. So come to the dark side of galleries; we don't keep 🍪🍪.
 
 ## What does it even look like?
-If you are not sure what you can expect from Darkbox please have a look at the current version of our [live demo](https://darkbox.failedsuccessfully.de/).
+If you are not sure what you can expect from Darkbox please have a look at the current version of our [live demo](https://darkbox.click/).
 
 ## How?
 ### Installation
