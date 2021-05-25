@@ -2,8 +2,12 @@
   "extends": [
     "config:base"
   ],
-  "labels": ["renovate 🧹", "dependency ⚙️"],
+  "labels": [
+    "renovate 🧹",
+    "dependency ⚙️"
+  ],
   "commitMessagePrefix": "[RENOVATE]",
   "pinDigests": true,
-  "separateMultipleMajor": false
+  "separateMultipleMajor": false,
+  "reviewersFromCodeOwners": true
 }
