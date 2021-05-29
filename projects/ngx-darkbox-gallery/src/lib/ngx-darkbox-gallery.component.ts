@@ -194,6 +194,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
    */
   private showMoreImages(): void {
     this.imageCount += this.effectiveConfiguration.gridConfiguration.batchSize;
+    this.batchThumbnailsLoaded = false;
     if (this.imageCount >= this.images.length) {
       this.allImagesInDom.emit(true);
       this.imageCount = this.images.length;
