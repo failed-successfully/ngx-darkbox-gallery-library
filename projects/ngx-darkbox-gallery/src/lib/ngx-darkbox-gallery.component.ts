@@ -151,16 +151,12 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
     const maxImageIndex = this.images.length - 1;
 
     if (targetIndex >= 0 && targetIndex <= maxImageIndex) {
-
       // If the currently viewed image is not the list of displayed images in the grid, the next batch is loaded
       if (targetIndex >= this.imageCount) {
-        this.imageCount += this.effectiveConfiguration.gridConfiguration.batchSize;
-        if (this.imageCount > this.images.length) {
-          this.imageCount = this.images.length;
-        }
+        this.showMoreImages();
       }
 
-      return this.currentImageIndex + addend;
+      return targetIndex;
     }
 
     if (loopDirection !== LoopDirection.NONE) {
@@ -176,6 +172,16 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
     }
 
     return this.currentImageIndex;
+  }
+
+  /**
+   * Increase the imageCount and thereby increase the number of displayed thumbnails/images
+   */
+  private showMoreImages(): void {
+    this.imageCount += this.effectiveConfiguration.gridConfiguration.batchSize;
+    if (this.imageCount > this.images.length) {
+      this.imageCount = this.images.length;
+    }
   }
 
   /**
