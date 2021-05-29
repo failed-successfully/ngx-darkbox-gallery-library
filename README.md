@@ -81,7 +81,7 @@ For an example of a more advanced Darkbox configuration have a look at [our exam
 
 ### Advanced configuration
 
-Please have a look at all available Darkbox configurations in our [complete configuration documentation](./docs/examples/advanced-configuration.md).
+Please have a look at all available Darkbox configurations in our [complete configuration documentation](./docs/advanced-configuration.md).
 
 ### Available events
 Almost everything that happens in Darkbox triggers an event. Therefore it is easy for you to know what happened when. It is your choice to react to the provides event (e.g. using it to provide statistics). Currently Darkbox exposes the following events:
