@@ -63,7 +63,29 @@ export class AppComponent {
 
 For an example of a more advanced Darkbox configuration have a look at [our examples](./docs/examples/advanced-configuration.md).
 
+### Darkbox inputs
+| Name                  | Type              | Required  | Description                         |
+|-----------------------|-------------------|-----------|-------------------------------------|
+| images                | [Image](#Image)[] | true      | List of images displayed in Darkbox |
+| configuration         | Configuration     | false     | see Advanced Configuration          |
+| loadMoreImagesEvents  | Observable<void>  | false     | Input to handle click events from the outside world |
+
+### Image
+| Name          | Type    | Required | Description                                                                   |
+|---------------|---------|----------|-------------------------------------------------------------------------------|
+| identifier    | string  | false    | An id to identify the image in events. This is not used by the library itself |
+| url           | string  | true     | URL of the full sized image                                                   |
+| thumbnailUrl  | string  | true     | URL of the thumbnail image                                                    |
+| caption       | string  | true     | A short caption that can be shown under the  image in darkbox                 |
+| altText       | string  | false    | The alternative text shown when the image can not be loaded                   |
+
 ### Advanced configuration
+
+The advanced configuration in Darkbox is done via a `Configuration` object which has the following properties:
+| Name                 | Type                                          | Required | Description |
+|----------------------|-----------------------------------------------|--------- |-------------|
+| darkboxConfiguration | [DarkboxConfiguration](#DarkboxConfiguration) | false    | Sets the look and features of the lighbox component of Darkbox|
+| gridConfiguration    | [GridConfiguration](#GridConfiguration)]      | false    | Sets the look and features of the thumbnail grid|
 
 #### `DarkboxConfiguration`
 | Name              | Type                              | Default               | Description |
