@@ -5,4 +5,6 @@
   </div>
   <app-dark-mode-switch></app-dark-mode-switch>
 </div>
-<darkbox-gallery [images]="images"></darkbox-gallery>
+<darkbox-gallery [images]="images" [clickEvents]="eventsSubject.asObservable()" (allImagesInDom)="allImagesInDom()">
+</darkbox-gallery>
+<button *ngIf="areMoreImagesAvailable" (click)="loadMoreImages()">Load more images</button>

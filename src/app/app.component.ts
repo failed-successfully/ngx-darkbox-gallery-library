@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Image } from 'dist/ngx-darkbox-gallery/lib/model/image';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,10 @@ import { Image } from 'dist/ngx-darkbox-gallery/lib/model/image';
 })
 export class AppComponent implements OnInit {
   images: Image[] = [];
+
+  eventsSubject: Subject<void> = new Subject<void>();
+
+  areMoreImagesAvailable: boolean = true;
 
   ngOnInit(): void {
     for (let i = 1; i <= 100; i++) {
@@ -18,5 +23,16 @@ export class AppComponent implements OnInit {
         altText: 'Random image number ' + i
       });
     }
+  }
+
+  /**
+   * Function triggered by the load more button
+   */
+  loadMoreImages() {
+    this.eventsSubject.next();
+  }
+
+  allImagesInDom() {
+    this.areMoreImagesAvailable = false;
   }
 }
