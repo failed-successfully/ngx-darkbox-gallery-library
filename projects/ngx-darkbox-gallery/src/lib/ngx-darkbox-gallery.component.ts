@@ -46,6 +46,13 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
   allThumbnailsLoaded = new EventEmitter<boolean>();
 
   /**
+   * Signals that all images provided from the input are displayed in the DOM
+   * This does not mean that all thumbnails/images are completely loaded
+   */
+  @Output()
+  allImagesInDom = new EventEmitter<boolean>();
+
+  /**
    * Signals that the lightbox/Darkbox was closed by the user
    */
   @Output()
@@ -179,7 +186,8 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
    */
   private showMoreImages(): void {
     this.imageCount += this.effectiveConfiguration.gridConfiguration.batchSize;
-    if (this.imageCount > this.images.length) {
+    if (this.imageCount >= this.images.length) {
+      this.allImagesInDom.emit(true);
       this.imageCount = this.images.length;
     }
   }
