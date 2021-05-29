@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fixed incorrect export
 * Changed demo page URL from `https://darkbox.failedsuccessfully.de` to `https://darkbox.click`
 * Fixed images overlapping on `GridType.FLUID` (#136, #137)
+* Moved configuration documentation to its own file so the `README` isn't to long
 
 ### Removed
 
