@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Fixed incorrect export
+* Moved configuration documentation to its own file so the `README` isn't to long
 
 ### Removed
 
