@@ -6,14 +6,14 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | darkboxConfiguration | [DarkboxConfiguration](#DarkboxConfiguration) | false    | Sets the look and features of the lighbox component of Darkbox|
 | gridConfiguration    | [GridConfiguration](#GridConfiguration)]      | false    | Sets the look and features of the thumbnail grid|
 
-#### `DarkboxConfiguration`
+## `DarkboxConfiguration`
 | Name              | Type                              | Default               | Description |
 |-------------------|-----------------------------------|-----------------------|-------------|
 | loopDirection     | [LoopDirection](#LoopDirection)   | `LoopDirection.BOTH`  |Sets the direction the darkbox will allow looping through the images |
 | enableCaption     | bool                              | `true`                |Sets if the caption should be displayed or not|
 | loadingAnimation  | [LoadingAnimation](#LoadingAnimation) | `LoadingAnimation.SPINNER` | Loading animation shown while the full sized image is loading|
 
-##### `LoopDirection`
+### `LoopDirection`
 | Name      | Description |
 |-----------|-------------|
 | FORWARD   | Only after the last image the first one will be displayed again |
@@ -21,7 +21,7 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | BOTH      | The first image will be displayed after the last one and vise versa|
 | NONE      | There is a fixed end in both directions                         |
 
-##### `LoadingAnimation`
+### `LoadingAnimation`
 | Name      | Description |
 |-----------|-------------|
 | DOT       | A line of jumping dots moving in a wave like form     |
@@ -30,7 +30,7 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | [SPINNER](https://youtu.be/3V8nl8v24cQ)   | A classical spinner animation turning infinitely      |
 | SQUARE    | A line of jumping squares moving in a wave like form  |
 
-#### `GridConfiguration`
+## `GridConfiguration`
 | Name                    | Type                      | Default  | Description |
 |-------------------------|---------------------------|----------|-------------|
 | initialBatchSize        | number                    | `10`     |  Number of images loaded initially on small and medium sized devices (smartphone / tablet). This is scaled by a factor according to the resolution of bigger displays|
@@ -43,13 +43,13 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | thumbnailWidth          | string \| null            | `175px`  | Size used to define the width of the thumbnails and loading placeholders. For gridType FLUID this applies only to the loading placeholders. This should be defined like you would in css including the unit (e.g. px, em, rem)|
 | enableLoadingPlaceholder| boolean                   | `true`  | Enables / Disables the shimmer placeholder while loading the thumbnail images|
 
-##### `ResolutionConfiguration`
+### `ResolutionConfiguration`
 | Name          | Type    | Description           |
 |---------------|---------|-----------------------|
 | pxWidth       | number  | The minimum screen width this configuration applies to, up to the next higher resolution configuration|
 | scalingFactor | number  | The batch size scaling factor to be applied in the given configuration range                          |
 
-##### Default `ResolutionConfiguration`
+### Default `ResolutionConfiguration`
 ```js
  [
     {
@@ -63,7 +63,7 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
   ]
 ```
 
-##### `GridType`
+### `GridType`
 | Name      | Description |
 |-----------|-------------|
 | STATIC    | A grid of images rendered in rows of dynamic length, preferrebly used for equal sized thumbnails (thumbnail size can be configured seperatly) |
