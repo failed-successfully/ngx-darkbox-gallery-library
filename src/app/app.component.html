@@ -7,4 +7,6 @@
 </div>
 <darkbox-gallery [images]="images" [clickEvents]="eventsSubject.asObservable()" (allImagesInDom)="allImagesInDom()">
 </darkbox-gallery>
-<button *ngIf="areMoreImagesAvailable" (click)="loadMoreImages()">Load more images</button>
+<div class="button-container">
+  <button *ngIf="areMoreImagesAvailable" (click)="loadMoreImages()">Load more images</button>
+</div>
