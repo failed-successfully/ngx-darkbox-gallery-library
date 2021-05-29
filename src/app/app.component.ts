@@ -15,10 +15,21 @@ export class AppComponent implements OnInit {
   areMoreImagesAvailable: boolean = true;
 
   ngOnInit(): void {
+    const shortSide = 2000;
+    const longSide = 3000;
+    // Populate the demo page with sample images
     for (let i = 1; i <= 100; i++) {
+      let firstSide = longSide;
+      let secondSide = shortSide;
+      // Set every second image to portrait mode
+      if (i % 2 === 0) {
+        firstSide = shortSide;
+        secondSide = shortSide;
+      }
+
       this.images.push({
-        url: 'https://picsum.photos/seed/' + i + '/3000/2000',
-        thumbnailUrl: 'https://picsum.photos/seed/' + i + '/300/200',
+        url: 'https://picsum.photos/seed/' + i + '/' + firstSide + '/' + secondSide,
+        thumbnailUrl: 'https://picsum.photos/seed/' + i + '/' + firstSide / 10 + '/' + secondSide / 10,
         caption: 'Image number ' + i + ' from https://picsum.photos/',
         altText: 'Random image number ' + i
       });

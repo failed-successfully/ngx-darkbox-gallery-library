@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* Added portrait sample imaged to demo page
 * Added event which fires when all images are in the DOM (#127, #128)
 * Added load more button images to the demo (#127, #128)
 
