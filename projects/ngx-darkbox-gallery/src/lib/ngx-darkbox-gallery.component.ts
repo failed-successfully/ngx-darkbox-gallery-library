@@ -4,13 +4,14 @@ import { Configuration } from './model/configuration';
 import { LoopDirection } from './model/darkbox-configuration';
 import { GridType } from './model/grid-configuration';
 import { Image } from './model/image';
+import { ConfigurationService } from './services/configuration.service';
 
 @Component({
   selector: 'darkbox-gallery',
   templateUrl: './ngx-darkbox-gallery.component.html',
   styleUrls: ['./ngx-darkbox-gallery.component.scss']
 })
-export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
+export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input()
   images: Image[] = [];
@@ -20,7 +21,6 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
 
   @Input()
   configuration: Configuration;
-  private defaultConfiguration: Configuration;
   effectiveConfiguration: Configuration;
 
   batchThumbnailsLoaded = false;
@@ -70,10 +70,11 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   @Output()
   darkboxImageLoaded = new EventEmitter<Image>();
 
-  constructor() { }
+  constructor(private configurationService: ConfigurationService) { }
 
   ngOnInit(): void {
     this.initializeConfiguration(this.configuration);
+    this.eventsSubscription = this.clickEvents.subscribe(() => this.showMoreImages());
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -82,20 +83,11 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
     }
   }
 
-  private initializeConfiguration(customConfiguration: Configuration): void {
-    if (!this.defaultConfiguration) {
-      this.defaultConfiguration = new DefaultConfiguration();
+  ngOnDestroy(): void {
     }
 
-    const effectiveImageConfig = { ...this.defaultConfiguration.imageConfiguration, ...customConfiguration?.imageConfiguration };
-    const effectiveGridConfig = { ...this.defaultConfiguration.gridConfiguration, ...customConfiguration?.gridConfiguration };
-    const effectiveDarkboxConfig = { ...this.defaultConfiguration.darkboxConfiguration, ...customConfiguration?.darkboxConfiguration };
-    this.effectiveConfiguration = {
-      imageConfiguration: effectiveImageConfig,
-      gridConfiguration: effectiveGridConfig,
-      darkboxConfiguration: effectiveDarkboxConfig
-    } as Configuration;
-
+  private initializeConfiguration(customConfiguration: Configuration): void {
+    this.effectiveConfiguration = this.configurationService.getEffectiveConfiguration(customConfiguration);
     this.scaleInitialBatchSize();
     this.imageCount = this.effectiveConfiguration.gridConfiguration.initialBatchSize;
   }
