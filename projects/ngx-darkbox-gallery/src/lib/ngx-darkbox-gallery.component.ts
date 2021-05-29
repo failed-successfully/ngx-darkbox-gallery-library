@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { DefaultConfiguration } from './config/configuration.default';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { Configuration } from './model/configuration';
 import { LoopDirection } from './model/darkbox-configuration';
 import { GridType } from './model/grid-configuration';
@@ -22,6 +22,13 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
   @Input()
   configuration: Configuration;
   effectiveConfiguration: Configuration;
+
+  /**
+   * Input to handle click events from the outside world
+   */
+  private eventsSubscription: Subscription;
+  @Input()
+  clickEvents: Observable<void>;
 
   batchThumbnailsLoaded = false;
 
@@ -91,7 +98,8 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
   }
 
   ngOnDestroy(): void {
-    }
+    this.eventsSubscription.unsubscribe();
+  }
 
   private initializeConfiguration(customConfiguration: Configuration): void {
     this.effectiveConfiguration = this.configurationService.getEffectiveConfiguration(customConfiguration);
