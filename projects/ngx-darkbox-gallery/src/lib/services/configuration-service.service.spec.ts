@@ -23,9 +23,9 @@ describe('ConfigurationServiceService', () => {
     expect(actualConfiguration).toBeDefined()
     // The spread operator and the sub-object must be used because jasmine does not support equals with interfaces
     // see also https://github.com/jasmine/jasmine/issues/598
-    expect({ ...actualConfiguration.imageConfiguration }).toEqual({ ...defaultConfiguration.imageConfiguration });
-    expect({ ...actualConfiguration.darkboxConfiguration }).toEqual({ ...defaultConfiguration.darkboxConfiguration });
-    expect({ ...actualConfiguration.gridConfiguration }).toEqual({ ...defaultConfiguration.gridConfiguration });
+    expect(actualConfiguration.imageConfiguration).toEqual({ ...defaultConfiguration.imageConfiguration });
+    expect(actualConfiguration.darkboxConfiguration).toEqual({ ...defaultConfiguration.darkboxConfiguration });
+    expect(actualConfiguration.gridConfiguration).toEqual({ ...defaultConfiguration.gridConfiguration });
   })
 
   it('should return the default configuration on empty input', () => {
@@ -35,8 +35,8 @@ describe('ConfigurationServiceService', () => {
     expect(actualConfiguration).toBeDefined()
     // The spread operator and the sub-object must be used because jasmine does not support equals with interfaces
     // see also https://github.com/jasmine/jasmine/issues/598
-    expect({ ...actualConfiguration.imageConfiguration }).toEqual({ ...defaultConfiguration.imageConfiguration });
-    expect({ ...actualConfiguration.darkboxConfiguration }).toEqual({ ...defaultConfiguration.darkboxConfiguration });
-    expect({ ...actualConfiguration.gridConfiguration }).toEqual({ ...defaultConfiguration.gridConfiguration });
+    expect(actualConfiguration.imageConfiguration).toEqual({ ...defaultConfiguration.imageConfiguration });
+    expect(actualConfiguration.darkboxConfiguration).toEqual({ ...defaultConfiguration.darkboxConfiguration });
+    expect(actualConfiguration.gridConfiguration).toEqual({ ...defaultConfiguration.gridConfiguration });
   })
 });
