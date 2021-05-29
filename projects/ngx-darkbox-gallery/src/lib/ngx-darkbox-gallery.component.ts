@@ -28,7 +28,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
    */
   private eventsSubscription: Subscription;
   @Input()
-  clickEvents: Observable<void>;
+  loadMoreImagesEvents: Observable<void>;
 
   batchThumbnailsLoaded = false;
 
@@ -88,8 +88,8 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
 
   ngOnInit(): void {
     this.initializeConfiguration(this.configuration);
-    if (this.clickEvents) {
-      this.eventsSubscription = this.clickEvents.subscribe(() => this.showMoreImages());
+    if (this.loadMoreImagesEvents) {
+      this.eventsSubscription = this.loadMoreImagesEvents.subscribe(() => this.showMoreImages());
     }
   }
 
