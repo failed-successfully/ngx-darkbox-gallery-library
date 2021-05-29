@@ -4,11 +4,11 @@ export class Image {
    */
   public identifier?: string;
   /**
-   * URL of the fullsize image
+   * URL of the full sized image
    */
   public url: string;
   /**
-   * URL of the thumbnail size image
+   * URL of the thumbnail image
    */
   public thumbnailUrl: string;
   /**

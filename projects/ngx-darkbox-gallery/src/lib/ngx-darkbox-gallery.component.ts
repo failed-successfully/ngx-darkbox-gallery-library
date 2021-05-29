@@ -14,6 +14,9 @@ import { ConfigurationService } from './services/configuration.service';
 export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input()
+  /**
+   * List of images displayed in Darkbox
+   */
   images: Image[] = [];
   imageCount: number;
   currentImageIndex: number;
@@ -23,10 +26,10 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
   configuration: Configuration;
   effectiveConfiguration: Configuration;
 
+  private eventsSubscription: Subscription;
   /**
    * Input to handle click events from the outside world
    */
-  private eventsSubscription: Subscription;
   @Input()
   loadMoreImagesEvents: Observable<void>;
 
