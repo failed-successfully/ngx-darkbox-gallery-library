@@ -23,7 +23,9 @@ jobs:
       - run: npm run build ngx-darkbox-gallery --if-present
       - run: cp *.md dist/ngx-darkbox-gallery/
       - run: cp LICENSE dist/ngx-darkbox-gallery/
-      # - run: npm test
+      - name: Test
+        run: |
+          npm test -- ngx-darkbox-gallery --include='**/services/*spec.ts' --no-watch --no-progress --browsers=ChromeHeadlessCI
       # Upload the build artifacts to GitHub
       - uses: actions/upload-artifact@v2
         with:
