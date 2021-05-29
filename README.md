@@ -136,6 +136,7 @@ Almost everything that happens in Darkbox triggers an event. Therefore it is eas
 | imageClicked        | Image   | Signals that a single image was clicked. The clicked images is being emitted      |
 | thumbnailLoaded     | Image   | Signals that a single thumbnail was loaded. The image containing the thumbnail is being emitted|
 | allThumbnailsLoaded | boolean | Signals that all thumbnails currently displayed have bean loaded                  |
+| allImagesInDom      | boolean | Signals that all images provided from the input are displayed in the DOM. This does not mean that all thumbnails/images are completely loaded|
 | darkboxClosed       | boolean | Signals that the lightbox/Darkbox was closed by the user                          |
 | darkboxNext         | boolean | Signals that the user clicked the next image button                               |
 | darkboxPrev         | boolean | Signals that the user clicked the previous image button                           |
