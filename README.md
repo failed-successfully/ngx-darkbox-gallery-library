@@ -61,7 +61,7 @@ export class AppComponent {
 }
 ```
 
-For an example of a more advanced Darkbox configuration have a look at [our examples](./docs/examples/advanced-configuration.md).
+For an example of a more advanced Darkbox configuration have a look at [our examples](./docs/examples/advanced-configuration-example.md).
 
 ### Darkbox inputs
 | Name                  | Type              | Required  | Description                         |
