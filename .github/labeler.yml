@@ -1,0 +1,10 @@
+CI/CD: .github/workflows/*
+demo: src/*
+test: projects/ngx-darkbox-gallery/**/*.spec.ts
+documentation:
+  - docs/*
+  - README.md
+  - CHANGELOG.md
+lib:
+  - projects/ngx-darkbox-gallery/*
+  - projects/ngx-darkbox-gallery/**/*
