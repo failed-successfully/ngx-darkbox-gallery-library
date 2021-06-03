@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Added portrait sample imaged to demo page
+* Added portrait sample imaged to demo page (#118)
+* Added automatic labeling of PRs on GitHub (#134) 
 
 ### Changed
 
