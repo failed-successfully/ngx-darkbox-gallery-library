@@ -18,8 +18,7 @@ export class AppComponent implements OnInit {
       let secondSide = shortSide;
       // Set every second image to portrait mode
       if (i % 2 === 0) {
-        firstSide = shortSide;
-        secondSide = shortSide;
+        secondSide *= 2;
       }
 
       this.images.push({
