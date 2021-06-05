@@ -262,22 +262,24 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
   }
 
   /**
+   * @param isPlaceholder whether the size is calculated for a placeholder or not
    * @returns the thumbnail height from the configuration
    */
-  public getThumbnailHeight(): string | null {
+  public getThumbnailHeight(isPlaceholder: boolean = false): string | null {
     // Check for the fluid style
-    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID) {
+    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID && !isPlaceholder) {
       return null;
     }
     return this.effectiveConfiguration.gridConfiguration.thumbnailHeight;
   }
 
   /**
+   * @param isPlaceholder whether the size is calculated for a placeholder or not
    * @returns the thumbnail width from the configuration
    */
-  public getThumbnailWidth(): string | null {
+  public getThumbnailWidth(isPlaceholder: boolean = false): string | null {
     // Check for the fluid style
-    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID) {
+    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID && !isPlaceholder) {
       return null;
     }
     return this.effectiveConfiguration.gridConfiguration.thumbnailWidth;
