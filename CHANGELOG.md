@@ -43,8 +43,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Updated demo page to angular 12 (#103)
 
-### Removed
-
 
 ## [0.3.0] - 2021-04-25
 
@@ -64,8 +62,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Added static grid layout (#11, #78)
 * Added fluid grid layout (#12, #79)
-
-### Changed
 
 ### Removed
 
