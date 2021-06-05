@@ -237,7 +237,6 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
     if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID) {
       return null;
     }
-
     return this.effectiveConfiguration.gridConfiguration.thumbnailHeight;
   }
 
