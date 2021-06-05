@@ -76,7 +76,7 @@ For an example of a more advanced Darkbox configuration have a look at [our exam
 | identifier    | string  | false    | An id to identify the image in events. This is not used by the library itself |
 | url           | string  | true     | URL of the full sized image                                                   |
 | thumbnailUrl  | string  | true     | URL of the thumbnail image                                                    |
-| caption       | string  | true     | A short caption that can be shown under the  image in darkbox                 |
+| caption       | string  | true     | A short caption that can be shown under the image in darkbox                 |
 | altText       | string  | false    | The alternative text shown when the image can not be loaded                   |
 
 ### Advanced configuration
