@@ -91,14 +91,15 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
 
   ngOnInit(): void {
     this.initializeConfiguration(this.configuration);
-    if (this.loadMoreImagesEvents) {
-      this.eventsSubscription = this.loadMoreImagesEvents.subscribe(() => this.showMoreImages());
-    }
+    this.subscribeToOutsideClickEvents();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.configuration) {
       this.initializeConfiguration(this.configuration);
+    }
+    if (changes.loadMoreImagesEvents) {
+      this.subscribeToOutsideClickEvents();
     }
   }
 
@@ -112,6 +113,15 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
     this.effectiveConfiguration = this.configurationService.getEffectiveConfiguration(customConfiguration);
     this.scaleInitialBatchSize();
     this.imageCount = this.effectiveConfiguration.gridConfiguration.initialBatchSize;
+  }
+
+  private subscribeToOutsideClickEvents(): void {
+    if (this.eventsSubscription) {
+      this.eventsSubscription.unsubscribe();
+    }
+    if (this.loadMoreImagesEvents) {
+      this.eventsSubscription = this.loadMoreImagesEvents.subscribe(() => this.showMoreImages());
+    }
   }
 
   onImageClicked(image: Image): void {
