@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const shortSide = 2000;
-    const longSide = 3000;
+    const longSide = 3750;
     // Populate the demo page with sample images
     for (let i = 1; i <= 100; i++) {
       let firstSide = longSide;
