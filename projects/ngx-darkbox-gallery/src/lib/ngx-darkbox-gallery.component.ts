@@ -233,6 +233,11 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
    * @returns the thumbnail height from the configuration
    */
   public getThumbnailHeight(): string | null {
+    // Check for the fluid style
+    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID) {
+      return null;
+    }
+
     return this.effectiveConfiguration.gridConfiguration.thumbnailHeight;
   }
 
@@ -240,6 +245,10 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
    * @returns the thumbnail width from the configuration
    */
   public getThumbnailWidth(): string | null {
+    // Check for the fluid style
+    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID) {
+      return null;
+    }
     return this.effectiveConfiguration.gridConfiguration.thumbnailWidth;
   }
 
