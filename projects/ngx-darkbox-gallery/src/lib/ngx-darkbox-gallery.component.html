@@ -8,11 +8,10 @@
 
     <!-- Loading placeholder in the configured size -->
     <loading-placeholder *ngIf="isLoadingPlaceholderEnabled() && !batchThumbnailsLoaded"
-      [placeholderHeight]="getThumbnailHeight()" [placeholderWidth]="getThumbnailWidth()">
+      [placeholderHeight]="getThumbnailHeight(true)" [placeholderWidth]="getThumbnailWidth(true)">
     </loading-placeholder>
   </div>
 </div>
-
 
 <darkbox *ngIf="currentImageIndex != null" [image]="images[currentImageIndex]"
   [darkboxConfiguration]="effectiveConfiguration.darkboxConfiguration" [currentNumber]="currentImageIndex + 1"

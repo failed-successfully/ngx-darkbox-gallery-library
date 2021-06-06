@@ -1,18 +1,23 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { DefaultConfiguration } from './config/configuration.default';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { Configuration } from './model/configuration';
 import { LoopDirection } from './model/darkbox-configuration';
 import { GridType } from './model/grid-configuration';
 import { Image } from './model/image';
+import { ConfigurationService } from './services/configuration.service';
+import { ImageIndexService } from './services/image-index.service';
 
 @Component({
   selector: 'darkbox-gallery',
   templateUrl: './ngx-darkbox-gallery.component.html',
   styleUrls: ['./ngx-darkbox-gallery.component.scss']
 })
-export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
+export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input()
+  /**
+   * List of images displayed in Darkbox
+   */
   images: Image[] = [];
   imageCount: number;
   currentImageIndex: number;
@@ -20,8 +25,14 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
 
   @Input()
   configuration: Configuration;
-  private defaultConfiguration: Configuration;
   effectiveConfiguration: Configuration;
+
+  private eventsSubscription: Subscription;
+  /**
+   * Input to handle click events from the outside world
+   */
+  @Input()
+  loadMoreImagesEvents: Observable<void>;
 
   batchThumbnailsLoaded = false;
 
@@ -44,6 +55,13 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
    */
   @Output()
   allThumbnailsLoaded = new EventEmitter<boolean>();
+
+  /**
+   * Signals that all images provided from the input are displayed in the DOM
+   * This does not mean that all thumbnails/images are completely loaded
+   */
+  @Output()
+  allImagesInDom = new EventEmitter<boolean>();
 
   /**
    * Signals that the lightbox/Darkbox was closed by the user
@@ -70,34 +88,42 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   @Output()
   darkboxImageLoaded = new EventEmitter<Image>();
 
-  constructor() { }
+  constructor(private configurationService: ConfigurationService,
+    private imageIndexService: ImageIndexService) { }
 
   ngOnInit(): void {
     this.initializeConfiguration(this.configuration);
+    this.subscribeToOutsideClickEvents();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.configuration) {
       this.initializeConfiguration(this.configuration);
     }
+    if (changes.loadMoreImagesEvents) {
+      this.subscribeToOutsideClickEvents();
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.eventsSubscription) {
+      this.eventsSubscription.unsubscribe();
+    }
   }
 
   private initializeConfiguration(customConfiguration: Configuration): void {
-    if (!this.defaultConfiguration) {
-      this.defaultConfiguration = new DefaultConfiguration();
-    }
-
-    const effectiveImageConfig = { ...this.defaultConfiguration.imageConfiguration, ...customConfiguration?.imageConfiguration };
-    const effectiveGridConfig = { ...this.defaultConfiguration.gridConfiguration, ...customConfiguration?.gridConfiguration };
-    const effectiveDarkboxConfig = { ...this.defaultConfiguration.darkboxConfiguration, ...customConfiguration?.darkboxConfiguration };
-    this.effectiveConfiguration = {
-      imageConfiguration: effectiveImageConfig,
-      gridConfiguration: effectiveGridConfig,
-      darkboxConfiguration: effectiveDarkboxConfig
-    } as Configuration;
-
+    this.effectiveConfiguration = this.configurationService.getEffectiveConfiguration(customConfiguration);
     this.scaleInitialBatchSize();
     this.imageCount = this.effectiveConfiguration.gridConfiguration.initialBatchSize;
+  }
+
+  private subscribeToOutsideClickEvents(): void {
+    if (this.eventsSubscription) {
+      this.eventsSubscription.unsubscribe();
+    }
+    if (this.loadMoreImagesEvents) {
+      this.eventsSubscription = this.loadMoreImagesEvents.subscribe(() => this.showMoreImages());
+    }
   }
 
   onImageClicked(image: Image): void {
@@ -153,37 +179,36 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
    * @return the new index
    */
   private calculateValidImageIndex(increase: boolean): number {
-    const loopDirection = this.effectiveConfiguration.darkboxConfiguration.loopDirection;
-    const addend = increase ? 1 : -1;
-    const targetIndex = this.currentImageIndex + addend;
-    const maxImageIndex = this.images.length - 1;
+    const newImageIndex = this.imageIndexService.calculateValidImageIndex(this.effectiveConfiguration, this.currentImageIndex, this.images.length, increase);
+    const rollOverRequired = newImageIndex === this.images.length -1 && this.imageCount < this.images.length;
 
-    if (targetIndex >= 0 && targetIndex <= maxImageIndex) {
-
-      // If the currently viewed image is not the list of displayed images in the grid, the next batch is loaded
-      if (targetIndex >= this.imageCount) {
-        this.imageCount += this.effectiveConfiguration.gridConfiguration.batchSize;
-        if (this.imageCount > this.images.length) {
-          this.imageCount = this.images.length;
-        }
-      }
-
-      return this.currentImageIndex + addend;
+    // Roll over to the last image when the image before the first one is requested
+    if (rollOverRequired) {
+      this.showMoreImages(true);
     }
 
-    if (loopDirection !== LoopDirection.NONE) {
-      if (targetIndex > maxImageIndex && (loopDirection === LoopDirection.FORWARD || loopDirection === LoopDirection.BOTH)) {
-        return 0;
-      }
+    if (newImageIndex >= this.imageCount && !rollOverRequired) {
+      this.showMoreImages();
+    }
+    return newImageIndex;
+  }
 
-      if (targetIndex < 0 && (loopDirection === LoopDirection.BACKWARD || loopDirection === LoopDirection.BOTH)) {
-        // If we rollover to the back, make sure all images are displayed in the grid
-        this.imageCount = this.images.length;
-        return maxImageIndex;
-      }
+  /**
+   * Increase the imageCount and thereby increase the number of displayed thumbnails/images
+   * @param showAllImages If true all thumbnails/images are displayed
+   */
+  private showMoreImages(showAllImages: boolean = false): void {
+    this.imageCount += this.effectiveConfiguration.gridConfiguration.batchSize;
+
+    if (showAllImages) {
+      this.imageCount = this.images.length;
     }
 
-    return this.currentImageIndex;
+    this.batchThumbnailsLoaded = false;
+    if (this.imageCount >= this.images.length) {
+      this.allImagesInDom.emit(true);
+      this.imageCount = this.images.length;
+    }
   }
 
   /**
@@ -230,22 +255,24 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges {
   }
 
   /**
+   * @param isPlaceholder whether the size is calculated for a placeholder or not
    * @returns the thumbnail height from the configuration
    */
-  public getThumbnailHeight(): string | null {
+  public getThumbnailHeight(isPlaceholder: boolean = false): string | null {
     // Check for the fluid style
-    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID) {
+    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID && !isPlaceholder) {
       return null;
     }
     return this.effectiveConfiguration.gridConfiguration.thumbnailHeight;
   }
 
   /**
+   * @param isPlaceholder whether the size is calculated for a placeholder or not
    * @returns the thumbnail width from the configuration
    */
-  public getThumbnailWidth(): string | null {
+  public getThumbnailWidth(isPlaceholder: boolean = false): string | null {
     // Check for the fluid style
-    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID) {
+    if (this.effectiveConfiguration.gridConfiguration.gridType === GridType.FLUID && !isPlaceholder) {
       return null;
     }
     return this.effectiveConfiguration.gridConfiguration.thumbnailWidth;

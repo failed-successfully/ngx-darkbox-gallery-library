@@ -8,14 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Added portrait sample imaged to demo page (#118)
+* Added portrait sample images to demo page (#118)
 * Added automatic labeling of PRs on GitHub (#134) 
+* Added event which fires when all images are in the DOM (#127, #128)
+* Added load more button images to the demo (#127, #128)
 
 ### Changed
 
 * Fixed incorrect export
 * Changed demo page URL from `https://darkbox.failedsuccessfully.de` to `https://darkbox.click`
 * Fixed images overlapping on `GridType.FLUID` (#136, #137)
+* Moved configuration documentation to its own file so the `README` isn't to long
 
 ### Removed
 
@@ -41,8 +44,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Updated demo page to angular 12 (#103)
 
-### Removed
-
 
 ## [0.3.0] - 2021-04-25
 
@@ -62,8 +63,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Added static grid layout (#11, #78)
 * Added fluid grid layout (#12, #79)
-
-### Changed
 
 ### Removed
 

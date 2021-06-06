@@ -1,25 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+$light-theme-background: #fff;
+$light-theme-text-color: #000;
+$dark-theme-background: #1c1c1c;
+$dark-theme-text-color: #eee;
+$dark-theme-highlight-color: #809fff;
+
 body {
-  background: #fff;
+  background: $light-theme-background;
   font: 100% system-ui;
 }
 
 h1,
 p {
-  color: black;
+  color: $light-theme-text-color;
 }
 
 body.dark-theme {
-  background: #1c1c1c;
+  background: $dark-theme-background;
 
   h1,
   p {
-    color: #eee;
+    color: $dark-theme-text-color;
   }
   a {
-    color: #809fff;
+    color: $dark-theme-highlight-color;
   }
   svg {
-    fill: #eee;
+    fill: $dark-theme-text-color;
+  }
+  button {
+    background-color: $dark-theme-background;
+    color: $dark-theme-highlight-color;
   }
 }
