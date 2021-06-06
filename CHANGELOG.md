@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+### Removed
+
+
+## [0.5.0] - 2021-06-06
+
+### Added
+
 * Added portrait sample images to demo page (#118)
 * Added automatic labeling of PRs on GitHub (#134) 
 * Added event which fires when all images are in the DOM (#127, #128)
@@ -19,8 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Changed demo page URL from `https://darkbox.failedsuccessfully.de` to `https://darkbox.click`
 * Fixed images overlapping on `GridType.FLUID` (#136, #137)
 * Moved configuration documentation to its own file so the `README` isn't to long
-
-### Removed
 
 
 ## [0.4.1] - 2021-05-21
