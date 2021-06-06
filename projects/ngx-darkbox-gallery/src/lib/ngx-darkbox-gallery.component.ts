@@ -92,6 +92,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
     private imageIndexService: ImageIndexService) { }
 
   ngOnInit(): void {
+    this.batchThumbnailsLoaded = false;
     this.initializeConfiguration(this.configuration);
     this.subscribeToOutsideClickEvents();
   }
@@ -180,7 +181,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
    */
   private calculateValidImageIndex(increase: boolean): number {
     const newImageIndex = this.imageIndexService.calculateValidImageIndex(this.effectiveConfiguration, this.currentImageIndex, this.images.length, increase);
-    const rollOverRequired = newImageIndex === this.images.length -1 && this.imageCount < this.images.length;
+    const rollOverRequired = newImageIndex === this.images.length - 1 && this.imageCount < this.images.length;
 
     // Roll over to the last image when the image before the first one is requested
     if (rollOverRequired) {
