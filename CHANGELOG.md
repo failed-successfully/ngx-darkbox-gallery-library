@@ -8,7 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Added portrait sample imaged to demo page (#118)
+* Added portrait sample images to demo page (#118)
+* Added event which fires when all images are in the DOM (#127, #128)
+* Added load more images button to the demo (#127, #128)
 * Added automatic labeling of PRs on GitHub (#134) 
 * Added event which fires when all images are in the DOM (#127, #128)
 * Added load more button images to the demo (#127, #128)
