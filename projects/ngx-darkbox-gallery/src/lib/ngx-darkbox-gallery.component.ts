@@ -5,6 +5,7 @@ import { LoopDirection } from './model/darkbox-configuration';
 import { GridType } from './model/grid-configuration';
 import { Image } from './model/image';
 import { ConfigurationService } from './services/configuration.service';
+import { ImageIndexService } from './services/image-index.service';
 
 @Component({
   selector: 'darkbox-gallery',
@@ -87,7 +88,8 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
   @Output()
   darkboxImageLoaded = new EventEmitter<Image>();
 
-  constructor(private configurationService: ConfigurationService) { }
+  constructor(private configurationService: ConfigurationService,
+    private imageIndexService: ImageIndexService) { }
 
   ngOnInit(): void {
     this.initializeConfiguration(this.configuration);
@@ -177,40 +179,31 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
    * @return the new index
    */
   private calculateValidImageIndex(increase: boolean): number {
-    const loopDirection = this.effectiveConfiguration.darkboxConfiguration.loopDirection;
-    const addend = increase ? 1 : -1;
-    const targetIndex = this.currentImageIndex + addend;
-    const maxImageIndex = this.images.length - 1;
+    const newImageIndex = this.imageIndexService.calculateValidImageIndex(this.effectiveConfiguration, this.currentImageIndex, this.images.length, increase);
+    const rollOverRequired = newImageIndex >= this.images.length - 1;
 
-    if (targetIndex >= 0 && targetIndex <= maxImageIndex) {
-      // If the currently viewed image is not the list of displayed images in the grid, the next batch is loaded
-      if (targetIndex >= this.imageCount) {
-        this.showMoreImages();
-      }
-
-      return targetIndex;
+    // Roll over to the last image when the image before the first one is requested
+    if (rollOverRequired) {
+      this.showMoreImages(true);
     }
 
-    if (loopDirection !== LoopDirection.NONE) {
-      if (targetIndex > maxImageIndex && (loopDirection === LoopDirection.FORWARD || loopDirection === LoopDirection.BOTH)) {
-        return 0;
-      }
-
-      if (targetIndex < 0 && (loopDirection === LoopDirection.BACKWARD || loopDirection === LoopDirection.BOTH)) {
-        // If we rollover to the back, make sure all images are displayed in the grid
-        this.imageCount = this.images.length;
-        return maxImageIndex;
-      }
+    if (newImageIndex >= this.imageCount && !rollOverRequired) {
+      this.showMoreImages();
     }
-
-    return this.currentImageIndex;
+    return newImageIndex;
   }
 
   /**
    * Increase the imageCount and thereby increase the number of displayed thumbnails/images
+   * @param showAllImages If true all thumbnails/images are displayed
    */
-  private showMoreImages(): void {
+  private showMoreImages(showAllImages: boolean = false): void {
     this.imageCount += this.effectiveConfiguration.gridConfiguration.batchSize;
+
+    if (showAllImages) {
+      this.imageCount = this.images.length;
+    }
+
     this.batchThumbnailsLoaded = false;
     if (this.imageCount >= this.images.length) {
       this.allImagesInDom.emit(true);
