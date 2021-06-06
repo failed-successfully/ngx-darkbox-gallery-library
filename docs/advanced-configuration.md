@@ -4,7 +4,7 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | Name                 | Type                                          | Required | Description |
 |----------------------|-----------------------------------------------|--------- |-------------|
 | darkboxConfiguration | [DarkboxConfiguration](#DarkboxConfiguration) | false    | Sets the look and features of the lighbox component of Darkbox|
-| gridConfiguration    | [GridConfiguration](#GridConfiguration)]      | false    | Sets the look and features of the thumbnail grid|
+| gridConfiguration    | [GridConfiguration](#GridConfiguration)       | false    | Sets the look and features of the thumbnail grid|
 
 ## `DarkboxConfiguration`
 | Name              | Type                              | Default               | Description |
