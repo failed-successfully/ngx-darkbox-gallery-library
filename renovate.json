@@ -9,5 +9,11 @@
   "commitMessagePrefix": "[RENOVATE]",
   "pinDigests": true,
   "separateMultipleMajor": false,
-  "reviewersFromCodeOwners": true
+  "reviewersFromCodeOwners": true,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
 }
