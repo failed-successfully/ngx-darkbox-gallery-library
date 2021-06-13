@@ -31,17 +31,18 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | SQUARE    | A line of jumping squares moving in a wave like form  |
 
 ## `GridConfiguration`
-| Name                    | Type                      | Default  | Description |
-|-------------------------|---------------------------|----------|-------------|
-| initialBatchSize        | number                    | `10`     |  Number of images loaded initially on small and medium sized devices (smartphone / tablet). This is scaled by a factor according to the resolution of bigger displays|
-| batchSize               | number                    | `15`     | The number of images loaded in each load more images call|
+| Name                    | Type                      | Default | Description |
+|-------------------------|---------------------------|---------|-------------|
+| initialBatchSize        | number                    | `10`    |  Number of images loaded initially on small and medium sized devices (smartphone / tablet). This is scaled by a factor according to the resolution of bigger displays|
+| batchSize               | number                    | `15`    | The number of images loaded in each load more images call|
 | batchSizeScalingFactors | ResolutionConfiguration[] | [see here](#Default-ResolutionConfiguration) | A list of scaling factors to be used to scale the initial batch size by screen width|
 | gridType                | GridType                  | `GridType.STATIC` | Sets the type of the image grid|
 | thumbnailAlignment      | string \| null            | `flex-start` | Allows for configuration of the flex property justifiy-content. All option of the css property justifiy-cotnent are allowed|
-| zoomImages              | boolean                   | `true`   | Enables / Disables zooming effect for thumbnail hovering|
-| thumbnailHeight         | string \| null            | `175px`  | Size used to define the height of the thumbnails and loading placeholders. For gridType FLUID this applies only to the loading placeholders. This should be defined like you would in css including the unit (e.g. px, em, rem)|
-| thumbnailWidth          | string \| null            | `175px`  | Size used to define the width of the thumbnails and loading placeholders. For gridType FLUID this applies only to the loading placeholders. This should be defined like you would in css including the unit (e.g. px, em, rem)|
+| zoomImages              | boolean                   | `true`  | Enables / Disables zooming effect for thumbnail hovering|
+| thumbnailHeight         | string \| null            | `175px` | Size used to define the height of the thumbnails and loading placeholders. For gridType FLUID this applies only to the loading placeholders. This should be defined like you would in css including the unit (e.g. px, em, rem)|
+| thumbnailWidth          | string \| null            | `175px` | Size used to define the width of the thumbnails and loading placeholders. For gridType FLUID this applies only to the loading placeholders. This should be defined like you would in css including the unit (e.g. px, em, rem)|
 | enableLoadingPlaceholder| boolean                   | `true`  | Enables / Disables the shimmer placeholder while loading the thumbnail images|
+| thumbnailsWaitForBatch  | boolean                   | `true`  | Configures the behavior of the loading placeholders for thumbnail images. If true, the thumbnails of a batch are shown, when all thumbnails of the batch are loaded. If false, the thumbnail for each image is shown as soon as it gets available. This only takes effect if loading placeholders are enabled.|
 
 ### `ResolutionConfiguration`
 | Name          | Type    | Description           |

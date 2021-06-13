@@ -54,6 +54,15 @@ export interface GridConfiguration {
    * Enables / Disables the shimmer placeholder while loading the thumbnail images
    */
   enableLoadingPlaceholder?: boolean;
+
+  /**
+   * Configures the behavior of the loading placeholders for thumbnail images.
+   * If true, the thumbnails of a batch are shown, when all thumbnails of the batch are loaded.
+   * If false, the thumbnail for each image is shown as soon as it gets available.
+   *
+   * This only takes effect if loading placeholders are enabled.
+   */
+  thumbnailsWaitForBatch?: boolean;
 }
 
 export enum GridType {

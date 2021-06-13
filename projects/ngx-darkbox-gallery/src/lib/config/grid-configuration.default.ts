@@ -19,4 +19,5 @@ export class DefaultGridConfiguration implements GridConfiguration {
   thumbnailHeight = '175px';
   thumbnailWidth = '175px';
   enableLoadingPlaceholder = true;
+  thumbnailsWaitForBatch = true;
 }
