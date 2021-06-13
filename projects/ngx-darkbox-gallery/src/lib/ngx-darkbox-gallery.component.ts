@@ -14,14 +14,15 @@ import { ImageIndexService } from './services/image-index.service';
 })
 export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy {
 
-  @Input()
   /**
    * List of images displayed in Darkbox
    */
+  @Input()
   images: Image[] = [];
   imageCount: number;
   currentImageIndex: number;
-  private loadedImageCount = 0;
+  loadedThumbnails: Set<Image> = new Set();
+  batchLoadedThumbnails: Set<Image> = new Set();
 
   @Input()
   configuration: Configuration;
@@ -33,8 +34,6 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
    */
   @Input()
   loadMoreImagesEvents: Observable<void>;
-
-  batchThumbnailsLoaded = false;
 
   /**
    * Signals that a single image was clicked
@@ -89,7 +88,7 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
   darkboxImageLoaded = new EventEmitter<Image>();
 
   constructor(private configurationService: ConfigurationService,
-    private imageIndexService: ImageIndexService) { }
+              private imageIndexService: ImageIndexService) { }
 
   ngOnInit(): void {
     this.initializeConfiguration(this.configuration);
@@ -155,22 +154,30 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
    * Additionally signals that all images of one batch are loaded
    */
   onThumbnailLoaded(image: Image): void {
-    this.loadedImageCount++;
+    if (this.effectiveConfiguration.gridConfiguration.thumbnailsWaitForBatch) {
+      this.batchLoadedThumbnails.add(image);
+    } else {
+      this.loadedThumbnails.add(image);
+    }
+
     this.thumbnailLoaded.emit(image);
-    if (this.loadedImageCount >= this.imageCount) {
-      this.batchThumbnailsLoaded = true;
+    if (this.loadedThumbnails.size + this.batchLoadedThumbnails.size >= this.imageCount) {
+      if (this.effectiveConfiguration.gridConfiguration.thumbnailsWaitForBatch) {
+        this.batchLoadedThumbnails.forEach(i => this.loadedThumbnails.add(i));
+        this.batchLoadedThumbnails.clear();
+      }
       this.allThumbnailsLoaded.emit(true);
     }
   }
 
   isNextImageAvailable(): boolean {
     const loopDirection = this.effectiveConfiguration.darkboxConfiguration.loopDirection;
-    return this.currentImageIndex + 1 < this.images.length || loopDirection == LoopDirection.FORWARD || loopDirection == LoopDirection.BOTH;
+    return this.currentImageIndex + 1 < this.images.length || loopDirection === LoopDirection.FORWARD || loopDirection === LoopDirection.BOTH;
   }
 
   isPrevImageAvailable(): boolean {
     const loopDirection = this.effectiveConfiguration.darkboxConfiguration.loopDirection;
-    return this.currentImageIndex - 1 >= 0 || loopDirection == LoopDirection.BACKWARD || loopDirection == LoopDirection.BOTH;
+    return this.currentImageIndex - 1 >= 0 || loopDirection === LoopDirection.BACKWARD || loopDirection === LoopDirection.BOTH;
   }
 
   /**
@@ -179,8 +186,11 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
    * @return the new index
    */
   private calculateValidImageIndex(increase: boolean): number {
-    const newImageIndex = this.imageIndexService.calculateValidImageIndex(this.effectiveConfiguration, this.currentImageIndex, this.images.length, increase);
-    const rollOverRequired = newImageIndex === this.images.length -1 && this.imageCount < this.images.length;
+    const newImageIndex = this.imageIndexService.calculateValidImageIndex(this.effectiveConfiguration,
+                                                                          this.currentImageIndex,
+                                                                          this.images.length,
+                                                                          increase);
+    const rollOverRequired = newImageIndex === this.images.length - 1 && this.imageCount < this.images.length;
 
     // Roll over to the last image when the image before the first one is requested
     if (rollOverRequired) {
@@ -204,7 +214,6 @@ export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy 
       this.imageCount = this.images.length;
     }
 
-    this.batchThumbnailsLoaded = false;
     if (this.imageCount >= this.images.length) {
       this.allImagesInDom.emit(true);
       this.imageCount = this.images.length;

@@ -13,6 +13,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 
+## [0.6.0] - 2021-06-13
+
+### Added
+
+* Configuration option to show thumbnails as soon as possible (#146)
+
+### Changed
+
+* Fixed all thumbnails being replaced by loading placeholder while loading a new batch (#138, #146)
+
+### Removed
+
+
 ## [0.5.0] - 2021-06-06
 
 ### Added
