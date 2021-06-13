@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { DefaultConfiguration } from '../config/configuration.default';
-import { DarkboxConfiguration, LoadingAnimation, LoopDirection } from '../model/darkbox-configuration';
+import { ColorConfiguration } from '../model/color-configuration';
+import { ButtonStyle, DarkboxConfiguration, LoadingAnimation, LoopDirection } from '../model/darkbox-configuration';
 import { GridConfiguration, GridType } from '../model/grid-configuration';
 import { ConfigurationService } from './configuration.service';
 
@@ -42,7 +43,13 @@ describe('ConfigurationServiceService', () => {
   it('#getEffectiveConfiguration should return different darkboxConfiguration', () => {
     const inputConfiguration = {
       loopDirection: LoopDirection.NONE,
-      loadingAnimation: LoadingAnimation.DOT
+      loadingAnimation: LoadingAnimation.DOT,
+      closeButtonStyle: ButtonStyle.FAB,
+      prevNextButtonStyle: ButtonStyle.BAR,
+      closeButtonColorConfiguration: {
+        backgroundColor: '#00FF00',
+        foregroundColor: '#FF0000'
+      } as ColorConfiguration
     } as DarkboxConfiguration;
     const actualConfiguration = service.getEffectiveConfiguration({ darkboxConfiguration: inputConfiguration });
 
@@ -52,6 +59,12 @@ describe('ConfigurationServiceService', () => {
     expect(actualConfiguration.darkboxConfiguration.loopDirection).toEqual(inputConfiguration.loopDirection);
     expect(actualConfiguration.darkboxConfiguration.loadingAnimation).toEqual(inputConfiguration.loadingAnimation);
     expect(actualConfiguration.gridConfiguration).toEqual({ ...defaultConfiguration.gridConfiguration });
+    expect(actualConfiguration.darkboxConfiguration.closeButtonStyle).toEqual(ButtonStyle.FAB);
+    expect(actualConfiguration.darkboxConfiguration.prevNextButtonStyle).toEqual(ButtonStyle.BAR);
+    expect(actualConfiguration.darkboxConfiguration.closeButtonColorConfiguration.backgroundColor).toEqual('#00FF00');
+    expect(actualConfiguration.darkboxConfiguration.closeButtonColorConfiguration.foregroundColor).toEqual('#FF0000');
+    expect(actualConfiguration.darkboxConfiguration.prevNextButtonColorConfiguration.backgroundColor).toEqual('#FFFFFF');
+    expect(actualConfiguration.darkboxConfiguration.prevNextButtonColorConfiguration.foregroundColor).toEqual('#000000');
   });
 
   it('#getEffectiveConfiguration should return different gridConfiguration', () => {
