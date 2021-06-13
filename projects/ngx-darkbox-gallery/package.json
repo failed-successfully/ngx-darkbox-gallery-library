@@ -30,10 +30,10 @@
   },
   "peerDependencies": {
     "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0"
+    "@angular/core": "^9.0.0",
+    "hammerjs": "^2.0.8"
   },
   "dependencies": {
-    "hammerjs": "^2.0.8",
     "tslib": "2.3.0"
   }
 }
