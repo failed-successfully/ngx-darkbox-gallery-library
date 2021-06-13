@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * Configuration option `thumbnailsWaitForBatch` to show thumbnails as soon as possible (#146)
+* Configuration options for darkbox button color and styling (#147)
 
 ### Changed
 
