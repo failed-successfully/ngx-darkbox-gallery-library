@@ -20,24 +20,24 @@ describe('ConfigurationServiceService', () => {
   it('#getEffectiveConfiguration should return the default configuration on null', () => {
     const actualConfiguration = service.getEffectiveConfiguration(null);
 
-    expect(actualConfiguration).toBeDefined()
+    expect(actualConfiguration).toBeDefined();
     // The spread operator and the sub-object must be used because jasmine does not support equals with interfaces
     // see also https://github.com/jasmine/jasmine/issues/598
     expect(actualConfiguration.imageConfiguration).toEqual({ ...defaultConfiguration.imageConfiguration });
     expect(actualConfiguration.darkboxConfiguration).toEqual({ ...defaultConfiguration.darkboxConfiguration });
     expect(actualConfiguration.gridConfiguration).toEqual({ ...defaultConfiguration.gridConfiguration });
-  })
+  });
 
   it('#getEffectiveConfiguration should return the default configuration on empty input', () => {
     const actualConfiguration = service.getEffectiveConfiguration({});
 
-    expect(actualConfiguration).toBeDefined()
+    expect(actualConfiguration).toBeDefined();
     // The spread operator and the sub-object must be used because jasmine does not support equals with interfaces
     // see also https://github.com/jasmine/jasmine/issues/598
     expect(actualConfiguration.imageConfiguration).toEqual({ ...defaultConfiguration.imageConfiguration });
     expect(actualConfiguration.darkboxConfiguration).toEqual({ ...defaultConfiguration.darkboxConfiguration });
     expect(actualConfiguration.gridConfiguration).toEqual({ ...defaultConfiguration.gridConfiguration });
-  })
+  });
 
   it('#getEffectiveConfiguration should return different darkboxConfiguration', () => {
     const inputConfiguration = {
@@ -46,13 +46,13 @@ describe('ConfigurationServiceService', () => {
     } as DarkboxConfiguration;
     const actualConfiguration = service.getEffectiveConfiguration({ darkboxConfiguration: inputConfiguration });
 
-    expect(actualConfiguration).toBeDefined()
+    expect(actualConfiguration).toBeDefined();
     expect(actualConfiguration.imageConfiguration).toEqual({ ...defaultConfiguration.imageConfiguration });
     expect(actualConfiguration.darkboxConfiguration.enableCaption).toBeTrue();
     expect(actualConfiguration.darkboxConfiguration.loopDirection).toEqual(inputConfiguration.loopDirection);
     expect(actualConfiguration.darkboxConfiguration.loadingAnimation).toEqual(inputConfiguration.loadingAnimation);
     expect(actualConfiguration.gridConfiguration).toEqual({ ...defaultConfiguration.gridConfiguration });
-  })
+  });
 
   it('#getEffectiveConfiguration should return different gridConfiguration', () => {
     const inputConfiguration = {
@@ -64,10 +64,11 @@ describe('ConfigurationServiceService', () => {
       thumbnailHeight: '420em',
       thumbnailWidth: '69em',
       enableLoadingPlaceholder: true,
+      thumbnailsWaitForBatch: false,
     } as GridConfiguration;
     const actualConfiguration = service.getEffectiveConfiguration({ gridConfiguration: inputConfiguration });
 
-    expect(actualConfiguration).toBeDefined()
+    expect(actualConfiguration).toBeDefined();
     expect(actualConfiguration.imageConfiguration).toEqual({ ...defaultConfiguration.imageConfiguration });
     expect(actualConfiguration.darkboxConfiguration).toEqual({ ...defaultConfiguration.darkboxConfiguration });
     expect(actualConfiguration.gridConfiguration.batchSize).toEqual(inputConfiguration.batchSize);
@@ -79,5 +80,6 @@ describe('ConfigurationServiceService', () => {
     expect(actualConfiguration.gridConfiguration.thumbnailHeight).toEqual(inputConfiguration.thumbnailHeight);
     expect(actualConfiguration.gridConfiguration.thumbnailWidth).toEqual(inputConfiguration.thumbnailWidth);
     expect(actualConfiguration.gridConfiguration.enableLoadingPlaceholder).toBeTrue();
-  })
+    expect(actualConfiguration.gridConfiguration.thumbnailsWaitForBatch).toBeFalse();
+  });
 });
