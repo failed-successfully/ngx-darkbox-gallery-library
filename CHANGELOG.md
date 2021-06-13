@@ -24,8 +24,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Fixed all thumbnails being replaced by loading placeholder while loading a new batch (#138, #146)
 
-### Removed
-
 
 ## [0.5.0] - 2021-06-06
 
