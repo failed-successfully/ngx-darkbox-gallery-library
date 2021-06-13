@@ -1,3 +1,5 @@
+import { ColorConfiguration } from "./color-configuration";
+
 export interface DarkboxConfiguration {
   /**
    * Sets the direction the darkbox will allow looping through the images
@@ -23,6 +25,27 @@ export interface DarkboxConfiguration {
    * SQUARE: A line of jumping squares moving in a wave like form
    */
   loadingAnimation?: LoadingAnimation;
+
+  /**
+   * The button style to use for the close button
+   * FAB: A round floating action button in the top right corner of the screen
+   * BAR: A horizontal bar at the top of the screen
+   */
+  closeButtonStyle?: ButtonStyle;
+
+  closeButtonColorConfiguration?: ColorConfiguration;
+
+  /**
+   * The button style to use for the previous and next buttons
+   */
+  prevNextButtonStyle?: ButtonStyle;
+
+  /**
+   * The button style to use for the previous and next buttons
+   * FAB: A round floating action button placed to the left and right of the image and vertically in the center of the screen
+   * BAR: A vertical bar to the left and right of the image
+   */
+  prevNextButtonColorConfiguration?: ColorConfiguration;
 }
 
 export enum LoopDirection {
@@ -38,4 +61,9 @@ export enum LoadingAnimation {
   FLEX_RING,
   SPINNER,
   SQUARE
+}
+
+export enum ButtonStyle {
+  FAB,
+  BAR
 }
