@@ -14,7 +14,7 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | loadingAnimation  | [LoadingAnimation](#LoadingAnimation) | `LoadingAnimation.SPINNER` | Loading animation shown while the full sized image is loading|
 | closeButtonStyle  | [ButtonStyle](#ButtonStyle)       | `ButtonStyle.FAB`     | Sets if the caption should be displayed or not|
 | closeButtonColorConfiguration | ColorConfiguration    | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the close button |
-| prevNextButtonStyle | [ButtonStyle](#ButtonStyle)     | `ButtonStyle.FAB`     |Sets if the caption should be displayed or not|
+| prevNextButtonStyle | [ButtonStyle](#ButtonStyle)     | `ButtonStyle.FAB`     | Sets if the caption should be displayed or not|
 | prevNextButtonColorConfiguration | ColorConfiguration | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the prevoius and next buttons |
 
 ### `LoopDirection`
