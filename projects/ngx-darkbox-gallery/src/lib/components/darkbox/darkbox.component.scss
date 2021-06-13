@@ -45,21 +45,50 @@
     font-size: large;
 
     z-index: 1;
+
+    &.close {
+      top: 2rem;
+      right: 3rem;
+    }
+
+    &.prev {
+      top: calc(50vh - 1.5rem);
+      left: 3rem;
+    }
+
+    &.next {
+      top: calc(50vh - 1.5rem);
+      right: 3rem;
+    }
   }
 
-  .close {
-    top: 2rem;
-    right: 2rem;
-  }
+  .bar {
+    position: fixed;
 
-  .prev {
-    top: calc(50vh - 1.5rem);
-    left: 2rem;
-  }
+    background-color: rgba(0, 0, 0, 0.8);
+    border: none;
 
-  .next {
-    top: calc(50vh - 1.5rem);
-    right: 2rem;
+    font-size: large;
+
+    z-index: 1;
+    &.close {
+      width: calc(100vw - 6rem);
+      height: 2.5rem;
+      top: 0;
+      left: 3rem;
+    }
+
+    &.prev {
+      width: 3rem;
+      height: 100vh;
+      left: 0;
+    }
+
+    &.next {
+      width: 3rem;
+      height: 100vh;
+      right: 0;
+    }
   }
 }
 

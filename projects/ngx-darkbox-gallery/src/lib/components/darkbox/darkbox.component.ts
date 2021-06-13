@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { DarkboxConfiguration } from '../../model/darkbox-configuration';
+import { ButtonStyle, DarkboxConfiguration } from '../../model/darkbox-configuration';
 import { Image } from '../../model/image';
 
 export enum KEY_CODE {
@@ -74,8 +74,44 @@ export class DarkboxComponent implements OnInit {
     this.imageLoaded.emit(this.image);
   }
 
+  getCloseButtonStyle(): string {
+    if (this.darkboxConfiguration.closeButtonStyle === ButtonStyle.FAB) {
+      return 'fab';
+    }
+
+    if (this.darkboxConfiguration.closeButtonStyle === ButtonStyle.BAR) {
+      return 'bar';
+    }
+  }
+
+  getPrevNextButtonStyle(): string {
+    if (this.darkboxConfiguration.prevNextButtonStyle === ButtonStyle.FAB) {
+      return 'fab';
+    }
+
+    if (this.darkboxConfiguration.prevNextButtonStyle === ButtonStyle.BAR) {
+      return 'bar';
+    }
+  }
+
+  getCloseButtonBackgroundColor(): string {
+    return this.darkboxConfiguration.closeButtonColorConfiguration.backgroundColor;
+  }
+
+  getCloseButtonForegroundColor(): string {
+    return this.darkboxConfiguration.closeButtonColorConfiguration.foregroundColor;
+  }
+
+  getPrevNextButtonBackgroundColor(): string {
+    return this.darkboxConfiguration.prevNextButtonColorConfiguration.backgroundColor;
+  }
+
+  getPrevNextButtonForegroundColor(): string {
+    return this.darkboxConfiguration.prevNextButtonColorConfiguration.foregroundColor;
+  }
+
   @HostListener('window:keyup', ['$event'])
-  onKeyUp(event: KeyboardEvent) {
+  onKeyUp(event: KeyboardEvent): void {
     let code: string | number;
     if (event.key !== undefined) {
       code = event.key;
