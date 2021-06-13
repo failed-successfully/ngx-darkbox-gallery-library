@@ -37,7 +37,7 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 ### `ButtonStyle`
 | Name      | Description |
 |-----------|-------------|
-| FAB       | A round floating action button placed besides the image. Its position is depending on the button it is set for |
+| FAB       | A round floating action button placed besides the image. Its position depends on the button it is set for |
 | BAR       | A vertical or horizontal bar surrounding the image depending on the button it is set for |
 
 ### `ColorConfiguration`
