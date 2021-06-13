@@ -28,22 +28,25 @@ export interface DarkboxConfiguration {
 
   /**
    * The button style to use for the close button
-   * FAB: A round floating action button in the top right corner of the screen
-   * BAR: A horizontal bar at the top of the screen
+   * FAB: A round floating action button placed besides the image. Its position is depending on the button it is set for
+   * BAR: A vertical or horizontal bar surrounding the image depending on the button it is set for
    */
   closeButtonStyle?: ButtonStyle;
 
+  /**
+   * Defines the colors to be used for the close button
+   */
   closeButtonColorConfiguration?: ColorConfiguration;
 
   /**
    * The button style to use for the previous and next buttons
+   * FAB: A round floating action button placed besides the image. Its position is depending on the button it is set for
+   * BAR: A vertical or horizontal bar surrounding the image depending on the button it is set for
    */
   prevNextButtonStyle?: ButtonStyle;
 
   /**
-   * The button style to use for the previous and next buttons
-   * FAB: A round floating action button placed to the left and right of the image and vertically in the center of the screen
-   * BAR: A vertical bar to the left and right of the image
+   * Defines the colors to be used for the prevoius and next buttons
    */
   prevNextButtonColorConfiguration?: ColorConfiguration;
 }

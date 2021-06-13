@@ -12,6 +12,10 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | loopDirection     | [LoopDirection](#LoopDirection)   | `LoopDirection.BOTH`  |Sets the direction the darkbox will allow looping through the images |
 | enableCaption     | bool                              | `true`                |Sets if the caption should be displayed or not|
 | loadingAnimation  | [LoadingAnimation](#LoadingAnimation) | `LoadingAnimation.SPINNER` | Loading animation shown while the full sized image is loading|
+| closeButtonStyle  | [ButtonStyle](#ButtonStyle)       | `ButtonStyle.FAB`     |Sets if the caption should be displayed or not|
+| closeButtonColorConfiguration | ColorConfiguration    | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the close button |
+| prevNextButtonStyle | [ButtonStyle](#ButtonStyle)     | `ButtonStyle.FAB`     |Sets if the caption should be displayed or not|
+| prevNextButtonColorConfiguration | ColorConfiguration | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the prevoius and next buttons |
 
 ### `LoopDirection`
 | Name      | Description |
@@ -29,6 +33,26 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | FLEX_RING | A ring flexing in and out                             |
 | [SPINNER](https://youtu.be/3V8nl8v24cQ)   | A classical spinner animation turning infinitely      |
 | SQUARE    | A line of jumping squares moving in a wave like form  |
+
+### `ButtonStyle`
+| Name      | Description |
+|-----------|-------------|
+| FAB       | A round floating action button placed besides the image. Its position is depending on the button it is set for |
+| BAR       | A vertical or horizontal bar surrounding the image depending on the button it is set for |
+
+### `ColorConfiguration`
+| Name          | Type    | Description           |
+|---------------|---------|-----------------------|
+| backgroundColor | string  | A string representing a css color definition such as #FF00FF or rgba(0, 0, 0, 0.8). Used to define the background color of the specific object |
+| foregroundColor | string  | A string representing a css color definition such as #FF00FF or rgba(0, 0, 0, 0.8). Used to define the foreground color, like text, of the specific object |
+
+### Default `ColorConfiguration`
+```js
+  {
+    backgroundColor: '#FFFFFF',
+    foregroundColor: '#000000'
+  }
+```
 
 ## `GridConfiguration`
 | Name                    | Type                      | Default | Description |
