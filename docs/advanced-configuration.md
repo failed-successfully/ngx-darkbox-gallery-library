@@ -12,7 +12,7 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | loopDirection     | [LoopDirection](#LoopDirection)   | `LoopDirection.BOTH`  |Sets the direction the darkbox will allow looping through the images |
 | enableCaption     | bool                              | `true`                |Sets if the caption should be displayed or not|
 | loadingAnimation  | [LoadingAnimation](#LoadingAnimation) | `LoadingAnimation.SPINNER` | Loading animation shown while the full sized image is loading|
-| closeButtonStyle  | [ButtonStyle](#ButtonStyle)       | `ButtonStyle.FAB`     |Sets if the caption should be displayed or not|
+| closeButtonStyle  | [ButtonStyle](#ButtonStyle)       | `ButtonStyle.FAB`     | Sets if the caption should be displayed or not|
 | closeButtonColorConfiguration | ColorConfiguration    | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the close button |
 | prevNextButtonStyle | [ButtonStyle](#ButtonStyle)     | `ButtonStyle.FAB`     |Sets if the caption should be displayed or not|
 | prevNextButtonColorConfiguration | ColorConfiguration | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the prevoius and next buttons |
