@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Fixed cursor on buttons in the demo (#149, #150)
+* Fixed missing `ColorConfiguration` export on pulic-api (#151)
 
 ### Removed
 
