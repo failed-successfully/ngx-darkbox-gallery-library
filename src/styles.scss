@@ -15,6 +15,10 @@ p {
   color: $light-theme-text-color;
 }
 
+button{
+  cursor: pointer;
+}
+
 body.dark-theme {
   background: $dark-theme-background;
 
