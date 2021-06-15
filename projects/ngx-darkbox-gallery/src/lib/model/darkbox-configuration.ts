@@ -15,6 +15,14 @@ export interface DarkboxConfiguration {
    * false: Caption is not shown
    */
   enableCaption?: boolean;
+  /**
+   * The template string for the image caption
+   * The following values will be replaced:
+   * ${currentNumber} number of the currently selected image within the gallery
+   * ${totalNumber} total number of images in the gallery
+   * ${caption} caption of the selected image. This is only replaced if enableCaption is true
+   */
+  captionTemplate: string;
 
   /**
    * Loading animation shown while the full sized image is loading
