@@ -22,7 +22,7 @@ export interface DarkboxConfiguration {
    * ${totalNumber} total number of images in the gallery
    * ${caption} caption of the selected image. This is only replaced if enableCaption is true
    */
-  captionTemplate: string;
+  captionTemplate?: string;
 
   /**
    * Loading animation shown while the full sized image is loading

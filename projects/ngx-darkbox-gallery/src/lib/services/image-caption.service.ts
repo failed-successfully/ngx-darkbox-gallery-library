@@ -7,8 +7,6 @@ import { DarkboxConfiguration } from '../model/darkbox-configuration';
 })
 export class ImageCaptionService {
 
-  readonly templateVariables: string[] = ["${currentNumber}", "${totalNumber}", "${caption}"];
-
   constructor() { }
 
   /**
@@ -21,14 +19,14 @@ export class ImageCaptionService {
    */
   public getImageCaption(darkboxConfiguration: DarkboxConfiguration, currentNumer: number, totalNumber: number, imageCaption: string): string {
     const caption = darkboxConfiguration.captionTemplate;
-    caption.replace("${currentNumber}", currentNumer.toString());
-    caption.replace("${totalNumber}", totalNumber.toString());
-
     if (darkboxConfiguration.enableCaption) {
       caption.replace("${caption}", "");
     } else {
       caption.replace("${caption}", imageCaption);
     }
+    caption.replace("${currentNumber}", currentNumer.toString());
+    caption.replace("${totalNumber}", totalNumber.toString());
+
     return caption;
   }
 }
