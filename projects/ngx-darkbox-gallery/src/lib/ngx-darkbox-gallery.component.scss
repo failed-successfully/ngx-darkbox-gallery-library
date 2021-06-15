@@ -1,5 +1,9 @@
 @import "scss-variables/screen-sizes";
 
+button{
+  cursor: pointer;
+}
+
 .static-image-grid {
   display: flex;
   flex-direction: row;
