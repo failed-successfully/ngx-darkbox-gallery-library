@@ -16,7 +16,6 @@
     img {
       max-width: 90vw;
       max-height: 90vh;
-      z-index: 0;
     }
 
     .caption {
@@ -44,8 +43,6 @@
 
     font-size: large;
 
-    z-index: 1;
-
     &.close {
       top: 2rem;
       right: 3rem;
@@ -70,7 +67,6 @@
 
     font-size: large;
 
-    z-index: 1;
     &.close {
       width: calc(100vw - 6rem);
       height: 2.5rem;
