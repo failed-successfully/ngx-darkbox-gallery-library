@@ -5,7 +5,8 @@ name: Node.js CI
 
 on: 
   push:
-    tags-ingore: [*]
+    tags-ignore: 
+      - v*
 
 jobs:
   build:
