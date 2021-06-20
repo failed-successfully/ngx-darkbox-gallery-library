@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci --ignore-scripts
-      - run: npm run build -- ngx-darkbox-gallery --prod
+      - run: npm run build -- ngx-darkbox-gallery
       - run: cp *.md dist/ngx-darkbox-gallery/
       - run: cp --parents src/assets/* dist/ngx-darkbox-gallery
       - run: cp LICENSE dist/ngx-darkbox-gallery/
@@ -51,7 +51,7 @@ jobs:
       - run: npm link
       - run: cd ../..
       - run: npm link @failed-successfully/ngx-darkbox-gallery
-      - run: npm run build -- --prod
+      - run: npm run build
       #- run: npm test --if-present
       - uses: actions/upload-artifact@v2
         with:
