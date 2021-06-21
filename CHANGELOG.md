@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+### Removed
+
+
+## [0.6.1] - 2021-06-21
+
+### Added
+
 * Added links in the documentation
 
 ### Changed
@@ -16,8 +25,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fixed cursor on buttons in the library (#149, #152)
 * Fixed missing `ColorConfiguration` export on pulic-api (#151)
 * Fixed issue with z-indices (#155, #156)
-
-### Removed
 
 
 ## [0.6.0] - 2021-06-13
