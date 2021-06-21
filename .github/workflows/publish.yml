@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci --ignore-scripts
-      - run: npm run build -- ngx-darkbox-gallery
+      - run: npm run build -- ngx-darkbox-gallery --configuration production
       - run: cp *.md dist/ngx-darkbox-gallery/
       - run: cp --parents src/assets/* dist/ngx-darkbox-gallery
       - run: cp LICENSE dist/ngx-darkbox-gallery/
