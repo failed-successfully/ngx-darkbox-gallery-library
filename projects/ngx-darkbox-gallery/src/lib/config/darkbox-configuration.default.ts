@@ -15,5 +15,6 @@ export class DefaultDarkboxConfiguration implements DarkboxConfiguration {
     backgroundColor: '#FFFFFF',
     foregroundColor: '#000000'
   } as ColorConfiguration;
-  captionTemplate = '${currentNumber}/${totalNumber} - ${caption}';
+  captionSeparator = ' - ';
+  captionTemplate = '${currentNumber}/${totalNumber}${separator}${caption}';
 }
