@@ -17,14 +17,13 @@ export class ImageCaptionService {
    * @returns the formatted image caption
    */
   public getImageCaption(darkboxConfiguration: DarkboxConfiguration, currentNumer: number, totalNumber: number, imageCaption: string): string {
-    const separator = darkboxConfiguration.captionSeparator;
     let caption = darkboxConfiguration.captionTemplate;
     if (!imageCaption) {
       caption = caption.replace('${caption}', '');
       caption = caption.replace('${separator}', '');
     } else {
       caption = caption.replace('${caption}', imageCaption);
-      caption = caption.replace('${separator}', separator);
+      caption = caption.replace('${separator}', darkboxConfiguration.captionSeparator);
     }
     caption = caption.replace('${currentNumber}', currentNumer.toString());
     caption = caption.replace('${totalNumber}', totalNumber.toString());

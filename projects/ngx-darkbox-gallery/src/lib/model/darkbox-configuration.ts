@@ -16,16 +16,17 @@ export interface DarkboxConfiguration {
    */
   enableCaption?: boolean;
   /**
-   * Separtor between the image number and the caption. Is only shown when the caption is enabled
+   * Separtor between the image number and the caption
+   * Is only shown when the caption has text in it
    */
   captionSeparator?: string;
   /**
    * The template string for the image caption
    * The following values will be replaced:
-   * ${currentNumber} number of the currently selected image within the gallery
-   * ${totalNumber} total number of images in the gallery
-   * ${separator} sepertor between the image number and the caption. Is only shown when the caption is enabled
-   * ${caption} caption of the selected image. This is only replaced if enableCaption is true
+   * ${currentNumber} Number of the currently selected image within the gallery
+   * ${totalNumber} Total number of images in the gallery
+   * ${separator} Sepertor between the image number and the caption. Is only shown when the caption has text in it
+   * ${caption} Caption of the selected image. Is only shown when the caption has text in it
    */
   captionTemplate?: string;
 
