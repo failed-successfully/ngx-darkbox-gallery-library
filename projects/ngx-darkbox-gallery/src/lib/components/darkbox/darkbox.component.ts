@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { ButtonStyle, DarkboxConfiguration } from '../../model/darkbox-configuration';
 import { Image } from '../../model/image';
+import { ImageCaptionService } from '../../services/image-caption.service';
 
 export enum KEY_CODE {
   RIGHT_ARROW = 39,
@@ -50,9 +51,15 @@ export class DarkboxComponent implements OnInit {
    */
   fullSizedImageLoaded = false;
 
-  constructor() { }
+  /**
+   * Interpolated image caption
+   */
+  imageCaption: string;
+
+  constructor(private imageCaptionService: ImageCaptionService) { }
 
   ngOnInit(): void {
+    this.imageCaption = this.imageCaptionService.getImageCaption(this.darkboxConfiguration, this.currentNumber, this.totalNumber, this.image.caption);
   }
 
   onClose(): void {
