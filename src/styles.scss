@@ -8,11 +8,11 @@ $dark-theme-highlight-color: #809fff;
 body {
   background: $light-theme-background;
   font: 100% system-ui;
-}
-
-h1,
-p {
   color: $light-theme-text-color;
+
+  svg {
+    fill: $light-theme-text-color;
+  }
 }
 
 button{
@@ -21,11 +21,8 @@ button{
 
 body.dark-theme {
   background: $dark-theme-background;
+  color: $dark-theme-text-color;
 
-  h1,
-  p {
-    color: $dark-theme-text-color;
-  }
   a {
     color: $dark-theme-highlight-color;
   }
