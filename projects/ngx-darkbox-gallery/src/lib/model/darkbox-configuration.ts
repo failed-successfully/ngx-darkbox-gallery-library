@@ -23,7 +23,7 @@ export interface DarkboxConfiguration {
   /**
    * The template string for the image caption
    * The following values will be replaced:
-   * ${currentNumber} Number of the currently selected image within the gallery
+   * ${currentNumber} Number of the currently visible image within the gallery
    * ${totalNumber} Total number of images in the gallery
    * ${separator} Sepertor between the image number and the caption. Is only shown when the caption has text in it
    * ${caption} Caption of the selected image. Is only shown when the caption has text in it
