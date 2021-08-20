@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # renovate: tag=v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci --ignore-scripts
+      - run: npm ci --no-optional
       - run: npm run build -- ngx-darkbox-gallery --configuration=production
       - run: cp *.md dist/ngx-darkbox-gallery/
       - run: cp --parents src/assets/* dist/ngx-darkbox-gallery
@@ -46,7 +46,7 @@ jobs:
         uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # renovate: tag=v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci --ignore-scripts
+      - run: npm ci --no-optional
       - run: cd dist/ngx-darkbox-gallery
       - run: npm link
       - run: cd ../..
@@ -71,7 +71,7 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-      - run: npm ci --ignore-scripts
+      - run: npm ci --no-optional
       - run: npm publish --access public
         working-directory: artifact/ngx-darkbox-gallery
         env:
@@ -90,7 +90,7 @@ jobs:
         with:
           node-version: 14
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci --ignore-scripts
+      - run: npm ci --no-optional
       - run: npm publish --ignore-scripts
         working-directory: artifact/ngx-darkbox-gallery
         env:
