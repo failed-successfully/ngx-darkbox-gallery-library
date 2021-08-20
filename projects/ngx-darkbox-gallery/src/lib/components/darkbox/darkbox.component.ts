@@ -1,4 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { SwipeDirection } from '../../directives/touchable/swipe-direction';
 import { ButtonStyle, DarkboxConfiguration } from '../../model/darkbox-configuration';
 import { Image } from '../../model/image';
 
@@ -57,6 +58,19 @@ export class DarkboxComponent implements OnInit {
 
   onClose(): void {
     this.close.emit(true);
+  }
+
+  /**
+   * Handle swipe interactions
+   * @param event
+   */
+  onSwipe(event: SwipeDirection): void {
+    if (event === SwipeDirection.LEFT) {
+      this.onNext();
+    }
+    if (event === SwipeDirection.RIGHT) {
+      this.onPrev();
+    }
   }
 
   onNext(): void {
