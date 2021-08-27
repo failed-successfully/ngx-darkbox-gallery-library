@@ -8,7 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* Angular material to the demo page (#212)
+
 ### Changed
+
+* Fixed issues with pointer on button
 
 ### Removed
 
