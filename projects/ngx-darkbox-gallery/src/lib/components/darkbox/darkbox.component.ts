@@ -110,6 +110,14 @@ export class DarkboxComponent implements OnInit {
     return this.darkboxConfiguration.prevNextButtonColorConfiguration.foregroundColor;
   }
 
+  getCaptionBackgroundColor(): string {
+    return this.darkboxConfiguration.captionColorConfiguration.backgroundColor;
+  }
+
+  getCaptionForegroundColor(): string {
+    return this.darkboxConfiguration.captionColorConfiguration.foregroundColor;
+  }
+
   @HostListener('window:keyup', ['$event'])
   onKeyUp(event: KeyboardEvent): void {
     let code: string | number;

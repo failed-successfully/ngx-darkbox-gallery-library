@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Angular material to the demo page (#212)
+* Added Angular material to the demo page (#212)
+* Added configuration for caption colors (#213, #212)
 
 ### Changed
 

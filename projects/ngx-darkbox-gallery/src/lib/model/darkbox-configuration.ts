@@ -17,6 +17,11 @@ export interface DarkboxConfiguration {
   enableCaption?: boolean;
 
   /**
+   * Defines the colors to be used on the image caption
+   */
+  captionColorConfiguration?: ColorConfiguration;
+
+  /**
    * Loading animation shown while the full sized image is loading
    * DOT: A line of jumping dots moving in a wave like form
    * BAR: Three vertical bars getting wider and smaller
