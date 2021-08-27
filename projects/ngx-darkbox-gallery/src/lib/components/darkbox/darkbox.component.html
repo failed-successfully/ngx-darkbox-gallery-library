@@ -7,8 +7,7 @@
   </lib-loading-animation>
   <!-- The actual full sized image -->
   <div class="image" [ngStyle]="{'display': fullSizedImageLoaded ? '' : 'none'}">
-    <img src="{{image.url}}" alt="{{image.altText}}" (load)="onImageLoaded()" (swipeleft)="onNext()"
-      (swiperight)="onPrev()">
+    <img touchable src="{{image.url}}" alt="{{image.altText}}" (load)="onImageLoaded()" (swipe)="onSwipe($event)">
     <div *ngIf="darkboxConfiguration.enableCaption" class="caption"
       [ngStyle]="{'background-color': getCaptionBackgroundColor(), 'color': getCaptionForegroundColor()}">
       {{imageCaption}}
