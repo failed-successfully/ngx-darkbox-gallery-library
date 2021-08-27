@@ -9,6 +9,8 @@ button {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
+  // Set the z-index ridiculously high to avoid overlay issues with other libraries like angular material
+  z-index: 1000;
 
   .image {
     margin: 0;

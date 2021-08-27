@@ -12,7 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Fixed issues with pointer on button
+* Fixed issues with pointer on button (#212)
+* Fixed issue with overlay and angular material (z-index issue) (#212)
 
 ### Removed
 
