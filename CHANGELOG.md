@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+### Removed
+
+
+## [0.7.0] - 2021-08-27
+
+### Added
+
 * Added custom wipe implementation based on touch events (#207, #208)
 * Added image caption template system (#6, #154)  
 * Added Angular material to the demo page (#212)
