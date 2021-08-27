@@ -17,6 +17,8 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | closeButtonColorConfiguration | [ColorConfiguration](#ColorConfiguration)    | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the close button |
 | prevNextButtonStyle | [ButtonStyle](#ButtonStyle)     | `ButtonStyle.FAB`    | Sets if the caption should be displayed or not|
 | prevNextButtonColorConfiguration | [ColorConfiguration](#ColorConfiguration) | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the prevoius and next buttons |
+| captionSeparator    | string                          | ` - `                | Separtor between the image number and the caption. Is only shown when the caption has text in it  |
+| captionTemplate     | sting                             | `${currentNumber}/${totalNumber}${separator}${caption}`               | The template string for the image caption. For the available template variables [see here](#CaptionTemplate) |
 
 ### `LoopDirection`
 | Name      | Description |
@@ -54,6 +56,16 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
     foregroundColor: '#000000'
   }
 ```
+
+### `CaptionTemplate`
+The caption template can include the following variables which are replaced if present.
+
+| Variable          | Description                                                                                       |
+|-------------------|---------------------------------------------------------------------------------------------------|
+| ${currentNumber}  | Number of the currently visible image within the gallery                                         |
+| ${totalNumber}    | Total number of images in the gallery                                                             |
+| ${separator}      | Sepertor between the image number and the caption. Is only shown when the caption has text in it  |
+| ${caption}        | Caption of the selected image. Is only shown when the caption has text in it                      |
 
 ## `GridConfiguration`
 | Name                    | Type                      | Default | Description |

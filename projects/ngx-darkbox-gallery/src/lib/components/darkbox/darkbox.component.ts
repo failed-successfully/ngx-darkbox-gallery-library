@@ -1,6 +1,7 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ButtonStyle, DarkboxConfiguration } from '../../model/darkbox-configuration';
 import { Image } from '../../model/image';
+import { ImageCaptionService } from '../../services/image-caption.service';
 
 export enum KEY_CODE {
   RIGHT_ARROW = 39,
@@ -13,7 +14,7 @@ export enum KEY_CODE {
   templateUrl: './darkbox.component.html',
   styleUrls: ['./darkbox.component.scss']
 })
-export class DarkboxComponent implements OnInit {
+export class DarkboxComponent implements OnInit, OnChanges {
 
   @Input()
   image: Image;
@@ -50,9 +51,20 @@ export class DarkboxComponent implements OnInit {
    */
   fullSizedImageLoaded = false;
 
-  constructor() { }
+  /**
+   * Interpolated image caption
+   */
+  imageCaption: string;
+
+  constructor(private imageCaptionService: ImageCaptionService) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.currentNumber) {
+      this.imageCaption = this.imageCaptionService.getImageCaption(this.darkboxConfiguration, this.currentNumber, this.totalNumber, this.image.caption);
+    }
   }
 
   onClose(): void {
