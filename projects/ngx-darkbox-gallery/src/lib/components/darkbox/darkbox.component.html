@@ -10,8 +10,7 @@
     <img touchable src="{{image.url}}" alt="{{image.altText}}" (load)="onImageLoaded()" (swipe)="onSwipe($event)">
     <div *ngIf="darkboxConfiguration.enableCaption" class="caption"
       [ngStyle]="{'background-color': getCaptionBackgroundColor(), 'color': getCaptionForegroundColor()}">
-      {{currentNumber}}/{{totalNumber}}
-      <span *ngIf="image.caption"> - {{image.caption}}</span>
+      {{imageCaption}}
     </div>
   </div>
   <button [ngClass]="getPrevNextButtonStyle()" class="prev"
