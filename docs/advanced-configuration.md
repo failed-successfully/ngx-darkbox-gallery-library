@@ -11,6 +11,7 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 |-------------------|-----------------------------------|-----------------------|-------------|
 | loopDirection     | [LoopDirection](#LoopDirection)   | `LoopDirection.BOTH`  |Sets the direction the darkbox will allow looping through the images |
 | enableCaption     | bool                              | `true`                |Sets if the caption should be displayed or not|
+| captionColorConfiguration | [ColorConfiguration](#ColorConfiguration) | [see here](#Default-ColorConfiguration) | Defines the colors to be used on the image caption |
 | loadingAnimation  | [LoadingAnimation](#LoadingAnimation) | `LoadingAnimation.SPINNER` | Loading animation shown while the full sized image is loading|
 | closeButtonStyle  | [ButtonStyle](#ButtonStyle)       | `ButtonStyle.FAB`     | Sets if the caption should be displayed or not|
 | closeButtonColorConfiguration | [ColorConfiguration](#ColorConfiguration)    | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the close button |

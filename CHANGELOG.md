@@ -9,8 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * Added image caption templating (#6, #154)  
+* Added Angular material to the demo page (#212)
+* Added configuration for caption colors (#213, #212)
 
 ### Changed
+
+* Fixed issues with pointer on button (#212)
+* Fixed issue with overlay and angular material (z-index issue) (#212)
 
 ### Removed
 

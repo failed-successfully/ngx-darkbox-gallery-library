@@ -4,6 +4,10 @@ import { ButtonStyle, DarkboxConfiguration, LoadingAnimation, LoopDirection } fr
 export class DefaultDarkboxConfiguration implements DarkboxConfiguration {
   loopDirection = LoopDirection.BOTH;
   enableCaption = true;
+  captionColorConfiguration = {
+    backgroundColor: '#FFFFFF',
+    foregroundColor: '#000000'
+  } as ColorConfiguration;
   loadingAnimation = LoadingAnimation.SPINNER;
   closeButtonStyle = ButtonStyle.FAB;
   closeButtonColorConfiguration = {
