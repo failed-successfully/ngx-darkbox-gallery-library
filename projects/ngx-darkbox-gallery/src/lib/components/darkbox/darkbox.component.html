@@ -1,16 +1,22 @@
 <div class="overlay">
-  <button [ngClass]="getCloseButtonStyle()" class="close" [ngStyle]="{'background-color': getCloseButtonBackgroundColor(), 'color': getCloseButtonForegroundColor()}" (click)="onClose()">x</button>
+  <button [ngClass]="getCloseButtonStyle()" class="close"
+    [ngStyle]="{'background-color': getCloseButtonBackgroundColor(), 'color': getCloseButtonForegroundColor()}"
+    (click)="onClose()">x</button>
   <!-- The loading animation -->
   <lib-loading-animation *ngIf="!fullSizedImageLoaded" [animationType]="darkboxConfiguration.loadingAnimation">
   </lib-loading-animation>
   <!-- The actual full sized image -->
   <div class="image" [ngStyle]="{'display': fullSizedImageLoaded ? '' : 'none'}">
-    <img src="{{image.url}}" alt="{{image.altText}}" (load)="onImageLoaded()" (swipeleft)="onNext()" (swiperight)="onPrev()">
-    <div *ngIf="darkboxConfiguration.enableCaption" class="caption">
-      {{currentNumber}}/{{totalNumber}}
-      <span *ngIf="image.caption"> - {{image.caption}}</span>
+    <img touchable src="{{image.url}}" alt="{{image.altText}}" (load)="onImageLoaded()" (swipe)="onSwipe($event)">
+    <div *ngIf="darkboxConfiguration.enableCaption" class="caption"
+      [ngStyle]="{'background-color': getCaptionBackgroundColor(), 'color': getCaptionForegroundColor()}">
+      {{imageCaption}}
     </div>
   </div>
-  <button [ngClass]="getPrevNextButtonStyle()" class="prev" [ngStyle]="{'background-color': getPrevNextButtonBackgroundColor(), 'color': getPrevNextButtonForegroundColor()}" *ngIf="hasPrev" (click)="onPrev()">&lt;</button>
-  <button [ngClass]="getPrevNextButtonStyle()" class="next" [ngStyle]="{'background-color': getPrevNextButtonBackgroundColor(), 'color': getPrevNextButtonForegroundColor()}" *ngIf="hasNext" (click)="onNext()">&gt;</button>
+  <button [ngClass]="getPrevNextButtonStyle()" class="prev"
+    [ngStyle]="{'background-color': getPrevNextButtonBackgroundColor(), 'color': getPrevNextButtonForegroundColor()}"
+    *ngIf="hasPrev" (click)="onPrev()">&lt;</button>
+  <button [ngClass]="getPrevNextButtonStyle()" class="next"
+    [ngStyle]="{'background-color': getPrevNextButtonBackgroundColor(), 'color': getPrevNextButtonForegroundColor()}"
+    *ngIf="hasNext" (click)="onNext()">&gt;</button>
 </div>

@@ -97,15 +97,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         },
@@ -150,19 +146,19 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ngx-darkbox-gallery/tsconfig.lib.json",
-              "projects/ngx-darkbox-gallery/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ngx-darkbox-gallery/**/*.ts",
+              "projects/ngx-darkbox-gallery/**/*.html"
             ]
           }
         }
       }
     }
   },
-  "defaultProject": "ngx-darkbox-gallery-library"
+  "defaultProject": "ngx-darkbox-gallery-library",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
