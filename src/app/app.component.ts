@@ -49,7 +49,6 @@ export class AppComponent implements OnInit {
         altText: 'Random image number ' + i
       });
     }
-    // TODO load footer items
   }
 
   /**
