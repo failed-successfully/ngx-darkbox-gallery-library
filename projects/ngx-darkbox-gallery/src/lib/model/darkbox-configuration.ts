@@ -15,6 +15,25 @@ export interface DarkboxConfiguration {
    * false: Caption is not shown
    */
   enableCaption?: boolean;
+  /**
+   * Separtor between the image number and the caption
+   * Is only shown when the caption has text in it
+   */
+  captionSeparator?: string;
+  /**
+   * The template string for the image caption
+   * The following values will be replaced:
+   * ${currentNumber} Number of the currently visible image within the gallery
+   * ${totalNumber} Total number of images in the gallery
+   * ${separator} Sepertor between the image number and the caption. Is only shown when the caption has text in it
+   * ${caption} Caption of the selected image. Is only shown when the caption has text in it
+   */
+  captionTemplate?: string;
+
+  /**
+   * Defines the colors to be used on the image caption
+   */
+  captionColorConfiguration?: ColorConfiguration;
 
   /**
    * Loading animation shown while the full sized image is loading
