@@ -144,6 +144,10 @@ body {
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
+
+  a {
+    color: $dark-text;
+  }
 }
 $mat-primary: (
   main: $mat-primary-color,
@@ -236,7 +240,7 @@ body.dark-theme {
   color: $light-text;
 
   a {
-    color: $mat-accent-color;
+    color: $light-text;
   }
   svg {
     fill: $light-text;
