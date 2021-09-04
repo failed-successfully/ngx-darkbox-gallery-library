@@ -27,23 +27,3 @@
   justify-content: center;
   margin-block-start: 1rem;
 }
-
-.footer {
-  display: flex;
-  justify-content: center;
-  margin-block-start: 1rem;
-  margin-block-end: 1rem;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  font-size: 1rem;
-  
-  a {
-    margin-inline-start: 0.5rem;
-    margin-inline-end: 0.5rem;
-
-    svg{
-      height: 1.5rem;
-    }
-  }
-}
