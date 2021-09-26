@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * Added footer to the demo page (#162. #163)
+* Added prereleases to next tag on npm (#108, #242)
 
 ### Changed
 
