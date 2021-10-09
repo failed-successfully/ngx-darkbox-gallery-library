@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+* Set angular compiler option to ivy-partial (#161, 257) **Breaking Change: The minimum supported angular version is now 12.x**
+
 ### Removed
 
 
