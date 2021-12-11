@@ -25,7 +25,7 @@ jobs:
       - run: cp --parents src/assets/* dist/ngx-darkbox-gallery
       - run: cp LICENSE dist/ngx-darkbox-gallery/
       #- run: npm test --if-present
-      - uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074 # renovate: tag=v2
+      - uses: actions/upload-artifact@da838ae9595ac94171fa2d4de5a2f117b3e7ac32 # renovate: tag=v2
         with:
           name: ngx-darkbox-gallery
           path: dist/ngx-darkbox-gallery/
@@ -53,7 +53,7 @@ jobs:
       - run: npm link @failed-successfully/ngx-darkbox-gallery
       - run: npm run build
       #- run: npm test --if-present
-      - uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074 # renovate: tag=v2
+      - uses: actions/upload-artifact@da838ae9595ac94171fa2d4de5a2f117b3e7ac32 # renovate: tag=v2
         with:
           name: ngx-darkbox-gallery-demo
           path: dist/ngx-darkbox-gallery-library/
