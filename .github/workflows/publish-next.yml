@@ -38,7 +38,7 @@ jobs:
         node-version: [16.x]
     steps:
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - uses: actions/download-artifact@3be87be14a055c47b01d3bd88f8fe02320a9bb60 # renovate: tag=v2
+      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # renovate: tag=v2
         with:
           name: ngx-darkbox-gallery
           path: dist/ngx-darkbox-gallery/
@@ -63,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - uses: actions/download-artifact@3be87be14a055c47b01d3bd88f8fe02320a9bb60 # renovate: tag=v2
+      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # renovate: tag=v2
         with:
           name: ngx-darkbox-gallery
           path: artifact/ngx-darkbox-gallery/
@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - uses: actions/download-artifact@3be87be14a055c47b01d3bd88f8fe02320a9bb60 # renovate: tag=v2
+      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # renovate: tag=v2
         with:
           name: ngx-darkbox-gallery
           path: artifact/ngx-darkbox-gallery/
@@ -101,7 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - uses: actions/download-artifact@3be87be14a055c47b01d3bd88f8fe02320a9bb60 # renovate: tag=v2
+      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # renovate: tag=v2
         with:
           name: ngx-darkbox-gallery-demo
           path: target/
