@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Image } from 'dist/ngx-darkbox-gallery/lib/model/image';
-import { Subject, Subscription } from 'rxjs';
+import { Image } from 'projects/ngx-darkbox-gallery/src/public-api';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',

@@ -5,6 +5,9 @@
   </div>
   <app-dark-mode-switch></app-dark-mode-switch>
 </div>
+
+<!-- Configuration editor -->
+<app-configuration-editor></app-configuration-editor>
 <darkbox-gallery [images]="images" [loadMoreImagesEvents]="eventsSubject.asObservable()"
   (allImagesInDom)="allImagesInDom()">
 </darkbox-gallery>
