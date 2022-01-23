@@ -8,7 +8,6 @@ import { Configuration } from 'projects/ngx-darkbox-gallery/src/public-api';
 })
 export class ConfigurationEditorComponent implements OnInit {
 
-
   currentConfiguration: Configuration;
 
   constructor() { }
