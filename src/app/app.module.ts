@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { ConfigurationEditorComponent } from './components/configuration-editor/configuration-editor.component';
 import { DarkModeSwitchComponent } from './components/dark-mode-switch/dark-mode-switch.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {MatCardModule} from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +28,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatButtonModule,
     MatIconModule,
     MatExpansionModule,
+    MatCardModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
