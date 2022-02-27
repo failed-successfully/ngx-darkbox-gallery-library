@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * Added configuration editor to demo page (#49, #365)
+* Added autmatic release note extraction to workflows (#409)
 
 ### Changed
 
@@ -17,6 +18,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 * Removed unused image-configuration
+
+
+## [1.0.0-alpha.2] 2022-02-13
+
+### Changed
+
+* Set package version to 1.0.0-branch
+
 
 ## [1.0.0-alpha.1] 2021-11-07
 

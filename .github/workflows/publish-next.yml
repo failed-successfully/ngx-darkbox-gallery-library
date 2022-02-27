@@ -8,107 +8,33 @@ on:
     types: [prereleased]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-    steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - name: Build on Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # renovate: tag=v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci --no-optional
-      - run: npm run build -- ngx-darkbox-gallery --configuration=production
-      - run: cp *.md dist/ngx-darkbox-gallery/
-      - run: cp --parents src/assets/* dist/ngx-darkbox-gallery
-      - run: cp LICENSE dist/ngx-darkbox-gallery/
-      #- run: npm test --if-present
-      - uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # renovate: tag=v2
-        with:
-          name: ngx-darkbox-gallery
-          path: dist/ngx-darkbox-gallery/
+  # Automaticcally extract the release notes from Changelog.md 
+  release-notes:
+    name: Create release notes
+    uses: ./.github/workflows/actions/update-release-notes.yml
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  build-demo:
-    needs: build
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-    steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # renovate: tag=v2
-        with:
-          name: ngx-darkbox-gallery
-          path: dist/ngx-darkbox-gallery/
-      - name: Build on Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # renovate: tag=v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci --no-optional
-      - run: cd dist/ngx-darkbox-gallery
-      - run: npm link
-      - run: cd ../..
-      - run: npm link @failed-successfully/ngx-darkbox-gallery
-      - run: npm run build
-      #- run: npm test --if-present
-      - uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # renovate: tag=v2
-        with:
-          name: ngx-darkbox-gallery-demo
-          path: dist/ngx-darkbox-gallery-library/
+  build-release:
+    name: Build release
+    uses: ./.github/workflows/actions/build-release.yml
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-npm:
     needs: build
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # renovate: tag=v2
+      - uses: ./.github/workflows/actions/publish-package.yml
         with:
-          name: ngx-darkbox-gallery
-          path: artifact/ngx-darkbox-gallery/
-      - uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # renovate: tag=v1
-        with:
-          node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm ci --no-optional
-      - run: npm publish --access public --tag next
-        working-directory: artifact/ngx-darkbox-gallery
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          node-version: 16
+          release-tag: "--tag next"
+          NPM_TOKEN: ${{secrets.npm_token}}
 
   publish-gpr:
     needs: build
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # renovate: tag=v2
+      - uses: ./.github/workflows/actions/publish-package.yml
         with:
-          name: ngx-darkbox-gallery
-          path: artifact/ngx-darkbox-gallery/
-      - uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # renovate: tag=v1
-        with:
-          node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci --no-optional
-      - run: npm publish --ignore-scripts --tag next
-        working-directory: artifact/ngx-darkbox-gallery
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-  publish-gh-pages:
-    needs: build-demo
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
-      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # renovate: tag=v2
-        with:
-          name: ngx-darkbox-gallery-demo
-          path: target/
-      - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305 # renovate: tag=v3.8.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target
-          keep_files: true
-          cname: darkbox.click
+          node-version: 16
+          release-tag: "--tag next"
+          NPM_TOKEN: ${{secrets.npm_token}}
