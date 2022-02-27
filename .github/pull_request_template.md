@@ -12,7 +12,7 @@
 
 ## Approver/Reviewer Checklist
 
-- [ ] Before merge squash related commits.
+- [ ] Before merge squash related commits or rebase branch.
 
 ## Other Information
 
