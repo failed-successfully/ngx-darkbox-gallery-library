@@ -7,9 +7,11 @@
 </div>
 
 <!-- Configuration editor -->
-<app-configuration-editor></app-configuration-editor>
+<app-configuration-editor (configChanged)="configuration = $event"></app-configuration-editor>
+
+<!-- Gallery Demo -->
 <darkbox-gallery [images]="images" [loadMoreImagesEvents]="eventsSubject.asObservable()"
-  (allImagesInDom)="allImagesInDom()">
+  (allImagesInDom)="allImagesInDom()" [configuration]="configuration">
 </darkbox-gallery>
 <div class="button-container">
   <button mat-stroked-button *ngIf="areMoreImagesAvailable" (click)="loadMoreImages()" color="primary">Load more

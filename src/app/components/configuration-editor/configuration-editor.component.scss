@@ -1,0 +1,47 @@
+.config-editor {
+  margin-block: 1rem;
+}
+
+.config-editor-panel {
+  margin-block-start: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.config-editor-inputs {
+  width: calc(50% - 0.5rem);
+  min-width: 23rem;
+}
+
+.config-editor-json {
+  width: calc(50% - 0.5rem);
+  min-width: 23rem;
+  background-color: lightgray;
+}
+
+.config-option {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: .5rem;
+  align-items: baseline;
+
+  margin-block: .5rem;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.indent {
+  margin-inline-start: 2rem;
+}
+
+.config-option-input {
+  width: 100%;
+}

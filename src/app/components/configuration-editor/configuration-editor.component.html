@@ -1,8 +1,227 @@
-<mat-expansion-panel>
+<mat-expansion-panel class="config-editor">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Configuration editor
+        Edit the configuration here
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
+    <div class="config-editor-panel">
+      <div class="config-editor-inputs">
+        <!-- <mat-checkbox [(ngModel)]="liveUpdates">Update the rendered Demo live</mat-checkbox> -->
+        <div class="darkbox-configuration">
+          <h2>Darkbox Configuration</h2>
+
+          <div class="config-option">
+            <span class="config-label">
+              LoopDirection
+            </span>
+            <mat-select class="config-input" [(ngModel)]="configuration.darkboxConfiguration.loopDirection" (valueChange)="configUpdated()">
+              <mat-option *ngFor="let direction of loopDirection" [value]="direction">{{direction}}</mat-option>
+            </mat-select>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              EnableCaption
+            </span>
+            <mat-checkbox [(ngModel)]="configuration.darkboxConfiguration.enableCaption" (change)="configUpdated()"></mat-checkbox>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              CaptionColorConfiguration
+            </span>
+            <div class="config-option">
+              <span class="config-label">
+                BackgroundColor
+              </span>
+              <input type="color" [(ngModel)]="configuration.darkboxConfiguration.captionColorConfiguration.backgroundColor" (change)="configUpdated()">
+            </div>
+            <div class="config-option">
+              <span class="config-label">
+                ForegroundColor
+              </span>
+              <input type="color" [(ngModel)]="configuration.darkboxConfiguration.captionColorConfiguration.foregroundColor" (change)="configUpdated()">
+            </div>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              LoadingAnimation
+            </span>
+            <mat-select class="config-input" [(ngModel)]="configuration.darkboxConfiguration.loadingAnimation" (valueChange)="configUpdated()">
+              <mat-option *ngFor="let animation of loadingAnimation" [value]="animation">{{animation}}</mat-option>
+            </mat-select>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              CloseButtonStyle
+            </span>
+            <mat-select class="config-input" [(ngModel)]="configuration.darkboxConfiguration.closeButtonStyle" (valueChange)="configUpdated()">
+              <mat-option *ngFor="let style of buttonStyle" [value]="style">{{style}}</mat-option>
+            </mat-select>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              CloseButtonColorConfiguration
+            </span>
+            <div class="config-option">
+              <span class="config-label">
+                BackgroundColor
+              </span>
+              <input type="color" [(ngModel)]="configuration.darkboxConfiguration.closeButtonColorConfiguration.backgroundColor" (change)="configUpdated()">
+            </div>
+            <div class="config-option">
+              <span class="config-label">
+                ForegroundColor
+              </span>
+              <input type="color" [(ngModel)]="configuration.darkboxConfiguration.closeButtonColorConfiguration.foregroundColor" (change)="configUpdated()">
+            </div>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              PrevNextButtonStyle
+            </span>
+            <mat-select class="config-input" [(ngModel)]="configuration.darkboxConfiguration.prevNextButtonStyle" (valueChange)="configUpdated()">
+              <mat-option *ngFor="let style of buttonStyle" [value]="style">{{style}}</mat-option>
+            </mat-select>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              PrevNextButtonColorConfiguration
+            </span>
+            <div class="config-option">
+              <span class="config-label">
+                BackgroundColor
+              </span>
+              <input type="color" [(ngModel)]="configuration.darkboxConfiguration.prevNextButtonColorConfiguration.backgroundColor" (change)="configUpdated()">
+            </div>
+            <div class="config-option">
+              <span class="config-label">
+                ForegroundColor
+              </span>
+              <input type="color" [(ngModel)]="configuration.darkboxConfiguration.prevNextButtonColorConfiguration.foregroundColor" (change)="configUpdated()">
+            </div>
+          </div>
+
+          <div class="config-option">
+            <mat-form-field appearance="fill" class="config-option-input">
+              <mat-label>CaptionSeperator</mat-label>
+              <input matInput type="text" [(ngModel)]="configuration.darkboxConfiguration.captionSeparator" (keyup)="configUpdated()">
+            </mat-form-field>
+          </div>
+
+          <div class="config-option">
+            <mat-form-field appearance="fill" class="config-option-input">
+              <mat-label>CaptionTemplate</mat-label>
+              <input matInput type="text" [(ngModel)]="configuration.darkboxConfiguration.captionTemplate" (keyup)="configUpdated()">
+            </mat-form-field>
+          </div>
+
+          <div class="config-option">
+            <mat-form-field appearance="fill" class="config-option-input">
+              <mat-label>Available template variables</mat-label>
+              <input matInput type="text" disabled value="${currentNumber} ${totalNumber} ${separator} ${caption}">
+            </mat-form-field>
+          </div>
+          <hr>
+        </div>
+        <div class="grid-configuration">
+          <h2>Grid Configuration</h2>
+          <div class="config-option">
+            <mat-form-field appearance="fill" class="config-option-input">
+              <mat-label>InitialBatchSize</mat-label>
+              <input matInput type="number" [(ngModel)]="configuration.gridConfiguration.initialBatchSize" (keyup)="configUpdated()">
+            </mat-form-field>
+          </div>
+
+          <div class="config-option">
+            <mat-form-field appearance="fill" class="config-option-input">
+              <mat-label>BatchSize</mat-label>
+              <input matInput type="number" [(ngModel)]="configuration.gridConfiguration.batchSize" (keyup)="configUpdated()">
+            </mat-form-field>
+          </div>
+
+          <div class="config-option column">
+            <span class="config-label">
+              BatchSizeScalingFactors
+            </span>
+            <div class="config-option indent" *ngFor="let factor of configuration.gridConfiguration.batchSizeScalingFactors; let i = index">
+              <mat-form-field appearance="fill" class="config-option-input">
+                <mat-label>PxWidth</mat-label>
+                <input matInput type="number" [(ngModel)]="factor.pxWidth" (keyup)="configUpdated()">
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="config-option-input">
+                <mat-label>ScalingFactor</mat-label>
+                <input matInput type="number" [(ngModel)]="factor.scalingFactor" (keyup)="configUpdated()">
+              </mat-form-field>
+              <button mat-icon-button color="primary" (click)="removeFactor(i)"><mat-icon>delete_outline</mat-icon></button>
+            </div>
+            <button class="indent" mat-icon-button color="primary" (click)="addFactor()"><mat-icon>add_box</mat-icon></button>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              GridType
+            </span>
+            <mat-select class="config-input" [(ngModel)]="configuration.gridConfiguration.gridType" (valueChange)="configUpdated()">
+              <mat-option *ngFor="let type of gridType" [value]="type">{{type}}</mat-option>
+            </mat-select>
+          </div>
+
+          <div class="config-option">
+            <mat-form-field appearance="fill" class="config-option-input">
+              <mat-label>ThumbnailAlignment</mat-label>
+              <input matInput type="text" [(ngModel)]="configuration.gridConfiguration.thumbnailAlignment" (keyup)="configUpdated()">
+            </mat-form-field>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              ZoomImages
+            </span>
+            <mat-checkbox [(ngModel)]="configuration.gridConfiguration.zoomImages" (change)="configUpdated()"></mat-checkbox>
+          </div>
+
+          <div class="config-option">
+            <mat-form-field appearance="fill" class="config-option-input">
+              <mat-label>ThumbnailHight</mat-label>
+              <input matInput type="text" [(ngModel)]="configuration.gridConfiguration.thumbnailHeight" (keyup)="configUpdated()">
+            </mat-form-field>
+          </div>
+
+          <div class="config-option">
+            <mat-form-field appearance="fill" class="config-option-input">
+              <mat-label>ThumbnailWidth</mat-label>
+              <input matInput type="text" [(ngModel)]="configuration.gridConfiguration.thumbnailWidth" (keyup)="configUpdated()">
+            </mat-form-field>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              EnableLoadingPlaceholder
+            </span>
+            <mat-checkbox [(ngModel)]="configuration.gridConfiguration.enableLoadingPlaceholder" (change)="configUpdated()"></mat-checkbox>
+          </div>
+
+          <div class="config-option">
+            <span class="config-label">
+              ThumbnailsWaitForBatch
+            </span>
+            <mat-checkbox [(ngModel)]="configuration.gridConfiguration.thumbnailsWaitForBatch" (change)="configUpdated()"></mat-checkbox>
+          </div>
+          <hr>
+        </div>
+        <div class="actions">
+          <h2>Actions</h2>
+          <button mat-raised-button color="primary" (click)="copyToClipboard()">Copy config to clipboard</button>
+        </div>
+      </div>
+      <div class="config-editor-json">
+        <ngx-json-viewer [json]="{configuration}"></ngx-json-viewer>
+      </div>
+    </div>
 </mat-expansion-panel>

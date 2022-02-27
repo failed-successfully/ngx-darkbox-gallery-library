@@ -18,7 +18,7 @@ import { Image, DarkboxConfiguration } from '@failed-successfully/ngx-darkbox-ga
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  configuration: DarkboxConfiguration = {
+  configuration: Configuration = {
     darkboxConfiguration: {
       loopDirection: LoopDirection.BOTH,
       enableCaption: true,
@@ -61,7 +61,7 @@ export class AppComponent {
       enableLoadingPlaceholder: true,
       thumbnailsWaitForBatch: true
     }
-  } as DarkboxConfiguration;
+  } as Configuration;
 
   images: Image[] = [{
         url: 'https://picsum.photos/seed/3000/2000',

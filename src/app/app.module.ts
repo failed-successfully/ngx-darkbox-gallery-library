@@ -11,6 +11,11 @@ import { ConfigurationEditorComponent } from './components/configuration-editor/
 import { DarkModeSwitchComponent } from './components/dark-mode-switch/dark-mode-switch.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -28,6 +33,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     MatExpansionModule,
     BrowserAnimationsModule,
+    NgxJsonViewerModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatInputModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

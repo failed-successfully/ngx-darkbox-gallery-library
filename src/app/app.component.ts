@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Image } from 'projects/ngx-darkbox-gallery/src/public-api';
+import { Configuration, Image } from 'projects/ngx-darkbox-gallery/src/public-api';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
   eventsSubject: Subject<void> = new Subject<void>();
 
   areMoreImagesAvailable: boolean = true;
+
+  configuration: Configuration;
 
   // Constructor is required here to load the svg images into angular material
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {

@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* Added configuration editor to demo page (#49, #365)
+
 ### Changed
 
 * Updated advanced-configuration-example.md (#157)
