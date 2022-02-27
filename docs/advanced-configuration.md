@@ -15,9 +15,9 @@ The advanced configuration in Darkbox is done via a `Configuration` object which
 | captionTemplate     | sting                             | `${currentNumber}/${totalNumber}${separator}${caption}`               | The template string for the image caption. For the available template variables [see here](#CaptionTemplate) |
 | captionColorConfiguration | [ColorConfiguration](#ColorConfiguration) | [see here](#Default-ColorConfiguration) | Defines the colors to be used on the image caption |
 | loadingAnimation  | [LoadingAnimation](#LoadingAnimation) | `LoadingAnimation.SPINNER` | Loading animation shown while the full sized image is loading|
-| closeButtonStyle  | [ButtonStyle](#ButtonStyle)       | `ButtonStyle.FAB`     | Sets if the caption should be displayed or not|
+| closeButtonStyle  | [ButtonStyle](#ButtonStyle)       | `ButtonStyle.FAB`     | The button style to use for the close button|
 | closeButtonColorConfiguration | [ColorConfiguration](#ColorConfiguration)    | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the close button |
-| prevNextButtonStyle | [ButtonStyle](#ButtonStyle)     | `ButtonStyle.FAB`    | Sets if the caption should be displayed or not|
+| prevNextButtonStyle | [ButtonStyle](#ButtonStyle)     | `ButtonStyle.FAB`    | The button style to use for the previous and next buttons|
 | prevNextButtonColorConfiguration | [ColorConfiguration](#ColorConfiguration) | [see here](#Default-ColorConfiguration) | Defines the colors to be used for the prevoius and next buttons |
 
 ### `LoopDirection`
