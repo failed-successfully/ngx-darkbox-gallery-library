@@ -10,7 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+* Updated advanced-configuration-example.md (#157)
+
 ### Removed
+
+* Removed unused image-configuration
 
 ## [1.0.0-alpha.1] 2021-11-07
 
@@ -21,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Set angular compiler option to ivy-partial (#161, 257) **Breaking Change: The minimum supported angular version is now 12.x**
+* Set angular compiler option to ivy-partial (#161, #257) **Breaking Change: The minimum supported angular version is now 12.x**
 * Updated demo to Angular 13 (#294)
 
 
