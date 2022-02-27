@@ -24,7 +24,6 @@ describe('ConfigurationServiceService', () => {
     expect(actualConfiguration).toBeDefined();
     // The spread operator and the sub-object must be used because jasmine does not support equals with interfaces
     // see also https://github.com/jasmine/jasmine/issues/598
-    expect(actualConfiguration.imageConfiguration).toEqual({ ...defaultConfiguration.imageConfiguration });
     expect(actualConfiguration.darkboxConfiguration).toEqual({ ...defaultConfiguration.darkboxConfiguration });
     expect(actualConfiguration.gridConfiguration).toEqual({ ...defaultConfiguration.gridConfiguration });
   });
@@ -35,7 +34,6 @@ describe('ConfigurationServiceService', () => {
     expect(actualConfiguration).toBeDefined();
     // The spread operator and the sub-object must be used because jasmine does not support equals with interfaces
     // see also https://github.com/jasmine/jasmine/issues/598
-    expect(actualConfiguration.imageConfiguration).toEqual({ ...defaultConfiguration.imageConfiguration });
     expect(actualConfiguration.darkboxConfiguration).toEqual({ ...defaultConfiguration.darkboxConfiguration });
     expect(actualConfiguration.gridConfiguration).toEqual({ ...defaultConfiguration.gridConfiguration });
   });
@@ -54,7 +52,6 @@ describe('ConfigurationServiceService', () => {
     const actualConfiguration = service.getEffectiveConfiguration({ darkboxConfiguration: inputConfiguration });
 
     expect(actualConfiguration).toBeDefined();
-    expect(actualConfiguration.imageConfiguration).toEqual({ ...defaultConfiguration.imageConfiguration });
     expect(actualConfiguration.darkboxConfiguration.enableCaption).toBeTrue();
     expect(actualConfiguration.darkboxConfiguration.loopDirection).toEqual(inputConfiguration.loopDirection);
     expect(actualConfiguration.darkboxConfiguration.loadingAnimation).toEqual(inputConfiguration.loadingAnimation);
@@ -82,7 +79,6 @@ describe('ConfigurationServiceService', () => {
     const actualConfiguration = service.getEffectiveConfiguration({ gridConfiguration: inputConfiguration });
 
     expect(actualConfiguration).toBeDefined();
-    expect(actualConfiguration.imageConfiguration).toEqual({ ...defaultConfiguration.imageConfiguration });
     expect(actualConfiguration.darkboxConfiguration).toEqual({ ...defaultConfiguration.darkboxConfiguration });
     expect(actualConfiguration.gridConfiguration.batchSize).toEqual(inputConfiguration.batchSize);
     expect(actualConfiguration.gridConfiguration.initialBatchSize).toEqual(inputConfiguration.initialBatchSize);

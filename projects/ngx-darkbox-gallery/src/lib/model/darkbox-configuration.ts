@@ -78,14 +78,14 @@ export enum LoopDirection {
 }
 
 export enum LoadingAnimation {
-  DOT,
-  BAR,
-  FLEX_RING,
-  SPINNER,
-  SQUARE
+  DOT = 'DOT',
+  BAR = 'BAR',
+  FLEX_RING = 'FLEX_RING',
+  SPINNER = 'SPINNER',
+  SQUARE = 'SQUARE'
 }
 
 export enum ButtonStyle {
-  FAB,
-  BAR
+  FAB = 'FAB',
+  BAR = 'BAR'
 }

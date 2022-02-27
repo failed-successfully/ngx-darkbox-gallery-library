@@ -16,11 +16,9 @@ export class ConfigurationService {
       this.defaultConfiguration = new DefaultConfiguration();
     }
 
-    const effectiveImageConfig = { ...this.defaultConfiguration.imageConfiguration, ...customConfiguration?.imageConfiguration };
     const effectiveGridConfig = { ...this.defaultConfiguration.gridConfiguration, ...customConfiguration?.gridConfiguration };
     const effectiveDarkboxConfig = { ...this.defaultConfiguration.darkboxConfiguration, ...customConfiguration?.darkboxConfiguration };
     return {
-      imageConfiguration: effectiveImageConfig,
       gridConfiguration: effectiveGridConfig,
       darkboxConfiguration: effectiveDarkboxConfig
     } as Configuration;
