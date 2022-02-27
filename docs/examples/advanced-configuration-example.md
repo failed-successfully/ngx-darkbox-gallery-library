@@ -19,31 +19,48 @@ import { Image, DarkboxConfiguration } from '@failed-successfully/ngx-darkbox-ga
 })
 export class AppComponent {
   configuration: DarkboxConfiguration = {
-      darkboxConfiguration: {
-        loopDirection: LoopDirection.BOTH,
-        enableCaption: true,
+    darkboxConfiguration: {
+      loopDirection: LoopDirection.BOTH,
+      enableCaption: true,
+      captionColorConfiguration: {
+        backgroundColor: '#FFFFFF',
+        foregroundColor: '#000000'
       },
-      gridConfiguration: {
-          initialBatchSize = 10,
-          batchSize: 15,
-          batchSizeScalingFactors: [
-            {
-              pxWidth: 1400,
-              scalingFactor: 5
-            },
-            {
-              pxWidth: 992,
-              scalingFactor: 2
-            }
-          ];
-          gridType: GridType.STATIC,
-          thumbnailAlignment: 'flex-start',
-          zoomImages: true,
-          thumbnailHeight: '175px',
-          thumbnailWidth: '175px',
-          enableLoadingPlaceholder: true,
+      loadingAnimation: LoadingAnimation.SPINNER,
+      closeButtonStyle: ButtonStyle.FAB,
+      closeButtonColorConfiguration: {
+        backgroundColor: '#FFFFFF',
+        foregroundColor: '#000000'
       },
-      imageConfiguration: {}
+      prevNextButtonStyle: ButtonStyle.FAB,
+      prevNextButtonColorConfiguration: {
+        backgroundColor: '#FFFFFF',
+        foregroundColor: '#000000'
+      },
+      captionSeparator: ' - ',
+      captionTemplate: '${currentNumber}/${totalNumber}${separator}${caption}'
+    },
+    gridConfiguration: {
+      initialBatchSize: 10,
+      batchSize: 15,
+      batchSizeScalingFactors: [
+        {
+          pxWidth: 1400,
+          scalingFactor: 5
+        },
+        {
+          pxWidth: 992,
+          scalingFactor: 2
+        }
+      ],
+      gridType: GridType.STATIC,
+      thumbnailAlignment: 'flex-start',
+      zoomImages: true,
+      thumbnailHeight: '175px',
+      thumbnailWidth: '175px',
+      enableLoadingPlaceholder: true,
+      thumbnailsWaitForBatch: true
+    }
   } as DarkboxConfiguration;
 
   images: Image[] = [{
