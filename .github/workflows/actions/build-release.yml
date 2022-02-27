@@ -1,0 +1,70 @@
+on:
+  workflow_call:
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+
+steps:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
+      - name: Build on Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@9ced9a43a244f3ac94f13bfd896db8c8f30da67a # tag=v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci --no-optional
+      - run: npm run build -- ngx-darkbox-gallery --configuration=production
+      - run: cp *.md dist/ngx-darkbox-gallery/
+      - run: cp --parents src/assets/* dist/ngx-darkbox-gallery
+      - run: cp LICENSE dist/ngx-darkbox-gallery/
+      - uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # renovate: tag=v2
+        with:
+          name: ngx-darkbox-gallery
+          path: dist/ngx-darkbox-gallery/
+
+  build-demo:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
+      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # renovate: tag=v2
+        with:
+          name: ngx-darkbox-gallery
+          path: dist/ngx-darkbox-gallery/
+      - name: Build on Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@9ced9a43a244f3ac94f13bfd896db8c8f30da67a # tag=v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci --no-optional
+      - run: cd dist/ngx-darkbox-gallery
+      - run: npm link
+      - run: cd ../..
+      - run: npm link @failed-successfully/ngx-darkbox-gallery
+      - run: npm run build
+      - uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # renovate: tag=v2
+        with:
+          name: ngx-darkbox-gallery-demo
+          path: dist/ngx-darkbox-gallery-library/
+
+  publish-gh-pages:
+    needs: build-demo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
+      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869 # renovate: tag=v2
+        with:
+          name: ngx-darkbox-gallery-demo
+          path: target/
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305 # renovate: tag=v3.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target
+          keep_files: true
+          cname: darkbox.click
