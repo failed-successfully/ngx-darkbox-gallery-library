@@ -27,6 +27,7 @@ steps:
           path: dist/ngx-darkbox-gallery/
 
   build-demo:
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
