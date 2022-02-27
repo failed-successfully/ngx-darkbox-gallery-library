@@ -8,6 +8,24 @@ on:
     types: [released]
 
 jobs:
+  # Automaticcally extract the release notes from Changelog.md 
+  update-release-notes:
+    name: Create release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Extract release notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v1
+      - name: Update release notes
+        id: update-release
+        uses: tubone24/update_release@v1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body: ${{ steps.extract-release-notes.outputs.release_notes }}
+
   build:
     runs-on: ubuntu-latest
     strategy:
