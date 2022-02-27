@@ -1,7 +1,7 @@
 on:
   workflow_call:
     secrets:
-      GITHUB_TOKEN:
+      github-token:
         required: true
 
 steps:
@@ -65,7 +65,7 @@ steps:
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305 # renovate: tag=v3.8.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.github-token }}
           publish_dir: ./target
           keep_files: true
           cname: darkbox.click

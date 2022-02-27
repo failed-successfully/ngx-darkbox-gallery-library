@@ -1,7 +1,7 @@
 on:
   workflow_call:
     secrets:
-      GITHUB_TOKEN:
+      github-token:
         required: true
 
 jobs:
@@ -18,6 +18,6 @@ jobs:
         id: update-release
         uses: tubone24/update_release@v1.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.github-token }}
         with:
           body: ${{ steps.extract-release-notes.outputs.release_notes }}
