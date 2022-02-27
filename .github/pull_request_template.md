@@ -1,0 +1,18 @@
+[Your PR description here]
+
+## PR Checklist
+
+- [ ] Wrote a good commit message & description according to conventional commits [see guide below].
+- [ ] Commit message starts with `[#issue-number]`.
+- [ ] Added/Updated unit tests.
+- [ ] All unit tests are passing.
+- [ ] Used the same coding conventions as the rest of the project.
+- [ ] The PR relates to _only_ one subject with a clear title and description in grammatically correct, complete sentences.
+
+## Approver/Reviewer Checklist
+
+- [ ] Before merge squash related commits.
+
+## Other Information
+
+[Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
