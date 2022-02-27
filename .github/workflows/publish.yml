@@ -20,15 +20,15 @@ jobs:
   publish-npm:
     needs: build
     uses: ./.github/workflows/release-package.yml
-      with:
-        registry-url: https://registry.npmjs.org/
-        node-version: 16
-        NPM_TOKEN: ${{secrets.npm_token}}
+    with:
+      registry-url: https://registry.npmjs.org/
+      node-version: 16
+      NPM_TOKEN: ${{secrets.npm_token}}
 
   publish-gpr:
     needs: build
     uses: ./.github/workflows/release-package.yml
-      with:
-        registry-url: https://npm.pkg.github.com/
-        node-version: 16
-        NPM_TOKEN: ${{secrets.npm_token}}
+    with:
+      registry-url: https://npm.pkg.github.com/
+      node-version: 16
+      NPM_TOKEN: ${{secrets.npm_token}}
