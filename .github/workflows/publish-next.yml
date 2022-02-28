@@ -18,7 +18,7 @@ jobs:
     uses: ./.github/workflows/build-release.yml
 
   publish-npm:
-    needs: build
+    needs: build-release
     uses: ./.github/workflows/release-package.yml
     with:
       registry-url: https://registry.npmjs.org/
@@ -28,7 +28,7 @@ jobs:
       npm-token: ${{ secrets.NPM_TOKEN }}
 
   publish-gpr:
-    needs: build
+    needs: build-release
     uses: ./.github/workflows/release-package.yml
     with:
       registry-url: https://npm.pkg.github.com/
