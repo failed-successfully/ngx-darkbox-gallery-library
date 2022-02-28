@@ -1,12 +1,12 @@
-[![NPM version](https://img.shields.io/npm/v/@failed-successfully/ngx-darkbox-gallery.svg?&label=npm)](https://www.npmjs.com/package/@failed-successfully/ngx-darkbox-gallery) 
-[![Downloads](https://img.shields.io/npm/dm/@failed-successfully/ngx-darkbox-gallery.svg)](https://www.npmjs.com/package/@failed-successfully/ngx-darkbox-gallery)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/failed-successfully/ngx-darkbox-gallery-library/pulls) 
-
 # Darkbox Gallery
 
 Darkbox Gallery is a highly configurable lightbox themed gallery library for Angular applications using the ivy engine (Angular 12+).
 
 <hr>
+
+[![NPM version](https://img.shields.io/npm/v/@failed-successfully/ngx-darkbox-gallery.svg?&label=npm)](https://www.npmjs.com/package/@failed-successfully/ngx-darkbox-gallery) 
+[![Downloads](https://img.shields.io/npm/dm/@failed-successfully/ngx-darkbox-gallery.svg)](https://www.npmjs.com/package/@failed-successfully/ngx-darkbox-gallery)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/failed-successfully/ngx-darkbox-gallery-library/pulls) 
 
 ![Darkbox logo](./src/assets/darkbox-icon128.png)
 
