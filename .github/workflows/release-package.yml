@@ -25,8 +25,8 @@ jobs:
           path: artifact/ngx-darkbox-gallery/
       - uses: actions/setup-node@9ced9a43a244f3ac94f13bfd896db8c8f30da67a # tag=v3
         with:
-          node-version: {{ inputs.node-version }}
-          registry-url: {{ inputs.registry-url }}
+          node-version: ${{ inputs.node-version }}
+          registry-url: ${{ inputs.registry-url }}
       - run: npm ci --no-optional
       - run: npm publish --access public {{ inputs.release-tag }}
         working-directory: artifact/ngx-darkbox-gallery

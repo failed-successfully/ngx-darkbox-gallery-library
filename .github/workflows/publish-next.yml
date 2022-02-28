@@ -24,6 +24,7 @@ jobs:
       registry-url: https://registry.npmjs.org/
       node-version: 16
       release-tag: "--tag next"
+    secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
 
   publish-gpr:
@@ -33,4 +34,5 @@ jobs:
       registry-url: https://npm.pkg.github.com/
       node-version: 16
       release-tag: "--tag next"
+    secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
