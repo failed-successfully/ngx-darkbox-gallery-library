@@ -28,7 +28,7 @@ jobs:
           node-version: ${{ inputs.node-version }}
           registry-url: ${{ inputs.registry-url }}
       - run: npm ci --no-optional
-      - run: npm publish --access public {{ inputs.release-tag }}
+      - run: npm publish --access public ${{ inputs.release-tag }}
         working-directory: artifact/ngx-darkbox-gallery
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm-token }}
