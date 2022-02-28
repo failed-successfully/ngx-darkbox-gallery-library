@@ -12,42 +12,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
-* Removed obsolete folder `e2e`
 
-## [1.0.0-alpha.3]
-
-### Added
-
-* Added configuration editor to demo page (#49, #365)
-* Added autmatic release note extraction to workflows (#409)
-
-### Changed
-
-* Updated advanced-configuration-example.md (#157)
-
-### Removed
-
-* Removed unused image-configuration
-
-
-## [1.0.0-alpha.2] 2022-02-13
-
-### Changed
-
-* Set package version to 1.0.0-branch
-
-
-## [1.0.0-alpha.1] 2021-11-07
+## [1.0.0] 2022-02-28
 
 ### Added
 
 * Added footer to the demo page (#162. #163)
 * Added prereleases to next tag on npm (#108, #242)
+* Added configuration editor to demo page (#49, #365)
+* Added autmatic release note extraction to workflows (#409)
 
 ### Changed
 
 * Set angular compiler option to ivy-partial (#161, #257) **Breaking Change: The minimum supported angular version is now 12.x**
 * Updated demo to Angular 13 (#294)
+* Set package version to 1.0.0-branch
+* Updated advanced-configuration-example.md (#157)
+
+### Removed
+
+* Removed unused image-configuration
+* Removed obsolete folder `e2e`
 
 
 ## [0.7.0] - 2021-08-27
