@@ -8,13 +8,17 @@
     "renovate 🧹",
     "dependency ⚙️"
   ],
-  "commitMessagePrefix": "[RENOVATE]",
   "pinDigests": true,
   "separateMultipleMajor": false,
   "reviewersFromCodeOwners": true,
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
       "automerge": true
     }
   ]
