@@ -6,7 +6,7 @@ We will try to be as brief as possible in this contribution guide ;-).
 
 Here are some important resources:
 
-  * [Local development setup](https://github.com/failed-successfully/ngx-darkbox-gallery-library/blob/main/docs/development/local-setup.md) tells you how to get started locally
+  * [Local development setup](docs/development/local-setup.md) tells you how to get started locally
   * Bugs? [Github](https://github.com/failed-successfully/ngx-darkbox-gallery-library/issues/new?assignees=&labels=bug&template=bug_report.md&title=) is where to report them
 
 
