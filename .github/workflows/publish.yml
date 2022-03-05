@@ -8,7 +8,7 @@ on:
     types: [released]
 
 jobs:
-  # Automaticcally extract the release notes from Changelog.md
+  # Automatically extract the release notes from Changelog.md
   release-notes:
     name: Create release notes
     uses: ./.github/workflows/update-release-notes.yml
@@ -19,7 +19,7 @@ jobs:
 
   publish-npm:
     needs: build-release
-    uses: ./.github/workflows/release-package.yml
+    uses: ./.github/workflows/npm-publish.yml
     with:
       registry-url: https://registry.npmjs.org/
       node-version: 16
@@ -28,7 +28,7 @@ jobs:
 
   publish-gpr:
     needs: build-release
-    uses: ./.github/workflows/release-package.yml
+    uses: ./.github/workflows/npm-publish.yml
     with:
       registry-url: https://npm.pkg.github.com/
       node-version: 16
