@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
       - name: Extract release notes
         id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@v1
+        uses: ffurrer2/extract-release-notes@48637c28a2d9725d8f4bc0f1094e7b8e2bea7142 # tag=v1
       - name: Update release notes
         id: update-release
-        uses: tubone24/update_release@v1.0
+        uses: tubone24/update_release@435571083c6ffef76d88754c17a92751cbf04114 # tag=v1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
