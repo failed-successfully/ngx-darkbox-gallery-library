@@ -19,7 +19,8 @@
         "pin",
         "digest"
       ],
-      "automerge": true
+      "automerge": true,
+      "platformAutomerge": true
     }
   ]
 }
