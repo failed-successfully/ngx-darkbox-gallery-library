@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3
       - name: Extract release notes
         id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@48637c28a2d9725d8f4bc0f1094e7b8e2bea7142 # tag=v1
+        uses: ffurrer2/extract-release-notes@bc2985dc11f91cc2aa38b6140fd697072c06b098 # tag=v1
       - name: Update release notes
         id: update-release
         uses: tubone24/update_release@435571083c6ffef76d88754c17a92751cbf04114 # tag=v1.0
