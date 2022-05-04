@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Fixed publishing of library to gpr
 * Use a consistent color picker for the demo page (#412, #424)
-* Update node toversion 18 (#510, #511)
+* Update node to version 18 (#510, #511)
 
 ### Removed
 
