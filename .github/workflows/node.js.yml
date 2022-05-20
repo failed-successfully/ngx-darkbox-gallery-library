@@ -26,7 +26,7 @@ jobs:
       - name: Test
         run: npm run test:lib:ci
       # Upload the build artifacts to GitHub
-      - uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # tag=v3
+      - uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3
         with:
           name: ngx-darkbox-gallery
           path: dist/ngx-darkbox-gallery/
