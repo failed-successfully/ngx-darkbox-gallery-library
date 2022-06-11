@@ -41,9 +41,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci --no-optional --legacy-peer-deps
       - run: cd dist/ngx-darkbox-gallery
-      - run: npm link
+      - run: npm
       - run: cd ../..
-      - run: npm link @failed-successfully/ngx-darkbox-gallery
+      - run: npm link @failed-successfully/ngx-darkbox-gallery --legacy-peer-deps
       - run: npm run build
       - uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3
         with:
