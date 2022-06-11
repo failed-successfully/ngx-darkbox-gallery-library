@@ -15,16 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.0] - 2022-06-11
 
-### Added
-
 ### Changed
 
 * Fixed publishing of library to gpr
 * Use a consistent color picker for the demo page (#412, #424)
 * Update node to version 18 (#510, #511)
 * Update to Angular 14 and made the lib Angular 14 ready
-
-### Removed
 
 
 ## [1.0.0] 2022-02-28
