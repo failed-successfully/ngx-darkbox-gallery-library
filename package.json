@@ -33,7 +33,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "test:lib": "ng test ngx-darkbox-gallery --include='**/services/*spec.ts'",
+    "test:lib": "ng test ngx-darkbox-gallery",
     "test:lib:ci": "npm run test:lib -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
     "e2e": "ng e2e"
