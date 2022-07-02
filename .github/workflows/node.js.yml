@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@eeb10cff27034e7acf239c5d29f62154018672fd # tag=v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci --no-optional --legacy-peer-deps
+      - run: npm ci --no-optional
       - run: npm run build -- ngx-darkbox-gallery --configuration=production
       - run: cp *.md dist/ngx-darkbox-gallery/
       - run: cp LICENSE dist/ngx-darkbox-gallery/
