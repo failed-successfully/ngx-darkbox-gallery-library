@@ -23,7 +23,7 @@ jobs:
         with:
           name: ngx-darkbox-gallery
           path: artifact/ngx-darkbox-gallery/
-      - uses: actions/setup-node@eeb10cff27034e7acf239c5d29f62154018672fd # tag=v3
+      - uses: actions/setup-node@5b949b50c3461bbcd5a540b150c368278160234a # tag=v3
         with:
           node-version: ${{ inputs.node-version }}
           registry-url: ${{ inputs.registry-url }}
