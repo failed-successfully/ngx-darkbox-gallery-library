@@ -1,4 +1,4 @@
-@import "scss-variables/screen-sizes";
+@use "scss-variables/screen-sizes" as screen-sizes;
 
 button{
   cursor: pointer;
@@ -60,31 +60,31 @@ button{
   }
 }
 
-@media (min-width: $sm) and (max-width: $md) {
+@media (min-width: screen-sizes.$sm) and (max-width: screen-sizes.$md) {
   .fluid-image-grid {
     column-count: 2;
   }
 }
 
-@media (min-width: $md) and (max-width: $lg) {
+@media (min-width: screen-sizes.$md) and (max-width: screen-sizes.$lg) {
   .fluid-image-grid {
     column-count: 3;
   }
 }
 
-@media (min-width: $lg) and (max-width: $xl) {
+@media (min-width: screen-sizes.$lg) and (max-width: screen-sizes.$xl) {
   .fluid-image-grid {
     column-count: 4;
   }
 }
 
-@media (min-width: $xl) and (max-width: $xxl) {
+@media (min-width: screen-sizes.$xl) and (max-width: screen-sizes.$xxl) {
   .fluid-image-grid {
     column-count: 5;
   }
 }
 
-@media (min-width: $xxl) {
+@media (min-width: screen-sizes.$xxl) {
   .fluid-image-grid {
     column-count: 9;
   }
