@@ -160,8 +160,10 @@
       }
     }
   },
-  "defaultProject": "ngx-darkbox-gallery-library",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ],
+    "analytics": false
   }
 }
