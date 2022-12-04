@@ -12,6 +12,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [1.2.0] - 2022-12-04
+
+### Added
+
+* Added contributer guide (#413, #414)
+
+### Changed
+
+* Update to Angular 15 and made the lib Angular 15 ready (#744)
+* Fixed publishing of library to gpr
+* Fixed ugly description on npmjs.com
+
 
 ## [1.1.0] - 2022-06-11
 
