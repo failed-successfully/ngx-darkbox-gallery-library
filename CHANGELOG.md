@@ -21,7 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Update to Angular 15 and made the lib Angular 15 ready (#744)
-* Fixed publishing of library to gpr
 * Fixed ugly description on npmjs.com
 
 
