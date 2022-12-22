@@ -12,6 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [1.2.1] - 2022-12-22
+
+### Changed
+
+* Fixed issues with angular peer dependencies (#773, #774)
+
+
 ## [1.2.0] - 2022-12-04
 
 ### Added
