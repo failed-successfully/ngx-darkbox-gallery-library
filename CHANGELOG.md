@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [1.3.0] - 2023-06-18
+
+### Added
+
+* Added compatabilty to angular 16 (#988, #989)
+
 ## [1.2.1] - 2022-12-22
 
 ### Changed
