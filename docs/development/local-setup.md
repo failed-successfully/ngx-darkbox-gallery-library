@@ -3,7 +3,7 @@
 ## Quick start
 
 1. Check out the original repository or your fork.
-2. Run `npm install`
+2. Run `npm i`
 3. Run `ng build ngx-darkbox-gallery --watch`
 4. Link the library to the demo app (on a new terminal)
     1. Run `cd dist/ngx-darkbox-gallery`
