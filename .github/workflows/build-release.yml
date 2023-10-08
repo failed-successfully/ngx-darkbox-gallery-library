@@ -8,7 +8,7 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
       - name: Build on Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3
         with:
@@ -30,7 +30,7 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
         with:
           name: ngx-darkbox-gallery
@@ -54,7 +54,7 @@ jobs:
     needs: build-demo
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
         with:
           name: ngx-darkbox-gallery-demo
