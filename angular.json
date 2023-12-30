@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-darkbox-gallery-library:build"
+            "buildTarget": "ngx-darkbox-gallery-library:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-darkbox-gallery-library:build:production"
+              "buildTarget": "ngx-darkbox-gallery-library:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-darkbox-gallery-library:build"
+            "buildTarget": "ngx-darkbox-gallery-library:build"
           }
         },
         "test": {
