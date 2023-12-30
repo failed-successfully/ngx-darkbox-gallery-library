@@ -51,7 +51,7 @@
     "@angular/router": "16.2.8",
     "ngx-color-picker": "16.0.0",
     "ngx-json-viewer": "3.2.1",
-    "ngx-toastr": "17.0.2",
+    "ngx-toastr": "18.0.0",
     "rxjs": "7.8.1",
     "tslib": "2.6.2",
     "zone.js": "0.13.3"
