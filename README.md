@@ -1,6 +1,6 @@
 # Darkbox Gallery
 
-Darkbox Gallery is a highly configurable lightbox themed gallery library for Angular applications using the ivy engine (Angular 12+).
+Darkbox Gallery is a highly configurable lightbox themed gallery library for Angular applications using the ivy engine (Angular 15+).
 
 <hr>
 
