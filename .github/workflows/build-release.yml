@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci --omit=optional
+      - run: npm ci
       - run: npm run build -- ngx-darkbox-gallery --configuration=production
       - run: cp *.md dist/ngx-darkbox-gallery/
       - run: cp --parents src/assets/* dist/ngx-darkbox-gallery
@@ -39,7 +39,7 @@ jobs:
         uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci --omit=optional
+      - run: npm ci
       - run: cd dist/ngx-darkbox-gallery
       - run: npm link
       - run: cd ../..
