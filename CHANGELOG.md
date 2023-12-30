@@ -6,11 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2023-12-30
+
 ### Added
+
+* Added compatabilty to angular 17 (#1208)
 
 ### Changed
 
 * Update build pipeline to use node 20 (#1139)
+
+### Removed
+
+* __(BREAKING CHANGE):__ Remove support for Angular <=14. Angular 15 is now the minimum required version.
 
 ### Removed
 
