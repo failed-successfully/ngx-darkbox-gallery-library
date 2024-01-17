@@ -77,7 +77,7 @@
     "karma-coverage": "2.2.1",
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
-    "ng-packagr": "17.0.3",
+    "ng-packagr": "17.1.0",
     "protractor": "7.0.0",
     "ts-node": "10.9.1",
     "typescript": "5.2.2"
