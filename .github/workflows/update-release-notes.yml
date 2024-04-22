@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f # v4
       - name: Extract release notes
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@4a5a562549e21065f6791b32ec5415bd33045cd2 # v2
