@@ -1,12 +1,20 @@
-CI/CD: .github/workflows/*
+CI/CD:
+  - changed-files:
+    - any-glob-to-any-file: .github/workflows/*
 demo:
-  - src/*
-  - src/**/*
-test: projects/ngx-darkbox-gallery/**/*.spec.ts
+ - changed-files:
+  - any-glob-to-any-file:
+    - src/*
+    - src/**/*
+test: 
+  - changed-files:
+  - any-glob-to-any-file: projects/ngx-darkbox-gallery/**/*.spec.ts
 documentation:
   - docs/*
   - README.md
   - CHANGELOG.md
 lib:
-  - projects/ngx-darkbox-gallery/*
-  - projects/ngx-darkbox-gallery/**/*
+  - changed-files:
+  - any-glob-to-any-file:
+    - projects/ngx-darkbox-gallery/*
+    - projects/ngx-darkbox-gallery/**/*
