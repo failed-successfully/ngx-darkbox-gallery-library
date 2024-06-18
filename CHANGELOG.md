@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Added compatabilty to angular 18 (#1417)
+* Added compatabilty to angular 18 (#1423)
 
 ## [2.0.2] - 2024-05-12
 
