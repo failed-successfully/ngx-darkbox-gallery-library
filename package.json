@@ -35,8 +35,7 @@
     "test": "ng test",
     "test:lib": "ng test ngx-darkbox-gallery",
     "test:lib:ci": "npm run test:lib -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint": "ng lint"
   },
   "dependencies": {
     "@angular/animations": "18.0.3",
@@ -78,7 +77,6 @@
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
     "ng-packagr": "18.0.0",
-    "protractor": "^7.0.0",
     "ts-node": "10.9.2",
     "typescript": "5.4.5"
   }
