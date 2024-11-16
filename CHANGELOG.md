@@ -6,11 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+* Update build pipeline to use node 20 (#1598)
+
 ## [2.1.0] - 2024-06-18
 
 ### Added
 
-* Added compatabilty to angular 18 (#1423)
+* Added compatabilty to angular 18 (#1598)
 
 ## [2.0.2] - 2024-05-12
 
