@@ -1,9 +1,10 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
-  selector: 'app-dark-mode-switch',
-  templateUrl: './dark-mode-switch.component.html',
-  styleUrls: ['./dark-mode-switch.component.scss']
+    selector: 'app-dark-mode-switch',
+    templateUrl: './dark-mode-switch.component.html',
+    styleUrls: ['./dark-mode-switch.component.scss'],
+    standalone: false
 })
 export class DarkModeSwitchComponent implements OnInit {
 

@@ -8,9 +8,10 @@ import { ConfigurationService } from './services/configuration.service';
 import { ImageIndexService } from './services/image-index.service';
 
 @Component({
-  selector: 'darkbox-gallery',
-  templateUrl: './ngx-darkbox-gallery.component.html',
-  styleUrls: ['./ngx-darkbox-gallery.component.scss']
+    selector: 'darkbox-gallery',
+    templateUrl: './ngx-darkbox-gallery.component.html',
+    styleUrls: ['./ngx-darkbox-gallery.component.scss'],
+    standalone: false
 })
 export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy {
 

@@ -11,9 +11,10 @@ export enum KEY_CODE {
 }
 
 @Component({
-  selector: 'darkbox',
-  templateUrl: './darkbox.component.html',
-  styleUrls: ['./darkbox.component.scss']
+    selector: 'darkbox',
+    templateUrl: './darkbox.component.html',
+    styleUrls: ['./darkbox.component.scss'],
+    standalone: false
 })
 export class DarkboxComponent implements OnInit, OnChanges {
 

@@ -3,9 +3,10 @@ import { Configuration, ButtonStyle, GridType, LoadingAnimation, LoopDirection, 
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-configuration-editor',
-  templateUrl: './configuration-editor.component.html',
-  styleUrls: ['./configuration-editor.component.scss']
+    selector: 'app-configuration-editor',
+    templateUrl: './configuration-editor.component.html',
+    styleUrls: ['./configuration-editor.component.scss'],
+    standalone: false
 })
 export class ConfigurationEditorComponent {
 
