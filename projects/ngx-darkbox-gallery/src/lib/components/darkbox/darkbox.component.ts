@@ -3,6 +3,9 @@ import { SwipeDirection } from '../../directives/touchable/swipe-direction';
 import { ButtonStyle, DarkboxConfiguration } from '../../model/darkbox-configuration';
 import { Image } from '../../model/image';
 import { ImageCaptionService } from '../../services/image-caption.service';
+import { NgClass, NgStyle, NgIf } from '@angular/common';
+import { LoadingAnimationComponent } from '../loading/loading-animation/loading-animation.component';
+import { TouchableDirective } from '../../directives/touchable/touchable.directive';
 
 export enum KEY_CODE {
   RIGHT_ARROW = 39,
@@ -14,7 +17,7 @@ export enum KEY_CODE {
     selector: 'darkbox',
     templateUrl: './darkbox.component.html',
     styleUrls: ['./darkbox.component.scss'],
-    standalone: false
+    imports: [NgClass, NgStyle, NgIf, LoadingAnimationComponent, TouchableDirective]
 })
 export class DarkboxComponent implements OnInit, OnChanges {
 

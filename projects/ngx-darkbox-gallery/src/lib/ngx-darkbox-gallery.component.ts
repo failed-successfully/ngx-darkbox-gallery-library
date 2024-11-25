@@ -6,12 +6,15 @@ import { GridType } from './model/grid-configuration';
 import { Image } from './model/image';
 import { ConfigurationService } from './services/configuration.service';
 import { ImageIndexService } from './services/image-index.service';
+import { NgClass, NgStyle, NgFor, NgIf, SlicePipe } from '@angular/common';
+import { LoadingPlaceholderComponent } from './components/loading/loading-placeholder/loading-placeholder.component';
+import { DarkboxComponent } from './components/darkbox/darkbox.component';
 
 @Component({
     selector: 'darkbox-gallery',
     templateUrl: './ngx-darkbox-gallery.component.html',
     styleUrls: ['./ngx-darkbox-gallery.component.scss'],
-    standalone: false
+    imports: [NgClass, NgStyle, NgFor, NgIf, LoadingPlaceholderComponent, DarkboxComponent, SlicePipe]
 })
 export class NgxDarkboxGalleryComponent implements OnInit, OnChanges, OnDestroy {
 

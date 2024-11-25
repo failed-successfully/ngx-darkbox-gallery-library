@@ -8,8 +8,8 @@ describe('SvgLoaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SvgLoaderComponent ]
-    })
+    imports: [SvgLoaderComponent]
+})
     .compileComponents();
   });
 

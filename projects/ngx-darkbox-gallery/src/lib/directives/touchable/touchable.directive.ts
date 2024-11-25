@@ -1,10 +1,7 @@
 import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
 import { SwipeDirection } from './swipe-direction';
 
-@Directive({
-    selector: '[touchable]',
-    standalone: false
-})
+@Directive({ selector: '[touchable]' })
 export class TouchableDirective {
 
   @Output()

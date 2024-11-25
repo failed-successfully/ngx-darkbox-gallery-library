@@ -4,7 +4,7 @@
 
 export * from './lib/ngx-darkbox-gallery.service';
 export * from './lib/ngx-darkbox-gallery.component';
-export * from './lib/ngx-darkbox-gallery.module';
+
 export * from './lib/model/color-configuration';
 export * from './lib/model/configuration';
 export * from './lib/model/darkbox-configuration';
