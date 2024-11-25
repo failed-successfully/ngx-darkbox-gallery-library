@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Update build pipeline to use node 20 (#1598)
-*__BREAKING CHANGE:__ Migrated the library to use standalone components. Please see the updated inclusion documentation described in the `README.md` (1608)
+* __BREAKING CHANGE:__ Migrated the library to use standalone components. Please see the updated inclusion documentation described in the `README.md` (1608)
 
 ## [2.1.0] - 2024-06-18
 
