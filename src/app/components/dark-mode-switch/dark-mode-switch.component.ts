@@ -1,10 +1,11 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-dark-mode-switch',
     templateUrl: './dark-mode-switch.component.html',
     styleUrls: ['./dark-mode-switch.component.scss'],
-    standalone: false
+    imports: [FormsModule]
 })
 export class DarkModeSwitchComponent implements OnInit {
 

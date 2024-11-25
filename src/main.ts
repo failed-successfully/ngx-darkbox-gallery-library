@@ -1,12 +1,32 @@
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppModule } from './app/app.module';
+
 import { environment } from './environments/environment';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { ToastrModule } from 'ngx-toastr';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { AppComponent } from './app/app.component';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+bootstrapApplication(AppComponent, {
+    providers: [
+        importProvidersFrom(BrowserModule, FormsModule, MatButtonModule, MatIconModule, MatExpansionModule, NgxJsonViewerModule, MatCheckboxModule, MatSelectModule, MatInputModule, ToastrModule.forRoot(), ColorPickerModule),
+        provideHttpClient(withInterceptorsFromDi()),
+        provideAnimations()
+    ]
+})
   .catch(err => console.error(err));

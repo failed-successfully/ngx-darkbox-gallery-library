@@ -1,12 +1,24 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Configuration, ButtonStyle, GridType, LoadingAnimation, LoopDirection, ResolutionConfiguration } from 'projects/ngx-darkbox-gallery/src/public-api';
 import { ToastrService } from 'ngx-toastr';
+import { MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle } from '@angular/material/expansion';
+import { MatSelect } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
+import { MatOption } from '@angular/material/core';
+import { MatCheckbox } from '@angular/material/checkbox';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatIconButton, MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 @Component({
     selector: 'app-configuration-editor',
     templateUrl: './configuration-editor.component.html',
     styleUrls: ['./configuration-editor.component.scss'],
-    standalone: false
+    imports: [MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, MatSelect, FormsModule, NgFor, MatOption, MatCheckbox, ColorPickerModule, MatFormField, MatLabel, MatInput, MatIconButton, MatIcon, MatButton, NgxJsonViewerModule]
 })
 export class ConfigurationEditorComponent {
 
