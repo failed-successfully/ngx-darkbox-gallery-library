@@ -11,11 +11,13 @@ The following example shows how Darkbox can be configured. In this example all c
 ```ts
 import { Component } from '@angular/core';
 import { Image, DarkboxConfiguration } from '@failed-successfully/ngx-darkbox-gallery';
+import { NgxDarkboxGalleryComponent } from '@failed-successfully/ngx-darkbox-gallery';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  imports: [NgxDarkboxGalleryComponent]
 })
 export class AppComponent {
   configuration: Configuration = {
