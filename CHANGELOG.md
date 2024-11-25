@@ -6,9 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2024-11-25
+
+### Added
+
+* Added compatabilty to angular 19 (1609)
+
 ### Changed
 
 * Update build pipeline to use node 20 (#1598)
+*__BREAKING CHANGE:__ Migrated the library to use standalone components. Please see the updated inclusion documentation described in the `README.md` (1608)
 
 ## [2.1.0] - 2024-06-18
 
@@ -92,7 +99,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Set angular compiler option to ivy-partial (#161, #257) **Breaking Change: The minimum supported angular version is now 12.x**
+* __BREAKING CHANGE:__ Set angular compiler option to ivy-partial (#161, #257) **The minimum supported angular version is now 12.x**
 * Updated demo to Angular 13 (#294)
 * Set package version to 1.0.0-branch
 * Updated advanced-configuration-example.md (#157)

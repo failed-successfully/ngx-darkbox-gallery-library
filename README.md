@@ -18,26 +18,30 @@ If you are not sure what you can expect from Darkbox please have a look at the c
 
 ## How?
 ### Installation
-Install npm package for Angular version 12+:
+Install npm package for Angular version 15+:
 
 ```
 npm i @failed-successfully/ngx-darkbox-gallery
 ```
 
-Import the module into your `app.module.ts`
+Since Version 3 this library is provided as a standalone component.
+To use it import the `NgxDarkboxGalleryComponent` into a component of your choice. In this example it is called AppComponent (`app.component.ts`)
 ```ts
 ...
-import { NgxDarkboxGalleryModule } from '@failed-successfully/ngx-darkbox-gallery';
+import { NgxDarkboxGalleryComponent } from '@failed-successfully/ngx-darkbox-gallery';
 
-@NgModule({
-  ...,
-  imports: [
-    ...,
-    NgxDarkboxGalleryModule
-  ],
-  ...
+@Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    imports: [NgxDarkboxGalleryComponent]
 })
-export class AppModule { }
+export class AppComponent {
+    images: Image[] = [{
+        url: 'https://picsum.photos/seed/3000/2000',
+        thumbnailUrl: 'https://picsum.photos/300/200'
+  }];
+}
 ```
 ### Usage
 The simplest way of using Darkbox is to include the component with its default configuration as shown below.
@@ -45,24 +49,6 @@ The simplest way of using Darkbox is to include the component with its default c
 Inclusion in the desired `.html` file
 ```ts
 <darkbox-gallery [images]="images"></darkbox-gallery>
-```
-
-View of the corresponding `.ts` file
-```ts
-import { Component } from '@angular/core';
-import { Image } from '@failed-successfully/ngx-darkbox-gallery';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
-export class AppComponent {
-  images: Image[] = [{
-        url: 'https://picsum.photos/seed/3000/2000',
-        thumbnailUrl: 'https://picsum.photos/300/200'
-  }];
-}
 ```
 
 For an example of a more advanced Darkbox configuration have a look at [our examples](./docs/examples/advanced-configuration-example.md).
