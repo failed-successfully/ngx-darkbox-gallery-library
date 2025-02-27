@@ -62,7 +62,7 @@
     "@angular-eslint/eslint-plugin-template": "19.1.0",
     "@angular-eslint/schematics": "19.1.0",
     "@angular-eslint/template-parser": "19.1.0",
-    "@angular/cli": "19.1.9",
+    "@angular/cli": "19.2.0",
     "@angular/compiler-cli": "19.1.7",
     "@types/jasmine": "5.1.7",
     "@types/node": "22.13.5",
