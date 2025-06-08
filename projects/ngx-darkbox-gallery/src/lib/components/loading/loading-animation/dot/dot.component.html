@@ -1,5 +1,5 @@
 <div class="loader">
-  <ng-container *ngFor="i of [0,1,2,3,4,5,6]">
+  @for (i of [0,1,2,3,4,5,6]; track i) {
     <span [ngClass]="animationType === loadingAnimation.DOT ? 'dot' : ''"></span>
-  </ng-container>
+  }
 </div>

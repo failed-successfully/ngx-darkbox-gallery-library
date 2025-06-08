@@ -14,8 +14,10 @@
   (allImagesInDom)="allImagesInDom()" [configuration]="configuration">
 </darkbox-gallery>
 <div class="button-container">
-  <button mat-stroked-button *ngIf="areMoreImagesAvailable" (click)="loadMoreImages()" color="primary">Load more
+  @if (areMoreImagesAvailable) {
+    <button mat-stroked-button (click)="loadMoreImages()" color="primary">Load more
     images</button>
+  }
 </div>
 
 <!-- Footer -->
