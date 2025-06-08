@@ -15,7 +15,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
-import { ColorPickerModule } from 'ngx-color-picker';
 import { AppComponent } from './app/app.component';
 
 if (environment.production) {
@@ -24,7 +23,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
     providers: [
-        importProvidersFrom(BrowserModule, FormsModule, MatButtonModule, MatIconModule, MatExpansionModule, NgxJsonViewerModule, MatCheckboxModule, MatSelectModule, MatInputModule, ToastrModule.forRoot(), ColorPickerModule),
+        importProvidersFrom(BrowserModule, FormsModule, MatButtonModule, MatIconModule, MatExpansionModule, NgxJsonViewerModule, MatCheckboxModule, MatSelectModule, MatInputModule, ToastrModule.forRoot()),
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations()
     ]
