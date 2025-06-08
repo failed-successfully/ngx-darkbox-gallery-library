@@ -22,7 +22,7 @@ jobs:
     uses: ./.github/workflows/npm-publish.yml
     with:
       registry-url: https://registry.npmjs.org/
-      node-version: 20
+      node-version: 22
     secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
 
@@ -31,6 +31,6 @@ jobs:
     uses: ./.github/workflows/npm-publish.yml
     with:
       registry-url: https://npm.pkg.github.com/
-      node-version: 20
+      node-version: 22
     secrets:
       npm-token: ${{ secrets.GITHUB_TOKEN }}
