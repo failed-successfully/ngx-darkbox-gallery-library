@@ -3,11 +3,11 @@
     <img src="/assets/darkbox-icon.svg">
     <h1>Darkbox Gallery Demo</h1>
   </div>
-  <app-dark-mode-switch></app-dark-mode-switch>
+  <app-dark-mode-switch/>
 </div>
 
 <!-- Configuration editor -->
-<app-configuration-editor (configChanged)="configuration = $event"></app-configuration-editor>
+<app-configuration-editor (configChanged)="configuration = $event"/>
 
 <!-- Gallery Demo -->
 <darkbox-gallery [images]="images" [loadMoreImagesEvents]="eventsSubject.asObservable()"
@@ -21,4 +21,4 @@
 </div>
 
 <!-- Footer -->
-<app-footer></app-footer>
+<app-footer/>
