@@ -6,16 +6,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [4.0.0] - 2025-06-08
+
+### Added
+
+* Added compatabilty to angular 20 (#1863)
+
+### Changed
+* Update build pipeline to use node 22 (1863#)
+* __BREAKING CHANGE:__ Dropped all unsupported Angular versions. **The minimum supported angular version is now 18.x**
+
 ## [3.0.0] - 2024-11-25
 
 ### Added
 
-* Added compatabilty to angular 19 (1609)
+* Added compatabilty to angular 19 (#1609)
 
 ### Changed
 
 * Update build pipeline to use node 20 (#1598)
-* __BREAKING CHANGE:__ Migrated the library to use standalone components. Please see the updated inclusion documentation described in the `README.md` (1608)
+* __BREAKING CHANGE:__ Migrated the library to use standalone components. Please see the updated inclusion documentation described in the `README.md` (#1608)
 
 ## [2.1.0] - 2024-06-18
 

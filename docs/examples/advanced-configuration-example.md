@@ -4,7 +4,7 @@ The following example shows how Darkbox can be configured. In this example all c
 
 ## Inclusion in the desired `.html` file
 ```ts
-<darkbox-gallery [images]="images" [configuration]="configuration"></darkbox-gallery>
+<darkbox-gallery [images]="images" [configuration]="configuration"/>
 ```
 
 ## View of the corresponding `.ts` file

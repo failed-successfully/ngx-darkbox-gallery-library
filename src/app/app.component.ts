@@ -6,7 +6,6 @@ import { Subject } from 'rxjs';
 import { DarkModeSwitchComponent } from './components/dark-mode-switch/dark-mode-switch.component';
 import { ConfigurationEditorComponent } from './components/configuration-editor/configuration-editor.component';
 import { NgxDarkboxGalleryComponent } from '@failed-successfully/ngx-darkbox-gallery';
-import { NgIf } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -14,7 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [DarkModeSwitchComponent, ConfigurationEditorComponent, NgxDarkboxGalleryComponent, NgIf, MatButton, FooterComponent]
+    imports: [DarkModeSwitchComponent, ConfigurationEditorComponent, NgxDarkboxGalleryComponent, MatButton, FooterComponent]
 })
 export class AppComponent implements OnInit {
   images: Image[] = [];

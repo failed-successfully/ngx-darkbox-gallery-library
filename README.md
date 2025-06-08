@@ -48,7 +48,7 @@ The simplest way of using Darkbox is to include the component with its default c
 
 Inclusion in the desired `.html` file
 ```ts
-<darkbox-gallery [images]="images"></darkbox-gallery>
+<darkbox-gallery [images]="images"/>
 ```
 
 For an example of a more advanced Darkbox configuration have a look at [our examples](./docs/examples/advanced-configuration-example.md).
