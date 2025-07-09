@@ -65,7 +65,7 @@
     "@angular/cli": "20.0.5",
     "@angular/compiler-cli": "20.0.6",
     "@types/jasmine": "5.1.8",
-    "@types/node": "22.16.1",
+    "@types/node": "22.16.2",
     "@typescript-eslint/eslint-plugin": "8.36.0",
     "@typescript-eslint/parser": "8.36.0",
     "eslint": "9.30.1",
