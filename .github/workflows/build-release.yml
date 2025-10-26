@@ -72,7 +72,7 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
         with:
-          name: ngx-darkbox-gallery
+          name: ngx-darkbox-gallery-demo
           path: dist/ngx-darkbox-gallery-library/
       - name: List repository contents
         run: ls -lisaR
