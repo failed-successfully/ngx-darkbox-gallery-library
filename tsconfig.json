@@ -14,7 +14,8 @@
       "@failed-successfully/ngx-darkbox-gallery": [
         "dist/ngx-darkbox-gallery/ngx-darkbox-gallery",
         "dist/ngx-darkbox-gallery"
-      ]
+      ],
+      "@angular/*": ["node_modules/@angular/*"]
     },
     "target": "ES2022",
     "module": "es2020",
