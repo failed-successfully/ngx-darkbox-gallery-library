@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.0] - 2026-02-11
+
+### Added
+
+* Added compatabilty to angular 21 (#2071)
+
+### Changed
+* __BREAKING CHANGE:__ Dropped all unsupported Angular versions. **The minimum supported angular version is now 19.x**
+
 ## [4.0.1] - 2025-10-26
 
 ### Changed

@@ -26,4 +26,4 @@ jobs:
     needs: build-release
     uses: ./.github/workflows/npm-publish.yml
     with:
-      node-version: 22
+      node-version: 24
