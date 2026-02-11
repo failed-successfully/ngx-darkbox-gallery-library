@@ -1,6 +1,6 @@
 # Darkbox Gallery
 
-Darkbox Gallery is a highly configurable lightbox themed gallery library for Angular applications using the ivy engine (Angular 18+).
+Darkbox Gallery is a highly configurable lightbox themed gallery library for Angular applications using the ivy engine (Angular 19+).
 
 <hr>
 
@@ -18,7 +18,7 @@ If you are not sure what you can expect from Darkbox please have a look at the c
 
 ## How?
 ### Installation
-Install npm package for Angular version 18+:
+Install npm package for Angular:
 
 ```
 npm i @failed-successfully/ngx-darkbox-gallery
