@@ -16,7 +16,7 @@ jobs:
         uses: ffurrer2/extract-release-notes@273da39a24fb7db106a35526c8162815faffd31d # v3
       - name: Update release notes
         id: update-release
-        uses: tubone24/update_release@435571083c6ffef76d88754c17a92751cbf04114 # tag=v1.0
+        uses: tubone24/update_release@c04c17054b939144ec8a7cba969d74992f812d66 # v1.3.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
