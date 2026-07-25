@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+* Remove deprecated keyboard navigation binding
+
 ## [5.0.1] - 2026-05-13
 
 ### Changed

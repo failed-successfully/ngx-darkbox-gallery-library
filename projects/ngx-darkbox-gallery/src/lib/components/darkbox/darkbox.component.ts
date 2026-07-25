@@ -7,12 +7,6 @@ import { NgClass, NgStyle } from '@angular/common';
 import { LoadingAnimationComponent } from '../loading/loading-animation/loading-animation.component';
 import { TouchableDirective } from '../../directives/touchable/touchable.directive';
 
-export enum KEY_CODE {
-  RIGHT_ARROW = 39,
-  LEFT_ARROW = 37,
-  ESCAPE = 27
-}
-
 @Component({
     selector: 'darkbox',
     templateUrl: './darkbox.component.html',
@@ -153,20 +147,17 @@ export class DarkboxComponent implements OnInit, OnChanges {
     let code: string | number;
     if (event.key !== undefined) {
       code = event.key;
-    } else if (event.keyCode !== undefined) {
-      code = event.keyCode;
-    }
-
-    if (this.hasNext && (code === 'ArrowRight' || code === KEY_CODE.RIGHT_ARROW)) {
-      this.onNext();
-    }
-
-    if (this.hasPrev && (code === 'ArrowLeft' || code === KEY_CODE.LEFT_ARROW)) {
-      this.onPrev();
-    }
-
-    if (code === 'Escape' || code === KEY_CODE.ESCAPE) {
-      this.onClose();
+      if (this.hasNext && code === 'ArrowRight') {
+        this.onNext();
+      }
+  
+      if (this.hasPrev && code === 'ArrowLeft') {
+        this.onPrev();
+      }
+  
+      if (code === 'Escape') {
+        this.onClose();
+      }
     }
   }
 }
